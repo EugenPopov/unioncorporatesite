@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+{% block title %}Boryspil/Aero/Union Admin{% endblock %}
+{% block stylesheets %}
+  <link rel="stylesheet"
+        type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  {{ encore_entry_link_tags('admin') }}
+{% endblock %}
+{% block body %}
+  <div class="wrapper">
+    <div class="sidebar" data-color="green" data-background-color="white">
+      <!--
+      Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+      Tip 2: you can also add an image using data-image tag-->
+      <div class="logo">
+        <a href="#" class="simple-text logo-mini">
+          Union Boryspil Airport
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">
+              <i class="material-icons">dashboard</i>
+              <p>Головна</p>
+            </a>
+          </li>
+          <!-- your sidebar here -->
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="container-fluid">
+          <nav class="float-left">
+            <ul>
+              <li>
+                <a href="https://www.creative-tim.com">
+                  Octowise &copy;
+                  <script>
+                    document.write(new Date().getFullYear())
+                  </script>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </footer>
+    </div>
+  </div>
+{% endblock %}
+{% block javascripts %}
+  {{ encore_entry_script_tags('admin') }}
+{% endblock %}

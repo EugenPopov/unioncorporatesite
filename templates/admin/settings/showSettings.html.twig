@@ -1,0 +1,74 @@
+{% extends 'admin/admin_base.html.twig' %}
+{% set selected = 'settings' %}
+{% block content %}
+    {{ parent() }}
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card" >
+                        <div class="card-header card-header-success">
+                            <h4 class="card-title">Контакти</h4>
+                            <p class="card-category">На цій сторінці ви можете знайти ваші контакти.</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="navbar-wrapper">
+                                Щоб створити слайд , натисніть на кнопку &nbsp;<button type="button" class="btn btn-info" onclick="window.location.href='{{ path('createSettings') }}'">Створити контакт</button>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="text-primary">
+                                    <th>
+                                        Позиція контакту
+                                    </th>
+                                    <th>
+                                        Ім'я
+                                    </th>
+                                    <th>
+                                        Ім'я на англ
+                                    </th>
+                                    <th>
+                                        E-mail
+                                    </th>
+                                    <th>
+                                        Номер телефону
+                                    </th>
+                                    </thead>
+                                    <tbody>
+                                    {% for setting in settings %}
+                                        <tr>
+                                            <td>
+                                                {{ setting.id }}
+                                            </td>
+                                            <td>
+                                                {{ setting.name }}
+                                            </td>
+                                            <td>
+                                                {{ setting.translationName }}
+                                            </td>
+                                            <td>
+                                                {{ setting.email }}
+                                            </td>
+                                            <td>
+                                                {{ setting.phone }}
+                                            </td>
+                                            <td class="td-actions">
+                                                <button type="button" rel="tooltip" class="btn btn-success" onclick="window.location.href='{{ path('updateSettings',{'id': setting.id}) }}'">
+                                                    <i class="material-icons">edit</i>
+                                                </button>
+                                                <button type="button" rel="tooltip" class="btn btn-danger" onclick="window.location.href='{{ path('deleteSettings',{'id': setting.id}) }}'">
+                                                    <i class="material-icons">close</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
