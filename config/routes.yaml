@@ -1,3 +1,9 @@
 admin_index:
     path: /admin
     controller: App\Controller\Admin\HomeController::index
+front_help:
+    path: /front/help
+    controller: App\Controller\FrontController::help
+front_help_item:
+    path: /front/help/item-{template}
+    controller: App\Controller\FrontController::item
