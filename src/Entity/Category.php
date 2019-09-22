@@ -26,7 +26,7 @@ class Category
     private $title;
 
     /**
-     * @Required
+     *
      * @Gedmo\Slug(fields={"title"})
      * @ORM\Column(length=128, unique=true)
      */
