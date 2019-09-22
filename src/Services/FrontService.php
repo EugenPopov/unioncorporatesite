@@ -4,6 +4,7 @@
 namespace App\Services;
 
 
+use App\Collection\TemplateCollection;
 use Symfony\Component\Finder\Finder;
 
 class FrontService
@@ -31,9 +32,9 @@ class FrontService
     }
 
     /**
-     * @return array
+     * @return TemplateCollection
      */
-    public function getTemplates(): array
+    public function getTemplates(): TemplateCollection
     {
         $templates = [];
 
@@ -43,6 +44,6 @@ class FrontService
             $templates[] = $file->getFilename();
         }
 
-        return $templates;
+        return new TemplateCollection($templates);
     }
 }
