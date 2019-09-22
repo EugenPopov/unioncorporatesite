@@ -27,7 +27,7 @@ class CategoryModel
     /**
      * @return string
      */
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
@@ -35,25 +35,30 @@ class CategoryModel
     /**
      * @param string $title
      */
-    public function setTitle(string $title): void
+    public function setTitle(string $title): CategoryModel
     {
         $this->title = $title;
+
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
+
     }
 
     /**
      * @param string $description
      */
-    public function setDescription(string $description): void
+    public function setDescription(string $description): CategoryModel
     {
         $this->description = $description;
+
+        return $this;
     }
 
     /**
@@ -67,9 +72,11 @@ class CategoryModel
     /**
      * @param bool $isActive
      */
-    public function setIsActive(bool $isActive): void
+    public function setIsActive(bool $isActive): CategoryModel
     {
         $this->isActive = $isActive;
+
+        return $this;
     }
 
 

@@ -1,6 +1,12 @@
 admin_index:
     path: /admin
     controller: App\Controller\Admin\HomeController::index
+admin_category_index:
+    path: /admin/categories
+    controller: App\Controller\Admin\CategoryController::index
+admin_category_create:
+    path: /admin/categories/create
+    controller: App\Controller\Admin\CategoryController::create
 front_help:
     path: /front/help
     controller: App\Controller\FrontController::help
