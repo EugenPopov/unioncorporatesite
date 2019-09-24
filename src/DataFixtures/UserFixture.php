@@ -24,7 +24,7 @@ class UserFixture extends BaseFixture
 
             $user->setPassword($this->passwordEncoder->encodePassword(
                 $user,
-                'octowise'
+                getenv('DEFAULT_PASSWORD_ADMIN','password')
             ));
 
             return $user;
