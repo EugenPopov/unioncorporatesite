@@ -5,27 +5,28 @@ namespace App\Controller\Admin;
 use App\Form\CategoryType;
 use App\Model\CategoryModel;
 use App\Services\CategoryService;
+use App\Services\SettingsService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class CategoryController extends AbstractController
+class SettingsController extends AbstractController
 {
     /**
      * @var CategoryService
      */
-    private $categoryService;
+    private $settingsService;
 
-    public function __construct(CategoryService $categoryService)
+    public function __construct(SettingsService $settingsService)
     {
-        $this->categoryService = $categoryService;
+        $this->settingsService = $settingsService;
     }
 
     public function index()
     {
-        $categories = $this->categoryService->all();
+        $categories = $this->settingsService->all();
 
-        return $this->render('admin/category/index.html.twig', [
+        return $this->render('admin/settings/index.html.twig', [
             'categories' => $categories,
         ]);
     }
@@ -44,7 +45,7 @@ class CategoryController extends AbstractController
             return $this->redirectToRoute('admin_category_index');
         }
 
-        return $this->render('admin/category/create.html.twig', [
+        return $this->render('admin/settings/create.html.twig', [
             'form' => $form->createView()
         ]);
     }
