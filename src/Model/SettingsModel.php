@@ -4,16 +4,28 @@
 namespace App\Model;
 
 
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 class SettingsModel
 {
+    /**
+     * @Assert\NotBlank()
+     */
     private $slug;
+    /**
+     * @Assert\NotBlank()
+     */
     private $value;
+    /**
+     * @Assert\NotBlank()
+     */
     private $title;
 
     /**
      * @return mixed
      */
-    public function getTitle()
+    public function getTitle(): ?string
     {
         return $this->title;
     }
@@ -22,7 +34,7 @@ class SettingsModel
      * @param mixed $title
      * @return SettingsModel
      */
-    public function setTitle($title)
+    public function setTitle(string $title)
     {
         $this->title = $title;
         return $this;
@@ -56,6 +68,7 @@ class SettingsModel
     }
 
     /**
+     *
      * @param string $value
      * @return SettingsModel
      */
