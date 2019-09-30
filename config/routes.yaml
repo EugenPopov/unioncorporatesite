@@ -7,6 +7,18 @@ admin_category_index:
 admin_category_create:
     path: /admin/categories/create
     controller: App\Controller\Admin\CategoryController::create
+admin_settings_index:
+    path: /admin/settings
+    controller: App\Controller\Admin\SettingsController::index
+admin_settings_create:
+    path: /admin/settings/create
+    controller: App\Controller\Admin\SettingsController::create
+admin_settings_update:
+    path: /admin/settings/{slug}/update
+    controller: App\Controller\Admin\SettingsController::update
+admin_settings_delete:
+    path: /admin/settings/{slug}/delete
+    controller: App\Controller\Admin\SettingsController::delete
 front_help:
     path: /front/help
     controller: App\Controller\FrontController::help

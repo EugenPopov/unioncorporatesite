@@ -3,11 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Form\CategoryType;
-use App\Form\ContentType;
 use App\Model\CategoryModel;
-use App\Model\ContentModel;
-use App\Repository\CategoryRepository;
-use App\Service\ContentHandler\ArticleHandler\ArticleHandlerInterface;
 use App\Services\CategoryService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

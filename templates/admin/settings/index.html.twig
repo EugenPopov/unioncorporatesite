@@ -1,0 +1,63 @@
+{% extends 'admin/admin_base.html.twig' %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-success">
+                    <h4 class="card-title">Налаштування</h4>
+                </div>
+                <div class="card-body">
+                    <div class="navbar-wrapper">
+                        <button type="button" class="btn btn-info"
+                                onclick="window.location.href='{{ path('admin_settings_create') }}'">Створити
+                        </button>
+                    </div>
+                    <div class="table-responsive text-center">
+                        <table class="table">
+                            <thead class="text-primary">
+                            <th>
+                                Заголовок
+                            </th>
+                            <th>
+                                Code
+                            </th>
+                            <th>
+                               Value
+                            </th>
+                            <th>
+                                Дії
+                            </th>
+                            </thead>
+                            <tbody>
+                            {% for item in settings %}
+                                <tr>
+                                    <td>
+                                       {{ item.title }}
+                                    </td>
+                                    <td>
+                                       {{ item.slug }}
+                                    </td>
+                                    <td>
+                                        {{ item.value }}
+                                    </td>
+                                    <td class="td-actions">
+                                        <button type="button" rel="tooltip" class="btn btn-success"
+                                                onclick="window.location.href='{{ path('admin_settings_update',{'slug': item.slug}) }}'">
+                                            <i class="material-icons">edit</i>
+                                        </button>
+                                        <button type="button" rel="tooltip" class="btn btn-danger"
+                                                onclick="window.location.href='{{ path('admin_settings_delete',{'slug': item.slug}) }}'">
+                                            <i class="material-icons">close</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
