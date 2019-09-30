@@ -47,12 +47,12 @@ class SettingsService
         return $this->settingsRepository->findAll();
     }
 
-    public function item(string $slug): ?Settings
+    public function item(array $params): ?Settings
     {
-        return $this->settingsRepository->findOneBy(['slug' => $slug]);
+        return $this->settingsRepository->findOneBy($params);
     }
 
-    public function createCategory(SettingsModel $model): Settings
+    public function create(SettingsModel $model): Settings
     {
         $settings = $this->mapper->modelToEntity($model, new Settings());
 
@@ -62,7 +62,7 @@ class SettingsService
         return $settings;
     }
 
-    public function updateCategory(SettingsModel $model, Settings $settings): Settings
+    public function update(SettingsModel $model, Settings $settings): Settings
     {
         $settings = $this->mapper->modelToEntity($model, $settings);
         $this->entityManager->flush();
@@ -70,7 +70,7 @@ class SettingsService
         return $settings;
     }
 
-    public function deleteCategory(Settings $settings): void
+    public function delete(Settings $settings): void
     {
         if ($settings) {
             $this->entityManager->remove($settings);

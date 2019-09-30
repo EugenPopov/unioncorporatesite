@@ -2,8 +2,12 @@
 
 namespace App\Controller\Admin;
 
+use App\DataMapper\SettingsMapper;
+use App\Entity\Settings;
 use App\Form\CategoryType;
+use App\Form\SettingsType;
 use App\Model\CategoryModel;
+use App\Model\SettingsModel;
 use App\Services\CategoryService;
 use App\Services\SettingsService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,33 +20,38 @@ class SettingsController extends AbstractController
      * @var CategoryService
      */
     private $settingsService;
+    /**
+     * @var SettingsMapper
+     */
+    private $mapper;
 
-    public function __construct(SettingsService $settingsService)
+    public function __construct(SettingsService $settingsService, SettingsMapper $mapper)
     {
         $this->settingsService = $settingsService;
+        $this->mapper = $mapper;
     }
 
     public function index()
     {
-        $categories = $this->settingsService->all();
+        $settings = $this->settingsService->all();
 
         return $this->render('admin/settings/index.html.twig', [
-            'categories' => $categories,
+            'settings' => $settings,
         ]);
     }
 
     public function create(Request $request): Response
     {
-        $model = new CategoryModel();
+        $model = new SettingsModel();
 
-        $form = $this->createForm(CategoryType::class, $model);
+        $form = $this->createForm(SettingsType::class, $model);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
-            $this->categoryService->createCategory($data);
+            $this->settingsService->create($data);
 
-            return $this->redirectToRoute('admin_category_index');
+            return $this->redirectToRoute('admin_settings_index');
         }
 
         return $this->render('admin/settings/create.html.twig', [
@@ -50,21 +59,29 @@ class SettingsController extends AbstractController
         ]);
     }
 
-    public function update()
+    public function update(Settings $settings, Request $request): Response
     {
-        $categories = $this->categoryService->all();
+        $model = $this->mapper->entityToModel($settings);
 
-        return $this->render('admin/category/index.html.twig', [
-            'categories' => $categories,
+        $form = $this->createForm(SettingsType::class, $model);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $this->settingsService->update($data, $settings);
+
+            return $this->redirectToRoute('admin_settings_index');
+        }
+
+        return $this->render('admin/settings/create.html.twig', [
+            'form' => $form->createView()
         ]);
     }
 
-    public function delete(string $slug)
+    public function delete(Settings $settings)
     {
-        $categories = $this->categoryService->all();
+        $this->settingsService->delete($settings);
 
-        return $this->render('admin/category/index.html.twig', [
-            'categories' => $categories,
-        ]);
+        return $this->redirectToRoute('admin_settings_index');
     }
 }

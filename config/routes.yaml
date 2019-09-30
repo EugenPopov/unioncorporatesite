@@ -14,10 +14,10 @@ admin_settings_create:
     path: /admin/settings/create
     controller: App\Controller\Admin\SettingsController::create
 admin_settings_update:
-    path: /admin/settings/update
+    path: /admin/settings/{slug}/update
     controller: App\Controller\Admin\SettingsController::update
 admin_settings_delete:
-    path: /admin/settings/delete
+    path: /admin/settings/{slug}/delete
     controller: App\Controller\Admin\SettingsController::delete
 front_help:
     path: /front/help

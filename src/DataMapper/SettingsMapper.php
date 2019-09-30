@@ -11,12 +11,13 @@ use App\Model\SettingsModel;
 
 final class SettingsMapper
 {
-    public static function entityToModel(Settings $settings): SettingsModel
+    public  function entityToModel(Settings $settings): SettingsModel
     {
         $model = new SettingsModel();
 
         $model->setSlug($settings->getSlug())
               ->setValue($settings->getValue())
+              ->setTitle($settings->getTitle())
         ;
 
         return $model;
@@ -27,6 +28,7 @@ final class SettingsMapper
     {
         $settings->setSlug($model->getSlug());
         $settings->setValue($model->getValue());
+        $settings->setTitle($model->getTitle());
 
         return $settings;
     }
