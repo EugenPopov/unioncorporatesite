@@ -2,7 +2,10 @@
 
 namespace App\Controller\Admin;
 
+use App\DataMapper\CategoryMapper;
+use App\Entity\Category;
 use App\Form\CategoryType;
+use App\Form\SettingsType;
 use App\Model\CategoryModel;
 use App\Services\CategoryService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,9 +19,15 @@ class CategoryController extends AbstractController
      */
     private $categoryService;
 
-    public function __construct(CategoryService $categoryService)
+    /**
+     * @var CategoryMapper
+     */
+    private $mapper;
+
+    public function __construct(CategoryService $categoryService,CategoryMapper $mapper)
     {
         $this->categoryService = $categoryService;
+        $this->mapper = $mapper;
     }
 
     public function index()
@@ -49,21 +58,31 @@ class CategoryController extends AbstractController
         ]);
     }
 
-    public function update()
+    public function update(Category $category, Request $request): Response
     {
         $categories = $this->categoryService->all();
+        $model = $this->mapper->entityToModel($category);
 
-        return $this->render('admin/category/index.html.twig', [
-            'categories' => $categories,
+        $form = $this->createForm(CategoryType::class, $model);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $this->categoryService->updateCategory($data, $category);
+
+            return $this->redirectToRoute('admin_category_index');
+        }
+
+        return $this->render('admin/category/update.html.twig', [
+            'form' => $form->createView()
         ]);
+
     }
 
-    public function delete(string $slug)
+    public function delete(Category $category)
     {
-        $categories = $this->categoryService->all();
+        $this->categoryService->deleteCategory($category);
 
-        return $this->render('admin/category/index.html.twig', [
-            'categories' => $categories,
-        ]);
+        return $this->redirectToRoute('admin_category_index');
     }
 }
