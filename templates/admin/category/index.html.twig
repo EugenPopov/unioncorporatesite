@@ -2,10 +2,35 @@
 {% block content %}
     <div class="row">
         <div class="col-md-12">
-            <div class="card card-plain">
-                {{ dump(categories)  }}
+            <div class="card">
+                <div class="card-header card-header-primary">
+                    <h4 class="card-title">Категорії</h4>
+                </div>
+        <div class="col-md-6">
+            <button type="button" class="btn btn-info"
+                    onclick="window.location.href='{{ path('admin_category_create') }}'">Створити
+            </button>
+            <div class="card">
+                <div class="card-header card-header-icon card-header-primary">
+                    <div class="card-icon">
+                        <i class="material-icons">language</i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    {% for item in categories %}
+                    <h4 class="card-title">{{ item.title }}</h4>
+                    {{ item.description }}
+                        <button type="button" rel="tooltip" class="btn btn-success"
+                                onclick="window.location.href='{{ path('admin_category_update',{'slug': item.slug}) }}'">
+                            <i class="material-icons">edit</i>
+                        </button>
+                        <button type="button" rel="tooltip" class="btn btn-danger"
+                                onclick="window.location.href='{{ path('admin_category_delete',{'slug': item.slug}) }}'">
+                            <i class="material-icons">close</i>
+                        </button>
+                    {% endfor %}
+                </div>
             </div>
         </div>
-    </div>
 {% endblock %}
 
