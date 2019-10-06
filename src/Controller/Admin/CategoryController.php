@@ -60,7 +60,6 @@ class CategoryController extends AbstractController
 
     public function update(Category $category, Request $request): Response
     {
-        $categories = $this->categoryService->all();
         $model = $this->mapper->entityToModel($category);
 
         $form = $this->createForm(CategoryType::class, $model);

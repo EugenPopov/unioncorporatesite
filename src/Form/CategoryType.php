@@ -17,7 +17,7 @@ class CategoryType extends AbstractType
                     'label' => 'Заголовок'
             ])
             ->add('description', TextType::class, [
-                'label' => 'Заголовок'
+                'label' => 'Опис'
             ])
             ->add('isActive', CheckboxType::class, [
                 'label' => 'Активна'
