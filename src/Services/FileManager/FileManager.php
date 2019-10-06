@@ -32,8 +32,10 @@ class FileManager implements FileManagerInterface
                 if (file_exists($fileName))
                     unlink($fileName);
             }
+
             $newFileName = $this->hashFile($uploadedFile->getClientOriginalName()).'.'.$uploadedFile->getClientOriginalExtension();
             $uploadedFile->move($this->uploadDir.$folder,$newFileName);
+
         } catch (FileException $exception) {
             $this->logger->error('Error of file uploader cause of: '.$exception->getMessage());
             return null;

@@ -1,6 +1,0 @@
-main:
-  title: Головна
-  action: App\Controller\HomeController::index
-#laws:
-#  title: Законодавчя База
-#  action: App\Controller\Admin\HomeController::index

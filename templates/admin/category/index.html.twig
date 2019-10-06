@@ -2,8 +2,8 @@
 {% block content %}
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header card-header-warning">
+            <div class="card card-plain">
+                <div class="card-header card-header-success">
                     <h4 class="card-title">Категорії
                         <button type="button" class="btn btn-sm btn-info"
                                 onclick="window.location.href='{{ path('admin_category_create') }}'">Створити
@@ -13,37 +13,37 @@
                 <div class="row">
                     {% for item in categories %}
                         <div class="col-md-6">
-                            <div class="card">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="card-header card-header-icon card-header-info">
-                                            <div class="card-icon">
-                                                <i class="material-icons">language</i>
-                                            </div>
+                        <div class="card  p-1 ">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card-header card-header-icon card-header-info">
+                                        <div class="card-icon">
+                                            <i class="material-icons">language</i>
+                                        </div>
 
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 ">
-                                        <button type="button" rel="tooltip" class="float-right btn btn-sm btn-success"
-                                                onclick="window.location.href='{{ path('admin_category_update',{'slug': item.slug}) }}'">
-                                            <i class="material-icons">edit</i>
-                                        </button>
-                                        <button type="button" rel="tooltip" class="float-right btn btn-sm btn-danger "
-                                                onclick="window.location.href='{{ path('admin_category_delete',{'slug': item.slug}) }}'">
-                                            <i class="material-icons">close</i>
-                                        </button>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="card-body">
-                                            <h4 class="card-title">{{ item.title }}</h4>
-                                            <p>
-                                                {{ item.description }}
-                                            </p>
-                                        </div>
                                     </div>
                                 </div>
-                             </div>
+                                <div class="col-md-6 d-flex justify-content-end ">
+                                    <button type="button" rel="tooltip" class=" btn btn-sm btn-success"
+                                            onclick="window.location.href='{{ path('admin_category_update',{'slug': item.slug}) }}'">
+                                        <i class="material-icons">edit</i>
+                                    </button>
+                                    <button type="button" rel="tooltip" class="btn btn-sm btn-danger mr-2 "
+                                            onclick="window.location.href='{{ path('admin_category_delete',{'slug': item.slug}) }}'">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{ item.title }}</h4>
+                                        <p>
+                                            {{ item.description }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
                     {% endfor %}
                 </div>
             </div>

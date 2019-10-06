@@ -1,3 +1,4 @@
+#admin routes
 admin_index:
     path: /admin
     controller: App\Controller\Admin\HomeController::index
@@ -25,6 +26,26 @@ admin_settings_update:
 admin_settings_delete:
     path: /admin/settings/{slug}/delete
     controller: App\Controller\Admin\SettingsController::delete
+admin_article_index:
+    path: /admin/articles
+    controller: App\Controller\Admin\ArticleController::index
+admin_article_create:
+    path: /admin/articles/create
+    controller: App\Controller\Admin\ArticleController::create
+admin_article_update:
+    path: /admin/articles/{slug}/update
+    controller: App\Controller\Admin\ArticleController::update
+admin_article_delete:
+    path: /admin/articles/{slug}/delete
+    controller: App\Controller\Admin\ArticleController::delete
+#cms routes
+cms_page:
+    path: /site/{slug}
+    controller: App\Controller\CMS\CoreController::init
+#cms_main:
+#    path: /
+#    controller: App\Controller\CMS\CoreController::init
+#frontend dev/test routes
 front_help:
     path: /front/help
     controller: App\Controller\FrontController::help
