@@ -9,9 +9,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
  abstract class NodeController extends AbstractController
 {
-    /**
-     * @var CmsService
-     */
     protected $node;
 
     public function init($node)

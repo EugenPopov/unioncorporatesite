@@ -21,7 +21,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
     public function init(Article $article)
     {
-        return $this->reflector->init($article->getTemplate());
+        return $this->reflector->init($article->getTemplate(), $article);
     }
 
 }

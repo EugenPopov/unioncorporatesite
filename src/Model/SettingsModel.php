@@ -6,18 +6,22 @@ namespace App\Model;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Validator\Slug as AppAssert;
 
 class SettingsModel
 {
     /**
+     * @AppAssert|Slug
      * @Assert\NotBlank()
      */
     private $slug;
     /**
+     *
      * @Assert\NotBlank()
      */
     private $value;
     /**
+     *
      * @Assert\NotBlank()
      */
     private $title;
