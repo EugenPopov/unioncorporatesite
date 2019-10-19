@@ -38,6 +38,18 @@ admin_article_update:
 admin_article_delete:
     path: /admin/articles/{slug}/delete
     controller: App\Controller\Admin\ArticleController::delete
+admin_news_index:
+    path: /admin/news
+    controller: App\Controller\Admin\NewsController::index
+admin_news_create:
+    path: /admin/news/create
+    controller: App\Controller\Admin\NewsController::create
+admin_news_update:
+    path: /admin/news/{slug}/update
+    controller: App\Controller\Admin\NewsController::update
+admin_news_delete:
+    path: /admin/news/{slug}/delete
+    controller: App\Controller\Admin\NewsController::delete
 #cms routes
 cms_page:
     path: /site/{slug}

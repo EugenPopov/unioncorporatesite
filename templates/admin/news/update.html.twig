@@ -1,0 +1,51 @@
+{% extends 'admin/admin_base.html.twig' %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Додати Новину</h2>
+            <div class="card card-plain">
+                {{ form_start(form) }}
+                <div class="form-group">
+                    {{ form_row(form.title,{
+                        'attr': {
+                            'class': 'textarea form-control'
+                        }
+                    }) }}
+                </div>
+                <div class="form-group">
+                    {{ form_widget(form.description,{
+                        'attr': {
+                            'class': 'form-control',
+                            'placeholder':'Опис',
+                            'rows': 10
+                        },
+
+                    }) }}
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        {{ form_widget(form.isActive,{
+                            'attr': {
+                                'class': 'form-check-input',
+                                'rows': 10
+                            },
+
+                        }) }}
+                        Активна
+                        <span class="form-check-sign">
+                                <span class="check"></span>
+                        </span>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary" type="submit">
+                        Ok
+                    </button>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
