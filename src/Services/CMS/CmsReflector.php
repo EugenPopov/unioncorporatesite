@@ -25,8 +25,8 @@ class CmsReflector
         $options = $this->cmsService->getTemplateDescription($template);
 
         $options    =   explode('::', $options->action);
-        $controller =  new $options[0];
-        $action     = $options[1];
+        $controller =   new $options[0];
+        $action     =   $options[1];
 
         $controller->init($node);
 
