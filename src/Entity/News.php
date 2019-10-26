@@ -2,20 +2,18 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 
+
 /**
- * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\NewsRepository")
  */
-class Category
+class News
 {
 
     use TimestampableEntity;
-
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -36,12 +34,9 @@ class Category
     private $slug;
 
     /**
-     * @return mixed
+     * @ORM\Column(type="text", nullable=true)
      */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
+    private $short_description;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -49,19 +44,14 @@ class Category
     private $description;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $main_photo;
+
+    /**
      * @ORM\Column(type="boolean")
      */
     private $isActive;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="category", orphanRemoval=true)
-     */
-    private $articles;
-
-    public function __construct()
-    {
-        $this->articles = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -80,6 +70,18 @@ class Category
         return $this;
     }
 
+    public function getShortDescription(): ?string
+    {
+        return $this->short_description;
+    }
+
+    public function setShortDescription(?string $short_description): self
+    {
+        $this->short_description = $short_description;
+
+        return $this;
+    }
+
     public function getDescription(): ?string
     {
         return $this->description;
@@ -88,6 +90,18 @@ class Category
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getMainPhoto(): ?string
+    {
+        return $this->main_photo;
+    }
+
+    public function setMainPhoto(?string $main_photo): self
+    {
+        $this->main_photo = $main_photo;
 
         return $this;
     }
@@ -136,34 +150,16 @@ class Category
         $this->updatedAt = $updatedAt;
     }
 
-    /**
-     * @return Collection|Article[]
-     */
-    public function getArticles(): Collection
+    public function getSlug(): ?string
     {
-        return $this->articles;
+        return $this->slug;
     }
 
-    public function addArticle(Article $article): self
+    public function setSlug(string $slug): self
     {
-        if (!$this->articles->contains($article)) {
-            $this->articles[] = $article;
-            $article->setCategory($this);
-        }
+        $this->slug = $slug;
 
         return $this;
     }
 
-    public function removeArticle(Article $article): self
-    {
-        if ($this->articles->contains($article)) {
-            $this->articles->removeElement($article);
-            // set the owning side to null (unless already changed)
-            if ($article->getCategory() === $this) {
-                $article->setCategory(null);
-            }
-        }
-
-        return $this;
-    }
 }
