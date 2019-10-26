@@ -21,7 +21,7 @@ class SlugValidator extends ConstraintValidator
 
     public function validate($value, Constraint $constraint)
     {
-        /* @var $constraint \App\Validator\Slug */
+        /* @var $constraint \App\Validator\Slug */                                                                          
 
         if (null === $value || '' === $value) {
             return;

@@ -5,7 +5,7 @@ namespace App\Services\CMS;
 
 class CmsService
 {
-    private const DEFAULT_CONFIG_DIR = __DIR__.'/../../../config/cms/';
+    private const DEFAULT_CONFIG_DIR  = __DIR__.'/../../../config/cms/';
     private const DEFAULT_CONFIG_FILE = 'templates.yaml';
     /**
      * @var YamlConfigLoader
