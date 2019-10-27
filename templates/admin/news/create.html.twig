@@ -22,6 +22,27 @@
 
                     }) }}
                 </div>
+                <div class="form-group">
+                    {{ form_widget(form.short_description,{
+                        'attr': {
+                            'class': 'form-control',
+                            'placeholder':'Кр . Опис',
+                            'rows': 10
+                        },
+
+                    }) }}
+                </div>
+                    <div class="form-file-upload form-file-simple">
+                        {{ form_widget(form.mainPhoto,{
+                            'attr': {
+                                'class': 'form-control inputFileVisible ',
+                                'placeholder':'Фото',
+                                'rows': 10
+                            },
+
+                        }) }}
+                    </div>
+
                 <div class="form-check">
                     <label class="form-check-label">
                         {{ form_widget(form.isActive,{

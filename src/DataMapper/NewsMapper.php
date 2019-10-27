@@ -3,12 +3,15 @@
 
 namespace App\DataMapper;
 
+use App\Entity\EntityInterface;
 use App\Entity\News;
+use App\Model\ModelInterface;
 use App\Model\NewsModel;
 
-class NewsMapper
+
+class NewsMapper implements DataMapperInterface
 {
-    public static function entityToModel(News $news) :NewsModel
+    public function entityToModel(EntityInterface $news) :NewsModel
     {
         $model = new NewsModel();
         $model->setTitle($news->getTitle())
@@ -20,7 +23,7 @@ class NewsMapper
         return $model;
     }
 
-    public function modelToEntity(NewsModel $model, News $news) :News
+    public function modelToEntity(ModelInterface $model, EntityInterface $news) :News
     {
         $news->setTitle($model->getTitle())
              ->setShortDescription($model->getShortDescription())
@@ -28,6 +31,7 @@ class NewsMapper
              ->setIsActive($model->isActive())
              ->setMainPhoto($model->getMainPhoto())
             ;
+
         return $news;
     }
 }

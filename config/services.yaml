@@ -4,12 +4,15 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    app.uploads_dir: '%kernel.project_dir%/public/uploads/'
 
 services:
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+
 
     symfony.component.finder:
         class: Symfony\Component\Finder\Finder
@@ -32,6 +35,9 @@ services:
     App\Services\CMS\CmsService:
         arguments:
             - '@cms.component.yaml_loader'
+    App\Services\FileManager\FileManager:
+        arguments:
+            - '%app.uploads_dir%'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

@@ -4,12 +4,14 @@
 namespace App\DataMapper;
 
 use App\Entity\Article;
+use App\Entity\EntityInterface;
 use App\Model\ArticleModel;
+use App\Model\ModelInterface;
 
 
-final class ArticleMapper
+final class ArticleMapper implements DataMapperInterface
 {
-    public  function entityToModel(Article $article): ArticleModel
+    public  function entityToModel(EntityInterface $article): ArticleModel
     {
         $model = new ArticleModel();
 
@@ -24,7 +26,7 @@ final class ArticleMapper
 
     }
 
-    public function modelToEntity(ArticleModel $model, Article $article): Article
+    public function modelToEntity(ModelInterface $model, EntityInterface $article): Article
     {
         $article->setTitle($model->getTitle());
         $article->setDescription($model->getDescription());

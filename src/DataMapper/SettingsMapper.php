@@ -4,14 +4,17 @@
 namespace App\DataMapper;
 
 use App\Entity\Category;
+use App\Entity\EntityInterface;
 use App\Entity\Settings;
 use App\Model\CategoryModel;
+use App\Model\ModelInterface;
 use App\Model\SettingsModel;
+use Doctrine\ORM\Mapping\Entity;
 
 
-final class SettingsMapper
+final class SettingsMapper implements DataMapperInterface
 {
-    public  function entityToModel(Settings $settings): SettingsModel
+    public  function entityToModel(EntityInterface $settings): SettingsModel
     {
         $model = new SettingsModel();
 
@@ -24,7 +27,7 @@ final class SettingsMapper
 
     }
 
-    public function modelToEntity(SettingsModel $model , Settings $settings): Settings
+    public function modelToEntity(ModelInterface $model , EntityInterface $settings): Settings
     {
         $settings->setSlug($model->getSlug());
         $settings->setValue($model->getValue());

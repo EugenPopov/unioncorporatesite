@@ -34,9 +34,9 @@ class NewsType extends AbstractType
             ->add('isActive',CheckboxType::class,[
                 'label' => "Активна"
             ])
-//            ->add('mainPhoto',FileType::class,[
-//                'label' => "Фотографія"
-//            ])
+            ->add('mainPhoto',FileType::class,[
+                'label' => "Фотографія"
+            ])
         ;
     }
 
@@ -44,7 +44,6 @@ class NewsType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => NewsModel::class,
-            'templates'  => [],
         ]);
     }
 }

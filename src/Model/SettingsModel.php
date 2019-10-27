@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Validator\Slug as AppAssert;
 
-class SettingsModel
+class SettingsModel implements ModelInterface
 {
     /**
      * @AppAssert|Slug

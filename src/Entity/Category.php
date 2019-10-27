@@ -11,7 +11,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
  */
-class Category
+class Category implements EntityInterface
 {
 
     use TimestampableEntity;

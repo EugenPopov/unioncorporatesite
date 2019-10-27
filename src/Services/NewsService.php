@@ -6,88 +6,55 @@ namespace App\Services;
 
 
 use App\DataMapper\NewsMapper;
-use App\Entity\News;
-use App\Model\NewsModel;
+
+use App\Entity\EntityInterface;
+use App\Model\ModelInterface;
 use App\Repository\NewsRepository;
+use App\Services\CrudManager\CrudManager;
+use App\Services\FileManager\FileManager;
 use Doctrine\ORM\EntityManagerInterface;
-use App\Services\CMS\CmsService;
 
-class NewsService
+class NewsService extends CrudManager
 {
+    private const IMG_UPLOAD_DIR = 'news/';
     /**
-     * @var NewsRepository
+     * @var FileManager
      */
-    private $newsRepository;
+    private $fileManager;
 
-    /**
-     * @var EntityManagerInterface
-     */
-    private $entityManager;
-
-    /**
-     * @var NewsMapper
-     */
-    private $mapper;
-
-    /**
-     * @var CmsService
-     */
-    private $cmsService;
-
-    public function __construct(NewsRepository $newsRepository, EntityManagerInterface $entityManager, NewsMapper $mapper)
+    public function __construct(NewsRepository $repository, EntityManagerInterface $entityManager, NewsMapper $mapper, FileManager $fileManager)
     {
-        $this->newsRepository=$newsRepository;
-        $this->entityManager=$entityManager;
-        $this->mapper=$mapper;
+        parent::__construct($repository ,$entityManager, $mapper);
+
+        $this->fileManager = $fileManager;
     }
 
-    public function all()
+    public function create(ModelInterface $model, EntityInterface $entity)
     {
-        return $this->newsRepository->findAll();
-    }
+        $entity  = $this->mapper->modelToEntity($model,  $entity);
 
-    public function item(string $slug): ?News
-    {
-        return $this->newsRepository->findOneBy(['slug' => $slug]);
-    }
+        $uploadedFile = $this->fileManager->uploadFile($model->getMainPhoto(), self::IMG_UPLOAD_DIR);
+        $entity->setMainPhoto(self::IMG_UPLOAD_DIR . $uploadedFile);
 
-    public function create(NewsModel $model): News
-    {
-        $news = $this->mapper->modelToEntity($model,new News());
-
-        $this->entityManager->persist($news);
+        $this->entityManager->persist($entity);
         $this->entityManager->flush();
-
-        return $news;
     }
 
-    public function update(NewsModel $model,News $news): News
+    public function update(ModelInterface $model, EntityInterface $entity)
     {
-        $news = $this->mapper->modelToEntity($model,$news);
-        $this->entityManager->flush();
+        $entity  = $this->mapper->modelToEntity($model,  $entity);
 
-        return $news;
-    }
+        if($model->getMainPhoto()) {
+            $uploadedFile = $this->fileManager->uploadFile($model->getMainPhoto(), self::IMG_UPLOAD_DIR);
+            $entity->setMainPhoto($uploadedFile);
 
-    public function delete(News $news)
-    {
-        if($news) {
-            $this->entityManager->remove($news);
-            $this->entityManager->flush();
         }
+
+
+        $this->entityManager->flush();
+
+        return $entity;
     }
 
-    public function getTemplates(): iterable
-    {
-        $this->cmsService->getAllTemplates();
-    }
-
-    public function getTemplatesOptionForForm(): array
-    {
-        $options = [];
-        $options['templates'] = $this->cmsService->getAllTemplates();
-
-        return $options;
-    }
 
 }

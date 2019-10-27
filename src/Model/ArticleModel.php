@@ -7,7 +7,7 @@ namespace App\Model;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
-class ArticleModel
+class ArticleModel implements ModelInterface
 {
     /**
      * @Assert\NotBlank()
