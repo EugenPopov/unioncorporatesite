@@ -2,6 +2,21 @@ body {
   background-color: rgb(231, 218, 218);
 }
 
+@font-face {
+  font-family: FuturaDemiC;
+  src: url("../fonts/futurademic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: FuturaMediumC;
+  src: url("../fonts/futuramediumc.otf") format("opentype");
+}
+
+@font-face {
+  font-family: FuturaBookC;
+  src: url("../fonts/futurabookc.ttf") format("truetype");
+}
+
 .test {
   background-color: #0b3251;
   border: 15px red;
@@ -22,7 +37,7 @@ body {
 
 .h3 {
   position: relative;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0px 2px 0 rgba(0, 0, 0, 0.8);      
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5), 0 2px 0 rgba(0, 0, 0, 0.8);
   text-transform: uppercase;       
   text-align: center;
   color: rgba(14, 9, 7, 0);      
@@ -47,7 +62,7 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 #inputEmail {
-  background-color: #4CAF50;
+  /*background-color: #4CAF50;*/
   padding: 15px;
   margin: 5px 0 22px 0;
   display: inline-block;
@@ -65,7 +80,7 @@ input[type=text]:focus, input[type=password]:focus {
   padding: 15px;
   margin: 5px 0 0 0;
   display: inline-block;
-  order: none;    
+  /*order: none;    */
  }
 
 .btn  {
@@ -83,20 +98,7 @@ input[type=text]:focus, input[type=password]:focus {
   opacity:1
 }
 
-@font-face {
-  font-family: FuturaDemiC;
-  src: url("assets/fonts/futurademic.otf") format("opentype");
-}
 
-@font-face {
-  font-family: FuturaMediumC;
-  src: url("assets/fonts/futuramediumc.otf") format("opentype");
-}
-
-@font-face {
-  font-family: FuturaBookC;
-  src: url("assets/fonts/futurabookc.ttf") format("truetype");
-}
 
 *,
 *::after,
@@ -280,7 +282,7 @@ body {
 }
 
 .text-card_w_img:first-of-type {
-  background-image: url('assets/images/feature1_bg.png');
+  background-image: url('../img/feature1_bg.png');
 }
 
 .features-cards {
@@ -304,11 +306,11 @@ body {
 }
 
 .features-cards__text-card:nth-child(2) {
-  background-image: url('assets/images/feature1_bg.png');
+  background-image: url('../img/feature1_bg.png');
 }
 
 .features-cards__text-card:nth-child(3) {
-  background-image: url('assets/images/feature2_bg.png');
+  background-image: url('../img/feature2_bg.png');
 }
 
 .text-card__title {
@@ -511,7 +513,7 @@ body {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  background-image: url('assets/images/footer_news_bg.png');
+  background-image: url('../img/footer_news_bg.png');
   background-size: cover;
 }
 
