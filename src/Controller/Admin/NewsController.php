@@ -46,6 +46,8 @@ class NewsController extends AbstractController
         $form = $this->createForm(NewsType::class, $model);
         $form->handleRequest($request);
 
+
+
         if($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
             $this->newsService->create($data, new News());

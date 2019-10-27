@@ -13,9 +13,9 @@ use Doctrine\ORM\EntityManagerInterface;
 abstract class CrudManager implements CrudManagerInterface
 {
 
-    private $repository;
-    private $entityManager;
-    private $mapper;
+    protected $repository;
+    protected $entityManager;
+    protected $mapper;
 
     public function __construct(ServiceEntityRepository $repository, EntityManagerInterface $entityManager, DataMapperInterface $mapper)
     {
@@ -36,7 +36,6 @@ abstract class CrudManager implements CrudManagerInterface
 
     public function create(ModelInterface $model, EntityInterface $entity)
     {
-        dd($model);
         $article  = $this->mapper->modelToEntity($model,  $entity);
 
         $this->entityManager->persist($article);

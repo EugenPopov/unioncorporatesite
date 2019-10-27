@@ -4,6 +4,8 @@
 namespace App\Model;
 
 
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 class NewsModel implements ModelInterface
 {
     /**
@@ -22,7 +24,7 @@ class NewsModel implements ModelInterface
     private $description;
 
     /**
-     * @var string
+     * @var UploadedFile
      */
     private $mainPhoto;
 
@@ -109,14 +111,14 @@ class NewsModel implements ModelInterface
         return $this;
     }
 
-    public function getMainPhoto(): ?string
+    public function getMainPhoto(): ?UploadedFile
     {
         return $this->mainPhoto;
     }
 
-    public function setMainPhoto(string $mainPhoto): NewsModel
+    public function setMainPhoto(?UploadedFile $photo): self
     {
-        $this->mainPhoto = $mainPhoto;
+        $this->mainPhoto = $photo;
         return $this;
     }
 }
