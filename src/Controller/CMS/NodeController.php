@@ -7,7 +7,7 @@ use App\Entity\Category;
 use App\Services\CMS\CmsService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
- abstract class NodeController extends AbstractController
+class NodeController extends AbstractController
 {
     protected $node;
 
@@ -15,6 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
     {
         $this->node = $node;
     }
+
 
 
 }

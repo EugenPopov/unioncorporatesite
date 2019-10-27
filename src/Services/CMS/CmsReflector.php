@@ -20,13 +20,15 @@ class CmsReflector
         $this->cmsService = $cmsService;
     }
 
-    public function init(string $template, $node)
+    public function init(string $template, $node, $container)
     {
         $options = $this->cmsService->getTemplateDescription($template);
 
         $options    =   explode('::', $options->action);
         $controller =   new $options[0];
         $action     =   $options[1];
+
+        $controller->setContainer($container);
 
         $controller->init($node);
 

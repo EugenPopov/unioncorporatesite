@@ -54,9 +54,9 @@ admin_news_delete:
 cms_page:
     path: /site/{slug}
     controller: App\Controller\CMS\CoreController::init
-#cms_main:
-#    path: /
-#    controller: App\Controller\CMS\CoreController::init
+cms_page_index:
+    path: /
+    controller: App\Controller\CMS\CoreController::default
 #frontend dev/test routes
 front_help:
     path: /front/help

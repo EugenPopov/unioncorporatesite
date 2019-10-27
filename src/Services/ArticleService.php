@@ -29,6 +29,11 @@ class ArticleService extends CrudManager
         $this->cmsService->getAllTemplates();
     }
 
+    public function getDefaultTemplate()
+    {
+       return $this->repository->findOneBy(['template' => 'main']);
+    }
+
     public function getTemplatesOptionForForm(): array
     {
         $options = [];

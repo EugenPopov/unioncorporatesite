@@ -1,20 +1,102 @@
-{% extends 'base.html.twig' %}
+{% extends 'public.html.twig' %}
 
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/anton/PhpstormProjects/unionCorSite/src/Controller/CoreController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/anton/PhpstormProjects/unionCorSite/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <section class="page-hero page-hero_news">
+        <div class="page-hero__container">
+            <div class="page-hero__airplane">
+                <img class="page-hero__img" src="{{ asset('img/kisspng-airplane-aircraft-clip-art-plane-png-transparent-images-5aadfa1985e704 (1).png') }}">
+            </div>
+            <header class="header__row">
+                <div class="row">
+                    <img class="logo logo_size_lg page-header__logo" src="{{ asset('img/logo.png')}}" alt="Логотип НПСПАБ">
+                    <nav class="nav page-header__nav">
+                        <a class="nav__link nav__link_size_md nav__link_theme-light nav__link_theme-light_active" href="page1.html">Новини</a>
+                        <a class="nav__link nav__link_size_md nav__link_theme-light" href="#">Законодавча БАЗА</a>
+                        <a class="nav__link nav__link_size_md nav__link_theme-light" href="#">Медичне страхування</a>
+                        <a class="nav__link nav__link_size_md nav__link_theme-light" href="#">Відпочинок</a>
+                        <a class="nav__link nav__link_size_md nav__link_theme-light" href="#">Контакти</a>
+                    </nav>
+                </div>
+                <div class="row__title">
+                    <span class="page-hero__title ">НПСПАБ</span>
+                    <p class="page-hero__desc page-hero__desc_size_s">Незалежна професійна спілка<br/> працівників авіаційної безпеки</p>
+                </div>
+            </header>
+        </div>
+    </section>
+    <div class="page-content-wrapper page-content-wrapper_news">
+        <section class="features-cards">
+            <article class="text-card text-card_no_img features-cards__text-card">
+                <div class="caption">
+                    <span class="text-card__title">Авио тема до 50 символов</span>
+                    <p class="text-card__desc">Авио тема до 50 символов Авио тема до 50 символов Авио тема до 50 символов</p>
+                </div>
+            </article>
+            <article class="text-card features-cards__text-card">
+                <div class="caption">
+                    <span class="text-card__title">Авио тема до 50 символов</span>
+                    <p class="text-card__desc">Авио тема до 50 символов Авио тема до 50 символов Авио тема до 50 символов</p>
+                </div>
+            </article>
+            <article class="text-card features-cards__text-card">
+                <span class="text-card__title">Авио тема до 50 символов</span>
+                <p class="text-card__desc">Авио тема до 50 символов Авио тема до 50 символов Авио тема до 50 символов</p>
+            </article>
+        </section>
+    </div>
+    <section class="news">
+        <header class="page-content-wrapper page-content-wrapper_news news__header">
+            <h1 class="news__section-heading">Новини</h1>
+            <nav class="nav news__nav">
+                <a class="nav__link nav__link_size_md nav__link_theme-dark nav__link_theme-dark_active" href="javascript:void(0)">Останні</a>
+                <a class="nav__link nav__link_size_md nav__link_theme-dark" href="javascript:void(0)">Актулаьні</a>
+                <a class="nav__link nav__link_size_md nav__link_theme-dark" href="javascript:void(0)">Про профспілку</a>
+            </nav>
+        </header>
+        <div class="news__items page-content-wrapper page-content-wrapper_news">
+            <article class="feed-card news__feed-card news__feed-card_main">
+                <div class="feed-card__img-wrapper">
+                    <img class="feed-card__img" src="{{ asset('/img/news_img.png') }}" alt="Авио тема до 50 символов Авио тема до 50 символов">
+                    <time class="feed-card__date-label" datetime="2019-10">21 вересня</time>
+                </div>
+                <span class="feed-card__title">Авио тема до 50 символов Авио тема до 50 символов</span>
+                <p class="feed-card__text">Авио тема до 50 символов Авио тема до 50 символов,Авио тема до 50 символов Авио тема до 50 символовАвио тема до 50 символов Авио тема до 50 символовАвио тема до 50 символов Авио тема до 50символовАвио тема до 50 символов Авио тема до 50 символовАвио тема до 50 символов Авио тема до 50 символов</p>
+            </article>
+            <article class="feed-card news__feed-card">
+                <div class="feed-card__img-wrapper">
+                    <img class="feed-card__img" src="{{ asset('/img/news_img.png') }}" alt="Авио тема до 50 символов Авио тема до 50 символов">
+                    <time class="feed-card__date-label" datetime="2019-10">21 вересня</time>
+                </div>
+                <span class="feed-card__title">Авио тема до 50 символов Авио тема до 50 символов</span>
+            </article>
+            <article class="feed-card news__feed-card">
+                <div class="feed-card__img-wrapper">
+                    <img class="feed-card__img" src="{{ asset('/img/news_img.png') }}" alt="Авио тема до 50 символов Авио тема до 50 символов">
+                    <time class="feed-card__date-label" datetime="2019-10">21 вересня</time>
+                </div>
+                <span class="feed-card__title">Авио тема до 50 символов Авио тема до 50 символов</span>
+            </article>
+        </div>
+    </section>
+    <section class="contacts contacts_news page-content-wrapper page-content-wrapper_news">
+        <h2 class="contacts__section-title">Контакти</h2>
+        <div class="contacts__subsections">
+            <div class="contacts__subsection">
+                <span class="contacts__subsection-title">Телефон</span>
+                <a class="contacts__link" href="tel:0442817199">0442817199</a>
+                <a class="contacts__link" href="tel:+(380)632688240">+(380)632688240</a>
+            </div>
+            <div class="contacts__subsection contacts__subsection_w_margin">
+                <span class="contacts__subsection-title">Адреса</span>
+                <address class="contacts__text">Аеропорт “Бориспіль”</address>
+            </div>
+            <div class="contacts__subsection">
+                <span class="contacts__subsection-title">E-mail</span>
+                <a class="contacts__link" href="mailto:npspab@ukr.net">npspab@ukr.net</a>
+            </div>
+        </div>
+    </section>
+    {% include 'elements/footer.html.twig' %}
 {% endblock %}
