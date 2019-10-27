@@ -3,10 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\DataMapper\SettingsMapper;
+use App\Entity\Category;
 use App\Entity\Settings;
-use App\Form\CategoryType;
 use App\Form\SettingsType;
-use App\Model\CategoryModel;
 use App\Model\SettingsModel;
 use App\Services\CategoryService;
 use App\Services\SettingsService;
@@ -49,7 +48,7 @@ class SettingsController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
-            $this->settingsService->create($data);
+            $this->settingsService->create($data, new Settings());
 
             return $this->redirectToRoute('admin_settings_index');
         }

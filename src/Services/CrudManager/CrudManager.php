@@ -4,10 +4,9 @@
 namespace App\Services\CrudManager;
 
 
-use App\Entity\Article;
-use App\Model\ArticleModel;
+use App\DataMapper\DataMapperInterface;
+use App\Entity\EntityInterface;
 use App\Model\ModelInterface;
-use App\Repository\SettingsRepository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -18,7 +17,7 @@ abstract class CrudManager implements CrudManagerInterface
     private $entityManager;
     private $mapper;
 
-    public function __construct(ServiceEntityRepository $repository, EntityManagerInterface $entityManager, $mapper)
+    public function __construct(ServiceEntityRepository $repository, EntityManagerInterface $entityManager, DataMapperInterface $mapper)
     {
         $this->repository = $repository;
         $this->entityManager = $entityManager;
@@ -35,9 +34,10 @@ abstract class CrudManager implements CrudManagerInterface
         return $this->repository->findOneBy(['slug' => $slug]);
     }
 
-    public function create(ModelInterface $model, $entity)
+    public function create(ModelInterface $model, EntityInterface $entity)
     {
-        $article  = $this->mapper->modelToEntity($model, $entity);
+        dd($model);
+        $article  = $this->mapper->modelToEntity($model,  $entity);
 
         $this->entityManager->persist($article);
         $this->entityManager->flush();
@@ -45,7 +45,7 @@ abstract class CrudManager implements CrudManagerInterface
         return $article;
     }
 
-    public function update(ModelInterface $model , $entity)
+    public function update(ModelInterface $model , EntityInterface $entity)
     {
         $article = $this->mapper->modelToEntity($model, $entity);
         $this->entityManager->flush();
@@ -53,7 +53,7 @@ abstract class CrudManager implements CrudManagerInterface
         return $article;
     }
 
-    public function delete($entity): bool
+    public function delete(EntityInterface $entity): bool
     {
         if ($entity) {
             $this->entityManager->remove($entity);

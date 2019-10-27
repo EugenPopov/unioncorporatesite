@@ -4,6 +4,7 @@
 namespace App\Services\CrudManager;
 
 
+use App\Entity\EntityInterface;
 use App\Model\ModelInterface;
 
 interface CrudManagerInterface
@@ -12,10 +13,10 @@ interface CrudManagerInterface
 
     public function item(string $slug);
 
-    public function create(ModelInterface $model, $entity);
+    public function create(ModelInterface $model, EntityInterface $entity);
 
-    public function update(ModelInterface $model, $entity);
+    public function update(ModelInterface $model, EntityInterface $entity);
 
-    public function delete($entity): bool;
+    public function delete(EntityInterface $entity): bool;
 
 }

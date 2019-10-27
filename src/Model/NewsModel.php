@@ -24,7 +24,7 @@ class NewsModel implements ModelInterface
     /**
      * @var string
      */
-    private $main_photo;
+    private $mainPhoto;
 
     /**
      * @var bool
@@ -111,12 +111,12 @@ class NewsModel implements ModelInterface
 
     public function getMainPhoto(): ?string
     {
-        return $this->description;
+        return $this->mainPhoto;
     }
 
-    public function setMainPhoto(string $description): NewsModel
+    public function setMainPhoto(string $mainPhoto): NewsModel
     {
-        $this->description=$description;
+        $this->mainPhoto = $mainPhoto;
         return $this;
     }
 }

@@ -3,13 +3,14 @@
 
 namespace App\DataMapper;
 
-use App\Entity\Category;
 use App\Model\CategoryModel;
+use App\Entity\EntityInterface;
+use App\Model\ModelInterface;
 
 
-final class CategoryMapper
+final class CategoryMapper implements DataMapperInterface
 {
-    public  function entityToModel(Category $category): CategoryModel
+    public  function entityToModel(EntityInterface $category): CategoryModel
     {
         $model = new CategoryModel();
 
@@ -22,7 +23,7 @@ final class CategoryMapper
 
     }
 
-    public function modelToEntity(CategoryModel $model, Category $category): Category
+    public function modelToEntity(ModelInterface $model, EntityInterface $category): EntityInterface
     {
         $category->setTitle($model->getTitle());
         $category->setDescription($model->getDescription());

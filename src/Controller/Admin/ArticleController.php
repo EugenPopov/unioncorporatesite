@@ -48,7 +48,7 @@ class ArticleController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
-            $this->articleService->create($data);
+            $this->articleService->create($data, new Article());
 
             return $this->redirectToRoute('admin_article_index');
         }

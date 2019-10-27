@@ -3,16 +3,14 @@
 
 namespace App\Controller\Admin;
 
-
-use App\DataMapper\CategoryMapper;
 use App\DataMapper\NewsMapper;
 use App\Entity\News;
 use App\Form\NewsType;
 use App\Model\NewsModel;
 use App\Services\NewsService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\{Request, Response};
+
 
 class NewsController extends AbstractController
 {
@@ -26,7 +24,7 @@ class NewsController extends AbstractController
      */
     private $mapper;
 
-    public function __construct(NewsService $newsService,NewsMapper $mapper)
+    public function __construct(NewsService $newsService, NewsMapper $mapper)
     {
         $this->newsService = $newsService;
         $this->mapper = $mapper;
@@ -50,7 +48,7 @@ class NewsController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
-            $this->newsService->create($data);
+            $this->newsService->create($data, new News());
 
             return $this->redirectToRoute('admin_news_index');
         }
