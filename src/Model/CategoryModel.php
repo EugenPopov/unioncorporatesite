@@ -4,7 +4,7 @@
 namespace App\Model;
 
 
-class CategoryModel
+class CategoryModel implements ModelInterface
 {
     /**
      * @var string

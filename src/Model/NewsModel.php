@@ -4,7 +4,7 @@
 namespace App\Model;
 
 
-class NewsModel
+class NewsModel implements ModelInterface
 {
     /**
      * @var string

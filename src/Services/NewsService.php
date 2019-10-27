@@ -29,11 +29,6 @@ class NewsService
      */
     private $mapper;
 
-    /**
-     * @var CmsService
-     */
-    private $cmsService;
-
     public function __construct(NewsRepository $newsRepository, EntityManagerInterface $entityManager, NewsMapper $mapper)
     {
         $this->newsRepository=$newsRepository;
@@ -61,9 +56,9 @@ class NewsService
         return $news;
     }
 
-    public function update(NewsModel $model,News $news): News
+    public function update(NewsModel $model, News $news): News
     {
-        $news = $this->mapper->modelToEntity($model,$news);
+        $news = $this->mapper->modelToEntity($model, $news);
         $this->entityManager->flush();
 
         return $news;
@@ -77,17 +72,5 @@ class NewsService
         }
     }
 
-    public function getTemplates(): iterable
-    {
-        $this->cmsService->getAllTemplates();
-    }
-
-    public function getTemplatesOptionForForm(): array
-    {
-        $options = [];
-        $options['templates'] = $this->cmsService->getAllTemplates();
-
-        return $options;
-    }
 
 }

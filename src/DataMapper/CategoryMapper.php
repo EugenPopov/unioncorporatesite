@@ -9,7 +9,7 @@ use App\Model\CategoryModel;
 
 final class CategoryMapper
 {
-    public static function entityToModel(Category $category): CategoryModel
+    public  function entityToModel(Category $category): CategoryModel
     {
         $model = new CategoryModel();
 
@@ -22,7 +22,7 @@ final class CategoryMapper
 
     }
 
-    public function modelToEntity(CategoryModel $model , Category $category):Category
+    public function modelToEntity(CategoryModel $model, Category $category): Category
     {
         $category->setTitle($model->getTitle());
         $category->setDescription($model->getDescription());

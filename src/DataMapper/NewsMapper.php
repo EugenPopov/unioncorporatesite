@@ -8,7 +8,7 @@ use App\Model\NewsModel;
 
 class NewsMapper
 {
-    public static function entityToModel(News $news) :NewsModel
+    public function entityToModel(News $news) :NewsModel
     {
         $model = new NewsModel();
         $model->setTitle($news->getTitle())
