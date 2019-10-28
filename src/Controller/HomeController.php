@@ -13,5 +13,4 @@ class HomeController extends NodeController
             [ 'node' => $this->node ]
         );
     }
-
 }
