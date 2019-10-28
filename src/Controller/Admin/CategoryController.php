@@ -48,7 +48,7 @@ class CategoryController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
-            $this->categoryService->createCategory($data);
+            $this->categoryService->create($data, new Category());
 
             return $this->redirectToRoute('admin_category_index');
         }
@@ -67,7 +67,7 @@ class CategoryController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
-            $this->categoryService->updateCategory($data, $category);
+            $this->categoryService->update($data, $category);
 
             return $this->redirectToRoute('admin_category_index');
         }
@@ -80,7 +80,7 @@ class CategoryController extends AbstractController
 
     public function delete(Category $category)
     {
-        $this->categoryService->deleteCategory($category);
+        $this->categoryService->delete($category);
 
         return $this->redirectToRoute('admin_category_index');
     }
