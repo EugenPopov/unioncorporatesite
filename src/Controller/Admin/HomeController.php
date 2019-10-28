@@ -18,6 +18,7 @@ class HomeController extends AbstractController
 
     /**
      * @Route("/admin/test", name="cms_test")
+     * @param CmsService $cmsService
      */
     public function test(CmsService $cmsService)
     {
