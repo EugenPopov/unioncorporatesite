@@ -18,24 +18,30 @@ $(document).ready(function () {
     console.log(last_news, relevant_news, union_news);
     
     $(document).on('click', '.relevant-news', function () {
-        $('.last_news').removeClass('nav__link_theme-dark_active');
-        $('.union-news').removeClass('nav__link_theme-dark_active');
-        $(this).addClass('nav__link_theme-dark_active');
-        render_news_block(relevant_news);
+        if(!$(this).hasClass('nav__link_theme-dark_active')) {
+            $('.last_news').removeClass('nav__link_theme-dark_active');
+            $('.union-news').removeClass('nav__link_theme-dark_active');
+            $(this).addClass('nav__link_theme-dark_active');
+            render_news_block(relevant_news);
+        }
     });
 
     $(document).on('click', '.last_news', function () {
-        $('.relevant-news').removeClass('nav__link_theme-dark_active');
-        $('.union-news').removeClass('nav__link_theme-dark_active');
-        $(this).addClass('nav__link_theme-dark_active');
-        render_news_block(last_news);
+        if(!$(this).hasClass('nav__link_theme-dark_active')){
+            $('.relevant-news').removeClass('nav__link_theme-dark_active');
+            $('.union-news').removeClass('nav__link_theme-dark_active');
+            $(this).addClass('nav__link_theme-dark_active');
+            render_news_block(last_news);
+        }
     });
 
     $(document).on('click', '.union-news', function () {
-        $('.relevant-news').removeClass('nav__link_theme-dark_active');
-        $('.last_news').removeClass('nav__link_theme-dark_active');
-        $(this).addClass('nav__link_theme-dark_active');
-        render_news_block(union_news);
+        if(!$(this).hasClass('nav__link_theme-dark_active')) {
+            $('.relevant-news').removeClass('nav__link_theme-dark_active');
+            $('.last_news').removeClass('nav__link_theme-dark_active');
+            $(this).addClass('nav__link_theme-dark_active');
+            render_news_block(union_news);
+        }
     })
 });
 
