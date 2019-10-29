@@ -41,26 +41,27 @@ $(document).ready(function () {
 
 function render_news_block(array) {
     let main_div = $('#news-div');
-    main_div.html('');
-    console.log(array[0]);
-    Object.keys(array).forEach(function (key) {
-        let item = array[key];
-        let article = $('<article class="feed-card news__feed-card news__feed-card">\n' +
-            '                    <div class="feed-card__img-wrapper">\n' +
-            '                        <img class="feed-card__img" src="/uploads/'+item['image']+'" alt="'+item['title']+'">\n' +
-            '                        <time class="feed-card__date-label">'+item['created_at']+'</time>\n' +
-            '                    </div>\n' +
-            '                    <span class="feed-card__title">'+item['title']+'</span>\n' +
-            '                    <p class="feed-card__text">'+item['description']+'</p>\n' +
-            '                </article>');
+    main_div.fadeOut('fast', function () {
+        $(this).html('');
+        Object.keys(array).forEach(function (key) {
+            let item = array[key];
+            let article = $('<article class="feed-card news__feed-card news__feed-card">\n' +
+                '                    <div class="feed-card__img-wrapper">\n' +
+                '                        <img class="feed-card__img" src="/uploads/'+item['image']+'" alt="'+item['title']+'">\n' +
+                '                        <time class="feed-card__date-label">'+item['created_at']+'</time>\n' +
+                '                    </div>\n' +
+                '                    <span class="feed-card__title">'+item['title']+'</span>\n' +
+                '                    <p class="feed-card__text">'+item['description']+'</p>\n' +
+                '                </article>');
 
-        if(key == 0)
-            article.addClass('news__feed-card_main');
-
-
-        main_div.append(article);
+            if(key == 0)
+                article.addClass('news__feed-card_main');
 
 
+            main_div.append(article).fadeIn('fast');
+
+
+        });
     });
 
 }
