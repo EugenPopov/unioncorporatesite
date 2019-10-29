@@ -8,6 +8,7 @@ namespace App\Services;
 use App\DataMapper\NewsMapper;
 
 use App\Entity\EntityInterface;
+use App\Entity\News;
 use App\Model\ModelInterface;
 use App\Repository\NewsRepository;
 use App\Services\CrudManager\CrudManager;
@@ -47,13 +48,40 @@ class NewsService extends CrudManager
         if($model->getMainPhoto()) {
             $uploadedFile = $this->fileManager->uploadFile($model->getMainPhoto(), self::IMG_UPLOAD_DIR);
             $entity->setMainPhoto($uploadedFile);
-
         }
 
 
         $this->entityManager->flush();
 
         return $entity;
+    }
+
+    public function findByQueryAndToArray(array $parameters = [], array $order = [], int $limit = null)
+    {
+        return $this->entitiesToArray($this->findBy($parameters, $order, $limit));
+    }
+
+    public function entityToArray(News $news)
+    {
+        return [
+            'title' => $news->getTitle(),
+            'description' => $news->getDescription(),
+            'short_description' => $news->getShortDescription(),
+            'image' => $news->getMainPhoto(),
+            'type' => $news->getType(),
+            'created_at' => $news->getCreatedAt()->format('Y-m-F'),
+            'slug' => $news->getSlug(),
+        ];
+    }
+
+    public function entitiesToArray(array $array)
+    {
+        $arr = [];
+        foreach ($array as $item) {
+            $arr[] = $this->entityToArray($item);
+        }
+
+        return $arr;
     }
 
 

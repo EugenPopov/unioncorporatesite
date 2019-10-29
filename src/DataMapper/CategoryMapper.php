@@ -17,6 +17,7 @@ final class CategoryMapper implements DataMapperInterface
         $model->setTitle($category->getTitle())
               ->setDescription($category->getDescription())
               ->setIsActive($category->getIsActive())
+              ->setIsOnFooter($category->getIsOnFooter())
         ;
 
         return $model;
@@ -28,6 +29,7 @@ final class CategoryMapper implements DataMapperInterface
         $category->setTitle($model->getTitle());
         $category->setDescription($model->getDescription());
         $category->setIsActive($model->isActive());
+        $category->setIsOnFooter($model->IsOnFooter());
 
         return $category;
     }

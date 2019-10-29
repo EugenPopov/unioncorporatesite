@@ -8,6 +8,14 @@ require('./core/bootstrap-notify');
 
 
 (function() {
+    $('a').each(function () {
+        console.log($(this).attr('href'), location.pathname);
+        if($(this).attr('href') === location.pathname)
+            $(this).parent().addClass('active');
+    })
+})();
+
+(function() {
     let isWindows = navigator.platform.indexOf('Win') > -1;
 
     if (isWindows) {
@@ -271,3 +279,5 @@ function debounce(func, wait, immediate) {
         if (immediate && !timeout) func.apply(context, args);
     };
 }
+
+

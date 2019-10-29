@@ -7,6 +7,7 @@ use App\Entity\EntityInterface;
 use App\Entity\News;
 use App\Model\ModelInterface;
 use App\Model\NewsModel;
+use App\Model\NewsTypeModel;
 
 
 class NewsMapper implements DataMapperInterface
@@ -18,7 +19,7 @@ class NewsMapper implements DataMapperInterface
               ->setShortDescription($news->getShortDescription())
               ->setDescription($news->getDescription())
               ->setIsActive($news->getIsActive())
-              ->setMainPhoto($news->getMainPhoto())
+              ->setArticleType(new NewsTypeModel($news->getType()))
             ;
         return $model;
     }
@@ -30,6 +31,7 @@ class NewsMapper implements DataMapperInterface
              ->setDescription($model->getDescription())
              ->setIsActive($model->isActive())
              ->setMainPhoto($model->getMainPhoto())
+             ->setType($model->getArticleType()->getName())
             ;
 
         return $news;

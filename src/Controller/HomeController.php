@@ -2,16 +2,36 @@
 
 namespace App\Controller;
 
-use App\Controller\CMS\NodeController;
+use App\Repository\NewsRepository;
+use App\Services\NewsService;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
-class HomeController extends NodeController
+class HomeController extends AbstractController
 {
-    public function index()
+    /**
+     * @var NewsService
+     */
+    private $newsService;
+    /**
+     * @var NewsRepository
+     */
+    private $newsRepository;
+
+
+    /**
+     * HomeController constructor.
+     * @param NewsService $newsService
+     * @param NewsRepository $newsRepository
+     */
+    public function __construct(NewsService $newsService, NewsRepository $newsRepository)
     {
-        return $this->render('home/index.html.twig',
-            [ 'node' => $this->node ]
-        );
+        $this->newsService = $newsService;
+        $this->newsRepository = $newsRepository;
     }
 
+    public function index()
+    {
+        return $this->render('home/index.html.twig', ['news' => $this->newsService->findByQueryAndToArray(['isActive' => true], ['createdAt' => 'DESC'])]);
+    }
 }

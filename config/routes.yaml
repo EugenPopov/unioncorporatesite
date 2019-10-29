@@ -56,7 +56,7 @@ cms_page:
     controller: App\Controller\CMS\CoreController::init
 cms_page_index:
     path: /
-    controller: App\Controller\CMS\CoreController::default
+    controller: App\Controller\HomeController::index
 #frontend dev/test routes
 front_help:
     path: /front/help
@@ -64,3 +64,6 @@ front_help:
 front_help_item:
     path: /front/help/item-{template}
     controller: App\Controller\FrontController::item
+category_main:
+    path: /category-{slug}
+    controller: App\Controller\CategoryController::index
