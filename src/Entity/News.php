@@ -54,6 +54,11 @@ class News implements EntityInterface
      */
     private $isActive;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $type;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -159,6 +164,18 @@ class News implements EntityInterface
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(?string $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }

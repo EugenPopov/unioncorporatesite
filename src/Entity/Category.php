@@ -58,6 +58,11 @@ class Category implements EntityInterface
      */
     private $articles;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isOnFooter;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
@@ -163,6 +168,18 @@ class Category implements EntityInterface
                 $article->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIsOnFooter(): ?bool
+    {
+        return $this->isOnFooter;
+    }
+
+    public function setIsOnFooter(bool $isOnFooter): self
+    {
+        $this->isOnFooter = $isOnFooter;
 
         return $this;
     }

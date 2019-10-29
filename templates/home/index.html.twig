@@ -3,6 +3,7 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
+    {% set categories = all_categories() %}
     <section class="page-hero page-hero_news">
         <div class="page-hero__container">
             <div class="page-hero__airplane">
@@ -13,9 +14,9 @@
                     <img class="logo logo_size_lg page-header__logo" src="{{ asset('img/logo.png')}}" alt="Логотип НПСПАБ">
                     <nav class="nav page-header__nav">
                         <a class="nav__link nav__link_size_md nav__link_theme-light nav__link_theme-light_active" href="page1.html">Новини</a>
-                        <a class="nav__link nav__link_size_md nav__link_theme-light" href="#">Законодавча БАЗА</a>
-                        <a class="nav__link nav__link_size_md nav__link_theme-light" href="#">Медичне страхування</a>
-                        <a class="nav__link nav__link_size_md nav__link_theme-light" href="#">Відпочинок</a>
+                        {% for category in categories %}
+                            <a class="nav__link nav__link_size_md nav__link_theme-light" href="{{ path('category_main', {'slug': category.slug}) }}">{{ category.title }}</a>
+                        {% endfor %}
                         <a class="nav__link nav__link_size_md nav__link_theme-light" href="#">Контакти</a>
                     </nav>
                 </div>
@@ -50,34 +51,26 @@
         <header class="page-content-wrapper page-content-wrapper_news news__header">
             <h1 class="news__section-heading">Новини</h1>
             <nav class="nav news__nav">
-                <a class="nav__link nav__link_size_md nav__link_theme-dark nav__link_theme-dark_active" href="javascript:void(0)">Останні</a>
-                <a class="nav__link nav__link_size_md nav__link_theme-dark" href="javascript:void(0)">Актулаьні</a>
-                <a class="nav__link nav__link_size_md nav__link_theme-dark" href="javascript:void(0)">Про профспілку</a>
+                <a class="nav__link nav__link_size_md nav__link_theme-dark nav__link_theme-dark_active last_news">Останні</a>
+                <a class="nav__link nav__link_size_md nav__link_theme-dark relevant-news">Актулаьні</a>
+                <a class="nav__link nav__link_size_md nav__link_theme-dark union-news">Про профспілку</a>
             </nav>
         </header>
-        <div class="news__items page-content-wrapper page-content-wrapper_news">
-            <article class="feed-card news__feed-card news__feed-card_main">
-                <div class="feed-card__img-wrapper">
-                    <img class="feed-card__img" src="{{ asset('/img/news_img.png') }}" alt="Авио тема до 50 символов Авио тема до 50 символов">
-                    <time class="feed-card__date-label" datetime="2019-10">21 вересня</time>
-                </div>
-                <span class="feed-card__title">Авио тема до 50 символов Авио тема до 50 символов</span>
-                <p class="feed-card__text">Авио тема до 50 символов Авио тема до 50 символов,Авио тема до 50 символов Авио тема до 50 символовАвио тема до 50 символов Авио тема до 50 символовАвио тема до 50 символов Авио тема до 50символовАвио тема до 50 символов Авио тема до 50 символовАвио тема до 50 символов Авио тема до 50 символов</p>
-            </article>
-            <article class="feed-card news__feed-card">
-                <div class="feed-card__img-wrapper">
-                    <img class="feed-card__img" src="{{ asset('/img/news_img.png') }}" alt="Авио тема до 50 символов Авио тема до 50 символов">
-                    <time class="feed-card__date-label" datetime="2019-10">21 вересня</time>
-                </div>
-                <span class="feed-card__title">Авио тема до 50 символов Авио тема до 50 символов</span>
-            </article>
-            <article class="feed-card news__feed-card">
-                <div class="feed-card__img-wrapper">
-                    <img class="feed-card__img" src="{{ asset('/img/news_img.png') }}" alt="Авио тема до 50 символов Авио тема до 50 символов">
-                    <time class="feed-card__date-label" datetime="2019-10">21 вересня</time>
-                </div>
-                <span class="feed-card__title">Авио тема до 50 символов Авио тема до 50 символов</span>
-            </article>
+        <div class="news__items page-content-wrapper page-content-wrapper_news" id="news-div">
+            {% set counter = 0 %}
+            {% for article in news %}
+                {% if counter < 3 %}
+                <article class="feed-card news__feed-card {% if counter == 0 %}news__feed-card_main{% endif %}">
+                    <div class="feed-card__img-wrapper">
+                        <img class="feed-card__img" src="/uploads/{{ article.image }}" alt="{{ article.title }}">
+                        <time class="feed-card__date-label" datetime="2019-10">{{ article.created_at|format('Y-m-F') }}</time>
+                    </div>
+                    <span class="feed-card__title">{{ article.title }}</span>
+                    <p class="feed-card__text">{{ article.description }}</p>
+                </article>
+                {% set counter = counter+1 %}
+                {% endif %}
+            {% endfor %}
         </div>
     </section>
     <section class="contacts contacts_news page-content-wrapper page-content-wrapper_news">
@@ -94,9 +87,18 @@
             </div>
             <div class="contacts__subsection">
                 <span class="contacts__subsection-title">E-mail</span>
-                <a class="contacts__link" href="mailto:npspab@ukr.net">npspab@ukr.net</a>
+                <a class="contacts__link" href="mailto:npspab@ukr.net">{{ settings('email') }}</a>
             </div>
         </div>
     </section>
     {% include 'elements/footer.html.twig' %}
 {% endblock %}
+
+{% block javascripts %}
+    <script>
+        let div_news = {{ news|json_encode|raw }};
+    </script>
+    {{ encore_entry_script_tags('app') }}
+    {{ encore_entry_script_tags('home_page') }}
+{% endblock %}
+

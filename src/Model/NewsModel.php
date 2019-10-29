@@ -33,8 +33,12 @@ class NewsModel implements ModelInterface
      */
     private $isActive;
 
-    public function __construct(bool $isActive = true)
+    private $article_type;
+
+    public function __construct(bool $isActive = true, $article_type = null)
     {
+        if(!$article_type)
+            $this->article_type = new NewsTypeModel();
         $this->isActive = $isActive;
     }
 
@@ -121,4 +125,28 @@ class NewsModel implements ModelInterface
         $this->mainPhoto = $photo;
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getArticleType(): NewsTypeModel
+    {
+        return $this->article_type;
+    }
+
+    /**
+     * @param mixed $article_type
+     * @return NewsModel
+     */
+    public function setArticleType(NewsTypeModel $article_type): self
+    {
+        $this->article_type = $article_type;
+        return $this;
+    }
+
+
+
+
+
+
 }

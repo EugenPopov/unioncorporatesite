@@ -41,11 +41,8 @@ class NewsController extends AbstractController
 
     public function create(Request $request): Response
     {
-        $model = new NewsModel();
-
-        $form = $this->createForm(NewsType::class, $model);
+        $form = $this->createForm(NewsType::class);
         $form->handleRequest($request);
-
 
 
         if($form->isSubmitted() && $form->isValid()) {

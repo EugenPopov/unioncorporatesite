@@ -4,10 +4,8 @@
 namespace App\Form;
 
 
-use App\Entity\Category;
-use App\Model\ArticleModel;
 use App\Model\NewsModel;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Model\NewsTypeModel;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -19,6 +17,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class NewsType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -31,11 +30,30 @@ class NewsType extends AbstractType
             ->add('description', TextareaType::class, [
                 'label' => 'Опис'
             ])
+            ->add('articleType', ChoiceType::class, [
+                'label' => 'Тип новини',
+                'choices' => [
+                    new NewsTypeModel(),
+                    new NewsTypeModel('Актуальні'),
+                    new NewsTypeModel('Про профспілку'),
+                ],
+                'choice_label' => function(NewsTypeModel $newsTypeModel){
+                            return $newsTypeModel->getName();
+                },
+                'choice_value' => function(?NewsTypeModel $newsTypeModel){
+                    if(!$newsTypeModel)
+                        return null;
+                    return $newsTypeModel->getName();
+                },
+                'required' => false
+
+            ])
             ->add('isActive',CheckboxType::class,[
                 'label' => "Активна"
             ])
             ->add('mainPhoto',FileType::class,[
-                'label' => "Фотографія"
+                'label' => "Фотографія",
+                'required' => false
             ])
         ;
     }

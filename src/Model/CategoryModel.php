@@ -18,10 +18,17 @@ class CategoryModel implements ModelInterface
      * @var bool
      */
     private $isActive;
+    /**
+     * @var bool
+     */
+    private $isOnFooter;
 
-    public function __construct(bool $isActive = true)
+
+
+    public function __construct(bool $isActive = true, bool $isOnFooter = true)
     {
         $this->isActive = $isActive;
+        $this->isOnFooter = $isOnFooter;
     }
 
     /**
@@ -78,6 +85,24 @@ class CategoryModel implements ModelInterface
 
         return $this;
     }
+
+    /**
+     * @return bool
+     */
+    public function isOnFooter(): bool
+    {
+        return $this->isOnFooter;
+    }
+
+    /**
+     * @param bool $isOnFooter
+     */
+    public function setIsOnFooter(bool $isOnFooter): void
+    {
+        $this->isOnFooter = $isOnFooter;
+    }
+
+
 
 
 

@@ -20,7 +20,12 @@ class CategoryType extends AbstractType
                 'label' => 'Опис'
             ])
             ->add('isActive', CheckboxType::class, [
-                'label' => 'Активна'
+                'label' => 'Активна',
+                'required' => false
+            ])
+            ->add('isOnFooter',CheckboxType::class, [
+                'label' => 'Виводити в футері',
+                'required' => false
             ])
         ;
     }
