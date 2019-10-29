@@ -32,6 +32,6 @@ class HomeController extends AbstractController
 
     public function index()
     {
-        return $this->render('home/index.html.twig', ['news' => $this->newsService->entitiesToArray($this->newsRepository->findBy(['isActive' => true], ['createdAt' => 'DESC']))]);
+        return $this->render('home/index.html.twig', ['news' => $this->newsService->findByQueryAndToArray(['isActive' => true], ['createdAt' => 'DESC'])]);
     }
 }

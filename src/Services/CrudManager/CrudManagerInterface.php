@@ -19,4 +19,6 @@ interface CrudManagerInterface
 
     public function delete(EntityInterface $entity): bool;
 
+    public function findBy(array $parameters = [], array $order = [], int $limit = null);
+
 }

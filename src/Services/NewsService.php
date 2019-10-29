@@ -56,6 +56,11 @@ class NewsService extends CrudManager
         return $entity;
     }
 
+    public function findByQueryAndToArray(array $parameters = [], array $order = [], int $limit = null)
+    {
+        return $this->entitiesToArray($this->findBy($parameters, $order, $limit));
+    }
+
     public function entityToArray(News $news)
     {
         return [
