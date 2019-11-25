@@ -1,5 +1,9 @@
+import './app';
+import '../css/index-page.css';
+import '../css/media-queries/index-page_responsive.css';
+
 $(document).ready(function () {
-    
+
     let last_news = [];
     let relevant_news = [];
     let union_news = [];
@@ -16,7 +20,7 @@ $(document).ready(function () {
     });
 
     console.log(last_news, relevant_news, union_news);
-    
+
     $(document).on('click', '.relevant-news', function () {
         if(!$(this).hasClass('nav__link_theme-dark_active')) {
             $('.last_news').removeClass('nav__link_theme-dark_active');

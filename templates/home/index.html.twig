@@ -1,104 +1,184 @@
 {% extends 'public.html.twig' %}
 
 {% block title %}Hello HomeController!{% endblock %}
-
+{% block stylesheets %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/index-page.css">
+    <link rel="stylesheet" href="/css/media-queries/main_responsive.css">
+    <link rel="stylesheet" href="/css/media-queries/index-page_responsive.css">
+{% endblock %}
 {% block body %}
     {% set categories = all_categories() %}
-    <section class="page-hero page-hero_news">
-        <div class="page-hero__container">
-            <div class="page-hero__airplane">
-                <img class="page-hero__img" src="{{ asset('img/kisspng-airplane-aircraft-clip-art-plane-png-transparent-images-5aadfa1985e704 (1).png') }}">
+    {% include 'elements/mobile_header.html.twig' %}
+    <div class="wrapper">
+        <section class="page-hero page-hero_news">
+            <div class="page-hero__container">
+                {% include 'elements/header.html.twig' %}
+                <span class="page-hero__title ">НПСПАБ</span>
+                <p class="page-hero__desc page-hero__desc_size_s">Незалежна професійна спілка<br/> працівників авіаційної безпеки</p>
             </div>
-            <header class="header__row">
-                <div class="row">
-                    <img class="logo logo_size_lg page-header__logo" src="{{ asset('img/logo.png')}}" alt="Логотип НПСПАБ">
-                    <nav class="nav page-header__nav">
-                        <a class="nav__link nav__link_size_md nav__link_theme-light nav__link_theme-light_active" href="page1.html">Новини</a>
-                        {% for category in categories %}
-                            <a class="nav__link nav__link_size_md nav__link_theme-light" href="{{ path('category_main', {'slug': category.slug}) }}">{{ category.title }}</a>
-                        {% endfor %}
-                        <a class="nav__link nav__link_size_md nav__link_theme-light" href="#">Контакти</a>
-                    </nav>
-                </div>
-                <div class="row__title">
-                    <span class="page-hero__title ">НПСПАБ</span>
-                    <p class="page-hero__desc page-hero__desc_size_s">Незалежна професійна спілка<br/> працівників авіаційної безпеки</p>
-                </div>
-            </header>
-        </div>
-    </section>
-    <div class="page-content-wrapper page-content-wrapper_news">
-        <section class="features-cards">
-            <article class="text-card text-card_no_img features-cards__text-card">
-                <div class="caption">
-                    <span class="text-card__title">Авио тема до 50 символов</span>
-                    <p class="text-card__desc">Авио тема до 50 символов Авио тема до 50 символов Авио тема до 50 символов</p>
-                </div>
-            </article>
-            <article class="text-card features-cards__text-card">
-                <div class="caption">
-                    <span class="text-card__title">Авио тема до 50 символов</span>
-                    <p class="text-card__desc">Авио тема до 50 символов Авио тема до 50 символов Авио тема до 50 символов</p>
-                </div>
-            </article>
-            <article class="text-card features-cards__text-card">
-                <span class="text-card__title">Авио тема до 50 символов</span>
-                <p class="text-card__desc">Авио тема до 50 символов Авио тема до 50 символов Авио тема до 50 символов</p>
-            </article>
         </section>
-    </div>
-    <section class="news">
-        <header class="page-content-wrapper page-content-wrapper_news news__header">
-            <h1 class="news__section-heading">Новини</h1>
-            <nav class="nav news__nav">
-                <a class="nav__link nav__link_size_md nav__link_theme-dark nav__link_theme-dark_active last_news">Останні</a>
-                <a class="nav__link nav__link_size_md nav__link_theme-dark relevant-news">Актулаьні</a>
-                <a class="nav__link nav__link_size_md nav__link_theme-dark union-news">Про профспілку</a>
-            </nav>
-        </header>
-        <div class="news__items page-content-wrapper page-content-wrapper_news" id="news-div">
-            {% set counter = 0 %}
-            {% for article in news %}
-                {% if counter < 3 %}
-                <article class="feed-card news__feed-card {% if counter == 0 %}news__feed-card_main{% endif %}">
-                    <div class="feed-card__img-wrapper">
-                        <img class="feed-card__img" src="/uploads/{{ article.image }}" alt="{{ article.title }}">
-                        <time class="feed-card__date-label" datetime="2019-10">{{ article.created_at|format('Y-m-F') }}</time>
-                    </div>
-                    <span class="feed-card__title">{{ article.title }}</span>
-                    <p class="feed-card__text">{{ article.description }}</p>
+        <div class="page-content-wrapper page-content-wrapper_news">
+            <section class="features-cards">
+                <article class="text-card text-card_no_img features-cards__text-card">
+                    <span class="text-card__title">Авио тема до 50 символов</span>
+                    <p class="text-card__desc">Авио тема до 50 символов Авио тема до 50 символов Авио тема до 50 символов</p>
                 </article>
-                {% set counter = counter+1 %}
-                {% endif %}
-            {% endfor %}
+                <article class="text-card features-cards__text-card">
+                    <span class="text-card__title">Авио тема до 50 символов</span>
+                    <p class="text-card__desc">Авио тема до 50 символов Авио тема до 50 символов Авио тема до 50 символов</p>
+                </article>
+                <article class="text-card features-cards__text-card">
+                    <span class="text-card__title">Авио тема до 50 символов</span>
+                    <p class="text-card__desc">Авио тема до 50 символов Авио тема до 50 символов Авио тема до 50 символов</p>
+                </article>
+            </section>
         </div>
-    </section>
-    <section class="contacts contacts_news page-content-wrapper page-content-wrapper_news">
-        <h2 class="contacts__section-title">Контакти</h2>
-        <div class="contacts__subsections">
-            <div class="contacts__subsection">
-                <span class="contacts__subsection-title">Телефон</span>
-                <a class="contacts__link" href="tel:0442817199">0442817199</a>
-                <a class="contacts__link" href="tel:+(380)632688240">+(380)632688240</a>
+        <section class="news">
+            <header class="page-content-wrapper page-content-wrapper_news news__header">
+                <h1 class="news__section-heading">Новини</h1>
+                <nav class="nav news__nav">
+                    <a class="nav__link nav__link_size_md nav__link_theme-dark nav__link_theme-dark_active last_news">Останні</a>
+                    <a class="nav__link nav__link_size_md nav__link_theme-dark relevant-news">Актулаьні</a>
+                    <a class="nav__link nav__link_size_md nav__link_theme-dark union-news">Про профспілку</a>
+                </nav>
+            </header>
+            <div class="news__items page-content-wrapper page-content-wrapper_news" id="news-div">
+                {% set counter = 0 %}
+                {% for article in news %}
+                    {% if counter < 3 %}
+                    <article class="feed-card news__feed-card {% if counter == 0 %}news__feed-card_main{% endif %}">
+                        <div class="feed-card__img-wrapper">
+                            <img class="feed-card__img" src="/uploads/{{ article.image }}" alt="{{ article.title }}">
+                            <time class="feed-card__date-label" datetime="2019-10">{{ article.created_at|format('Y-m-F') }}</time>
+                        </div>
+                        <span class="feed-card__title">{{ article.title }}</span>
+                        <p class="feed-card__text">{{ article.description }}</p>
+                    </article>
+                    {% set counter = counter+1 %}
+                    {% endif %}
+                {% endfor %}
             </div>
-            <div class="contacts__subsection contacts__subsection_w_margin">
-                <span class="contacts__subsection-title">Адреса</span>
-                <address class="contacts__text">Аеропорт “Бориспіль”</address>
+            <div class="view_all">
+                <a>
+                    Дивитись всі
+                </a>
             </div>
-            <div class="contacts__subsection">
-                <span class="contacts__subsection-title">E-mail</span>
-                <a class="contacts__link" href="mailto:npspab@ukr.net">{{ settings('email') }}</a>
+        </section>
+        <section class="contacts contacts_news page-content-wrapper page-content-wrapper_news">
+            <h2 class="contacts__section-title">Контакти</h2>
+            <div class="contacts__subsections">
+                <div class="contacts__subsection">
+                    <span class="contacts__subsection-title">Телефон</span>
+                    <a class="contacts__link" href="tel:0442817199">0442817199</a>
+                    <a class="contacts__link" href="tel:+(380)632688240">+(380)632688240</a>
+                </div>
+                <div class="contacts__subsection contacts__subsection_w_margin">
+                    <span class="contacts__subsection-title">Адреса</span>
+                    <address class="contacts__text">Аеропорт “Бориспіль”</address>
+                </div>
+                <div class="contacts__subsection">
+                    <span class="contacts__subsection-title">E-mail</span>
+                    <a class="contacts__link" href="mailto:npspab@ukr.net">{{ settings('email') }}</a>
+                </div>
             </div>
-        </div>
-    </section>
-    {% include 'elements/footer.html.twig' %}
+        </section>
+        {% include 'elements/footer.html.twig' %}
+    </div>
 {% endblock %}
 
 {% block javascripts %}
     <script>
         let div_news = {{ news|json_encode|raw }};
     </script>
-    {{ encore_entry_script_tags('app') }}
-    {{ encore_entry_script_tags('home_page') }}
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script>
+        $('.page-hero__nav-toggle').on('click', function () {
+            $('.page-hero__nav-toggle').toggleClass('active');
+            $('#sidebar').slideToggle();
+        })
+    </script>
+    <script>
+        $(document).ready(function () {
+
+            let last_news = [];
+            let relevant_news = [];
+            let union_news = [];
+            Object.keys(div_news).forEach(function (key) {
+                if(last_news.length < 3){
+                    last_news.push(div_news[key]);
+                }
+                if(relevant_news.length < 3 && div_news[key]['type'] === 'Актуальні'){
+                    relevant_news.push(div_news[key]);
+                }
+                if(union_news.length < 3 && div_news[key]['type'] === 'Про профспілку'){
+                    union_news.push(div_news[key]);
+                }
+            });
+
+            console.log(last_news, relevant_news, union_news);
+
+            $(document).on('click', '.relevant-news', function () {
+                if(!$(this).hasClass('nav__link_theme-dark_active')) {
+                    $('.last_news').removeClass('nav__link_theme-dark_active');
+                    $('.union-news').removeClass('nav__link_theme-dark_active');
+                    $(this).addClass('nav__link_theme-dark_active');
+                    render_news_block(relevant_news);
+                }
+            });
+
+            $(document).on('click', '.last_news', function () {
+                if(!$(this).hasClass('nav__link_theme-dark_active')){
+                    $('.relevant-news').removeClass('nav__link_theme-dark_active');
+                    $('.union-news').removeClass('nav__link_theme-dark_active');
+                    $(this).addClass('nav__link_theme-dark_active');
+                    render_news_block(last_news);
+                }
+            });
+
+            $(document).on('click', '.union-news', function () {
+                if(!$(this).hasClass('nav__link_theme-dark_active')) {
+                    $('.relevant-news').removeClass('nav__link_theme-dark_active');
+                    $('.last_news').removeClass('nav__link_theme-dark_active');
+                    $(this).addClass('nav__link_theme-dark_active');
+                    render_news_block(union_news);
+                }
+            })
+        });
+
+        function render_news_block(array) {
+            let main_div = $('#news-div');
+            main_div.fadeOut('fast', function () {
+                $(this).html('');
+                Object.keys(array).forEach(function (key) {
+                    let item = array[key];
+                    let article = $('<article class="feed-card news__feed-card news__feed-card">\n' +
+                        '                    <div class="feed-card__img-wrapper">\n' +
+                        '                        <img class="feed-card__img" src="/uploads/'+item['image']+'" alt="'+item['title']+'">\n' +
+                        '                        <time class="feed-card__date-label">'+item['created_at']+'</time>\n' +
+                        '                    </div>\n' +
+                        '                    <span class="feed-card__title">'+item['title']+'</span>\n' +
+                        '                    <p class="feed-card__text">'+item['description']+'</p>\n' +
+                        '                </article>');
+
+                    if(key == 0)
+                        article.addClass('news__feed-card_main');
+
+
+                    main_div.append(article).fadeIn('fast');
+
+
+                });
+            });
+
+        }
+    </script>
+{#    {{ encore_entry_script_tags('home_page') }}#}
 {% endblock %}
 

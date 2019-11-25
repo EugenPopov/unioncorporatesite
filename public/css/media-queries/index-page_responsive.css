@@ -1,0 +1,10 @@
+@media (max-width: 768px) {
+    .page-hero_news .page-hero__container {
+        width: 90%;
+    }
+}
+@media (max-width: 480px) {
+    #sidebar ul {
+        width: 90%;
+    }
+}

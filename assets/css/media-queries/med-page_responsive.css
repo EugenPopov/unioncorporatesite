@@ -1,0 +1,95 @@
+@media (max-width: 1200px) {
+    .page-hero__title {
+        width: 75%;
+    }
+    .page-hero {
+        width: 90%;
+    }
+    .page-content_nav-wrapper {
+        max-width: 90%;
+        margin: auto;
+    }
+
+    .page-content_nav-wrapper nav {
+        padding: 0;
+    }
+
+    .laws-content_wrapper {
+        max-width: 90%;
+        margin: auto;
+    }
+
+    .laws-content_wrapper_text {
+        max-width: 90%;
+    }
+}
+@media (max-width: 768px) {
+    .page-hero_news {
+        min-height: 275px;
+        width: 90%;
+    }
+
+    .plane_wrapper {
+        min-height: 30vh;
+    }
+
+    .page-hero__title {
+        font-size: 65px;
+    }
+
+    .plane_wrapper img {
+        max-width: 75%;
+    }
+
+    .page-content_nav-wrapper nav a {
+        font-size: 17px;
+    }
+
+    .medical_nav {
+        width: 95%;
+        justify-content: unset;
+    }
+
+    .medical_nav a:first-child {
+        margin-right: 75px;
+    }
+}
+
+@media (max-width: 480px) {
+    #sidebar ul {
+        width: 95%;
+    }
+
+    .page-hero_news {
+        min-height: 250px;
+        width: 95%;
+    }
+
+    .page-hero__title {
+        font-size: 43px;
+    }
+
+    .page-content_nav-wrapper {
+        max-width: 95%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .page-content_nav-wrapper_title {
+        flex-wrap: wrap;
+        place-self: center;
+    }
+
+    .medical_nav a {
+        text-align: left;
+        font-size: 21px;
+    }
+
+    .laws-content_wrapper {
+        max-width: 95%;
+    }
+
+    .laws-content_wrapper_text {
+        max-width: 95%;
+    }
+}
