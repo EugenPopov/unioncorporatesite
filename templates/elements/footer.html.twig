@@ -3,14 +3,14 @@
         <img class="logo logo_size_lg page-footer__logo" src="/img/logo.png" alt="Логотип НПСПАБ">
         <nav class="nav page-footer__nav">
             <a class="nav__link nav__link_size_md nav__link_theme-light" href="page1.html">Новини</a>
-{#            {% if categories is not defined %}#}
-{#                {% set categories = all_categories() %}#}
-{#            {% endif %}#}
-{#            {% for category in categories %}#}
-{#                {% if category.isOnFooter %}#}
-{#                    <a class="nav__link nav__link_size_md nav__link_theme-light" href="{{ path('category_main', {'slug': category.slug}) }}">{{ category.title }}</a>#}
-{#                {% endif %}#}
-{#            {% endfor %}#}
+            {% if categories is not defined %}
+                {% set categories = all_categories() %}
+            {% endif %}
+            {% for category in categories %}
+                {% if category.isOnFooter %}
+                    <a class="nav__link nav__link_size_md nav__link_theme-light" href="{{ path('category_main', {'slug': category.slug}) }}">{{ category.title }}</a>
+                {% endif %}
+            {% endfor %}
             <a class="nav__link nav__link_size_md nav__link_theme-light nav__link_theme-light_active" href="javascript:void(0)">Контакти</a>
         </nav>
     </header>
