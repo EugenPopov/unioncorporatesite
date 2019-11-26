@@ -132,6 +132,7 @@ a {
 
 .page-header__nav .nav__link {
   padding-bottom: 25px;
+  cursor: pointer;
   transition: all .3s ease-in;
 }
 

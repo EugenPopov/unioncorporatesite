@@ -55,15 +55,3 @@
        {% include 'elements/footer.html.twig' %}
     </div>
 {% endblock %}
-{% block javascripts %}
-<script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
-<script>
-    $('.page-hero__nav-toggle').on('click', function () {
-        $('.page-hero__nav-toggle').toggleClass('active');
-        $('#sidebar').slideToggle();
-    })
-</script>
-{% endblock %}

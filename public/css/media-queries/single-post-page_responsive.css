@@ -1,0 +1,36 @@
+@media (max-width: 1110px) {
+    .post_wrapper-content {
+        width: 90%;
+        margin: auto;
+    }
+}
+@media (max-width: 768px) {
+    .page-hero_news {
+        min-height: 150px;
+    }
+
+    .hotel-content_title .hotel_img {
+        width: 75%;
+    }
+}
+
+@media (max-width: 440px) {
+    .post_wrapper-content {
+        width: 95%;
+    }
+
+    .post {
+        padding: 40px 0;
+    }
+    .post_img {
+        width: 100%;
+    }
+
+    .post_title {
+        font-size: 60px;
+    }
+
+    .post_text {
+        width: 100%;
+    }
+}

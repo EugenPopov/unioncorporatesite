@@ -1,0 +1,19 @@
+@media (max-width: 768px) {
+    .news_wrapper {
+        width: 90%;
+    }
+}
+
+@media (max-width: 400px) {
+    .news_wrapper {
+        width: 95%;
+    }
+
+    .post_content {
+        padding: 20px;
+    }
+
+    .post_title {
+        padding: 20px 0;
+    }
+}
