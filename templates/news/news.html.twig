@@ -1,0 +1,42 @@
+{% extends 'public.html.twig' %}
+{% block stylesheets %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/news-page.css">
+    <link rel="stylesheet" href="/css/media-queries/main_responsive.css">
+    <link rel="stylesheet" href="/css/media-queries/news-page_responsive.css">
+{% endblock %}
+{% block body %}
+    <div class="single-chill_wrapper">
+        {% include 'elements/mobile_header.html.twig' %}
+        <section class="page-hero page-hero_news">
+            <div class="page-hero__container">
+                {% include 'elements/header.html.twig' %}
+            </div>
+            <div class="header_title">
+                Новини
+            </div>
+        </section>
+        <div class="news_wrapper">
+            <div class="news">
+                <div class="post_content">
+                    <img class="news_img" src="/img/chill.jpeg" alt="">
+                    <div class="post_title">
+                        Zagolovok
+                    </div>
+                    <div class="post_text">
+                        -Авиотема Авиотема лорем импульс 50 слов -Авиотема Авиотема лорем импульс 50 слов виотема Авиотема лорем импульс 50 слов -Авиотема Авиотема лорем импульс 50 слов виотема Авиотема лорем импульс 50 слов авио тема авио -Авиотема Авиотема лорем импульс 50 слов виотема Авиотема лорем импульс 50 слов авио -Авиотема Авиотема лорем импульс 50 слов виотема Авиотема лорем импульс 50 слов 50 Авиотема лорем импульс 50 слов виотема Авиотема лорем импульс 50 слов авио -Авиотема Авиотема лорем импульс 50 слов Авиотема лорем импульс 50 слов виотема Авиотема лорем импульс 50 слов авио -Авиотема Авиотема лорем импульс 50 слов пульс 50 слов Авиотема лорем импульс 50 слов виотема Авиотема лорем импульс 50 слов авио -Авиотема Авиотема лорем импульс 50 слов  
+                    </div>
+                    <div class="view_more">
+                        <a>
+                            Дивитись дальше
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include 'elements/footer.html.twig' %}
+    </div>
+{% endblock %}

@@ -66,6 +66,12 @@ cms_page_medical:
 cms_page_single_chill:
     path: /chill
     controller : App\Controller\HomeController::singleChillPage
+cms_page_news:
+    path: /news
+    controller: App\Controller\HomeController::news
+cms_page_single_post:
+    path: /post
+    controller: App\Controller\HomeController::singlePost
 #frontend dev/test routes
 front_help:
     path: /front/help
