@@ -1,0 +1,69 @@
+{% extends 'public.html.twig' %}
+{% block stylesheets %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Page 2</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/laws-page.css">
+    <link rel="stylesheet" href="/css/media-queries/main_responsive.css">
+    <link rel="stylesheet" href="/css/media-queries/laws-page_responsive.css">
+{% endblock %}
+{% block body %}
+    {% include 'elements/mobile_header.html.twig' %}
+    <div class="laws_page-wrapper">
+        <section class="page-hero page-hero_news">
+            <div class="page-hero__container">
+               {% include 'elements/header.html.twig' %}
+            </div>
+            <div class="plane_wrapper">
+                <img src="/img/plane2.png" alt="">
+            </div>
+        </section>
+        <div class="page-content_nav-wrapper">
+            <div class="page-content_nav-wrapper_title">
+                Законы
+            </div>
+            <nav>
+                <a class="navbar_link-active">
+                    Про проф. спілки
+                </a>
+                <a>
+                    КЗПП
+                </a>
+                <a>
+                    Про відпустки
+                </a>
+                <a>
+                    Галузева угода
+                </a>
+                <a>
+                    Податковий кодекс
+                </a>
+                <a>
+                    Статут
+                </a>
+            </nav>
+        </div>
+        <div class="laws-content_wrapper">
+            <div class="laws-content_wrapper_title">
+                Закон України про проф. спілки
+            </div>
+            <div class="laws-content_wrapper_text">
+                Закон України про проф. спілки авио закон закон авио 50Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50
+            </div>
+        </div>
+       {% include 'elements/footer.html.twig' %}
+    </div>
+{% endblock %}
+{% block javascripts %}
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script>
+    $('.page-hero__nav-toggle').on('click', function () {
+        $('.page-hero__nav-toggle').toggleClass('active');
+        $('#sidebar').slideToggle();
+    })
+</script>
+{% endblock %}

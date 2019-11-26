@@ -1,0 +1,54 @@
+{% extends 'public.html.twig' %}
+{% block stylesheets %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Page 3</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/med-page.css">
+    <link rel="stylesheet" href="/css/media-queries/main_responsive.css">
+    <link rel="stylesheet" href="/css/media-queries/med-page_responsive.css">
+{% endblock %}
+{% block body %}
+    {% include 'elements/mobile_header.html.twig' %}
+    <div class="med-page_wrapper">
+        <section class="page-hero page-hero_news">
+            <div class="page-hero__container">
+                {% include 'elements/header.html.twig' %}
+            </div>
+            <div class="plane_wrapper">
+                <span class="page-hero__title ">Медичне страхування</span>
+                <img src="/img/plane3.png" alt="">
+            </div>
+        </section>
+        <nav class="medical_nav">
+            <a class="navbar_link-active">
+                Программа ДМС
+            </a>
+            <a>
+                Заяви
+            </a>
+        </nav>
+        <div class="laws-content_wrapper">
+            <div class="laws-content_wrapper_title">
+                Программа ДМС
+            </div>
+            <div class="laws-content_wrapper_text">
+                Закон України про проф. спілки авио закон закон авио 50Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50 Закон України про проф. спілки авио закон закон авио 50
+            </div>
+        </div>
+        {% include 'elements/footer.html.twig' %}
+    </div>
+{% endblock %}
+{% block javascripts %}
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script>
+    $('.page-hero__nav-toggle').on('click', function () {
+        $('.page-hero__nav-toggle').toggleClass('active');
+        $('#sidebar').slideToggle();
+    })
+</script>
+{% endblock %}

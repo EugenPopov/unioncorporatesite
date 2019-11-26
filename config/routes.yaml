@@ -57,6 +57,15 @@ cms_page:
 cms_page_index:
     path: /
     controller: App\Controller\HomeController::index
+cms_page_laws:
+    path: /zakony
+    controller: App\Controller\HomeController::lawsPage
+cms_page_medical:
+    path: /medical
+    controller: App\Controller\HomeController::medicalPage
+cms_page_single_chill:
+    path: /chill
+    controller : App\Controller\HomeController::singleChillPage
 #frontend dev/test routes
 front_help:
     path: /front/help
