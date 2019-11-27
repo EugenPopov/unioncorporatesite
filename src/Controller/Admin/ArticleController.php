@@ -42,7 +42,7 @@ class ArticleController extends AbstractController
     {
         $model = new ArticleModel();
 
-        $form = $this->createForm(ArticleType::class, $model, $this->articleService->getTemplatesOptionForForm());
+        $form = $this->createForm(ArticleType::class, $model);
 
         $form->handleRequest($request);
 
@@ -62,7 +62,7 @@ class ArticleController extends AbstractController
     {
         $model = $this->mapper->entityToModel($article);
 
-        $form = $this->createForm(ArticleType::class, $model, $this->articleService->getTemplatesOptionForForm());
+        $form = $this->createForm(ArticleType::class, $model);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {

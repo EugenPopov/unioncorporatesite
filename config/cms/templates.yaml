@@ -1,6 +1,3 @@
-main:
-  title: Головна
-  action: App\Controller\HomeController::index
-laws:
-  title: Законодавчя База
-  action: App\Controller\HomeController::test
+"Відпочинок" : "single-chill.html.twig"
+"Медичне страхування": "medical.html.twig"
+"Закони": "laws.html.twig"

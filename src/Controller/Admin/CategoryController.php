@@ -43,7 +43,7 @@ class CategoryController extends AbstractController
     {
         $model = new CategoryModel();
 
-        $form = $this->createForm(CategoryType::class, $model);
+        $form = $this->createForm(CategoryType::class, $model, $this->categoryService->getTemplatesOptionForForm());
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
@@ -62,7 +62,7 @@ class CategoryController extends AbstractController
     {
         $model = $this->mapper->entityToModel($category);
 
-        $form = $this->createForm(CategoryType::class, $model);
+        $form = $this->createForm(CategoryType::class, $model, $this->categoryService->getTemplatesOptionForForm());
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {

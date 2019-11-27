@@ -21,10 +21,6 @@ class ArticleModel implements ModelInterface
      * @Assert\NotBlank()
      */
     private $description;
-    /**
-     * @Assert\NotBlank()
-     */
-    private $template;
 
     private $category;
 
@@ -99,25 +95,5 @@ class ArticleModel implements ModelInterface
         $this->description = $description;
         return $this;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getTemplate()
-    {
-        return $this->template;
-    }
-
-    /**
-     * @param mixed $template
-     * @return ArticleModel
-     */
-    public function setTemplate($template)
-    {
-        $this->template = $template;
-        return $this;
-    }
-
-
 
 }

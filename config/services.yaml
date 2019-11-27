@@ -5,6 +5,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     app.uploads_dir: '%kernel.project_dir%/public/uploads/'
+    app.templates_dir: '/public_templates/'
 
 services:
     # default configuration for services in *this* file
@@ -38,6 +39,9 @@ services:
     App\Services\FileManager\FileManager:
         arguments:
             - '%app.uploads_dir%'
+    App\Services\CategoryService:
+        arguments:
+            - '%app.templates_dir%'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

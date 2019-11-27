@@ -24,23 +24,23 @@ class ArticleService extends CrudManager
         $this->cmsService = $cmsService;
     }
 
-    public function getTemplates(): iterable
-    {
-        $this->cmsService->getAllTemplates();
-    }
-
-    public function getDefaultTemplate()
-    {
-       return $this->repository->findOneBy(['template' => 'main']);
-    }
-
-    public function getTemplatesOptionForForm(): array
-    {
-        $options = [];
-        $options['templates'] = $this->cmsService->getAllTemplates();
-
-        return $options;
-    }
+//    public function getTemplates(): iterable
+//    {
+//        $this->cmsService->getAllTemplates();
+//    }
+//
+//    public function getDefaultTemplate()
+//    {
+//       return $this->repository->findOneBy(['template' => 'main']);
+//    }
+//
+//    public function getTemplatesOptionForForm(): array
+//    {
+//        $options = [];
+//        $options['templates'] = $this->cmsService->getAllTemplates();
+//
+//        return $options;
+//    }
 
 
 }

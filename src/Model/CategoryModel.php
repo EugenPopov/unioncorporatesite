@@ -3,6 +3,8 @@
 
 namespace App\Model;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 class CategoryModel implements ModelInterface
 {
@@ -22,6 +24,10 @@ class CategoryModel implements ModelInterface
      * @var bool
      */
     private $isOnFooter;
+    /**
+     * @Assert\NotBlank()
+     */
+    private $template;
 
 
 
@@ -101,6 +107,25 @@ class CategoryModel implements ModelInterface
     {
         $this->isOnFooter = $isOnFooter;
     }
+
+    /**
+     * @return string
+     */
+    public function getTemplate(): ?string
+    {
+        return $this->template;
+    }
+
+    /**
+     * @param string $template
+     */
+    public function setTemplate(string $template): self
+    {
+        $this->template = $template;
+        return $this;
+    }
+
+
 
 
 

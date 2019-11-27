@@ -18,7 +18,6 @@ final class ArticleMapper implements DataMapperInterface
         $model->setTitle($article->getTitle())
               ->setDescription($article->getDescription())
               ->setShortDescription($article->getShortDescription())
-              ->setTemplate($article->getTemplate())
               ->setCategory($article->getCategory())
         ;
 
@@ -31,7 +30,6 @@ final class ArticleMapper implements DataMapperInterface
         $article->setTitle($model->getTitle());
         $article->setDescription($model->getDescription());
         $article->setShortDescription($model->getShortDescription());
-        $article->setTemplate($model->getTemplate());
         $article->setCategory($model->getCategory());
 
         return $article;

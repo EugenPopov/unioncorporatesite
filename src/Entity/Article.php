@@ -60,11 +60,6 @@ class Article implements EntityInterface
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $template;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="articles")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -95,18 +90,6 @@ class Article implements EntityInterface
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getTemplate(): ?string
-    {
-        return $this->template;
-    }
-
-    public function setTemplate(string $template): self
-    {
-        $this->template = $template;
 
         return $this;
     }

@@ -34,7 +34,7 @@ class CmsService
         return  array_keys((get_object_vars($this->configs)));
     }
 
-    public function getTemplateDescription(string $value): \stdClass
+    public function getTemplateDescription(string $value): ?string
     {
         return $this->configs->$value;
     }
