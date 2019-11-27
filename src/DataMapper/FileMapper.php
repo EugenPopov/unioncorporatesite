@@ -4,6 +4,7 @@
 namespace App\DataMapper;
 
 
+use App\Entity\Article;
 use App\Entity\EntityInterface;
 use App\Entity\File;
 use App\Model\FileModel;
@@ -26,5 +27,23 @@ class FileMapper implements DataMapperInterface
             $entity->setPath($model->getPath());
 
         return $entity;
+    }
+
+    public function entitiesToArray(File ...$files): array
+    {
+        $array = [];
+        foreach ($files as $file) {
+            $array[] = $this->entityToArray($file);
+        };
+
+        return $array;
+    }
+
+    public function entityToArray(File $file): array
+    {
+        return [
+            'id' => $file->getId(),
+            'name' => $file->getName(),
+        ];
     }
 }

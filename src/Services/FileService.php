@@ -54,4 +54,14 @@ class FileService extends CrudManager
 
         return $entity;
     }
+
+    public function getFilesArray(): array
+    {
+        return $this->mapper->entitiesToArray(... $this->all());
+    }
+
+    public function getFilesInJson(): string
+    {
+        return json_encode($this->getFilesArray());
+    }
 }

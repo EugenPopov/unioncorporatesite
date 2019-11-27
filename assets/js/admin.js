@@ -9,7 +9,6 @@ require('./core/bootstrap-notify');
 
 (function() {
     $('a').each(function () {
-        console.log($(this).attr('href'), location.pathname);
         if($(this).attr('href') === location.pathname)
             $(this).parent().addClass('active');
     })
