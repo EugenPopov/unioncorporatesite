@@ -4,7 +4,7 @@ namespace App\Form;
 
 use App\Model\CategoryModel;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\{CheckboxType, TextType};
+use Symfony\Component\Form\Extension\Core\Type\{CheckboxType, ChoiceType, TextType};
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -27,6 +27,13 @@ class CategoryType extends AbstractType
                 'label' => 'Виводити в футері',
                 'required' => false
             ])
+            ->add('template', ChoiceType::class, [
+                'choices' => $options['templates'],
+                'choice_label' => function($choice, $key , $value) {
+                    $key = $value;
+                    return $key;
+                }
+            ])
         ;
     }
 
@@ -34,6 +41,7 @@ class CategoryType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => CategoryModel::class,
+            'templates'  => [],
         ]);
     }
 }

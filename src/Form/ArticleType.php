@@ -32,13 +32,6 @@ class ArticleType extends AbstractType
                 'class' => Category::class,
                 'choice_label' => 'title'
             ])
-            ->add('template', ChoiceType::class, [
-                'choices' => $options['templates'],
-                'choice_label' => function($choice, $key , $value) {
-                    $key = $value;
-                    return $key;
-                }
-            ])
         ;
     }
 
@@ -46,7 +39,6 @@ class ArticleType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => ArticleModel::class,
-            'templates'  => [],
         ]);
     }
 }
