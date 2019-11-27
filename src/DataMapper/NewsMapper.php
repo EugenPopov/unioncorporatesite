@@ -30,9 +30,10 @@ class NewsMapper implements DataMapperInterface
              ->setShortDescription($model->getShortDescription())
              ->setDescription($model->getDescription())
              ->setIsActive($model->isActive())
-             ->setMainPhoto($model->getMainPhoto())
              ->setType($model->getArticleType()->getName())
             ;
+        if($model->getMainPhoto())
+            $news->setMainPhoto($model->getMainPhoto());
 
         return $news;
     }

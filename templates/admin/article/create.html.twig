@@ -1,4 +1,10 @@
 {% extends 'admin/admin_base.html.twig' %}
+
+{% block stylesheets %}
+    parent()
+    {{ encore_entry_link_tags('magisuggest') }}
+{% endblock %}
+
 {% block content %}
 
     <div class="row justify-content-center">
@@ -57,5 +63,10 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    parent()
+    {{ encore_entry_script_tags('magisuggest') }}
 {% endblock %}
 

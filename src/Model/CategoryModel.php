@@ -29,6 +29,8 @@ class CategoryModel implements ModelInterface
      */
     private $template;
 
+    private $files;
+
 
 
     public function __construct(bool $isActive = true, bool $isOnFooter = true)

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -65,6 +67,16 @@ class Article implements EntityInterface
      */
     private $category;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\File", mappedBy="article")
+     */
+    private $files;
+
+    public function __construct()
+    {
+        $this->files = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,5 +132,33 @@ class Article implements EntityInterface
     public function setSlug($slug): void
     {
         $this->slug = $slug;
+    }
+
+    /**
+     * @return Collection|File[]
+     */
+    public function getFiles(): Collection
+    {
+        return $this->files;
+    }
+
+    public function addFile(File $file): self
+    {
+        if (!$this->files->contains($file)) {
+            $this->files[] = $file;
+            $file->addArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFile(File $file): self
+    {
+        if ($this->files->contains($file)) {
+            $this->files->removeElement($file);
+            $file->removeArticle($this);
+        }
+
+        return $this;
     }
 }
