@@ -3,6 +3,22 @@
         background-position-x: right;
     }
 }
+@media (max-width: 1200px) {
+    .laws-content_wrapper_title {
+        max-width: 90%;
+        margin-right: auto;
+        padding: 40px 0 0;
+    }
+
+    .laws-content_wrapper {
+        max-width: 90%;
+        margin: auto;
+    }
+
+    .laws-content_wrapper_text {
+        max-width: 90%;
+    }
+}
 @media (max-width: 1150px) {
     .page-header__nav {
         margin-right: 40px;
@@ -30,6 +46,10 @@
     .feed-card__date-label {
         height: 30px;
         max-width: 100px;
+    }
+
+    .news_wrapper {
+        display: none;
     }
 
     .news__feed-card .feed-card__title {

@@ -7,15 +7,6 @@
     .page-content_nav-wrapper nav {
         padding: 0;
     }
-
-    .laws-content_wrapper {
-        max-width: 90%;
-        margin: auto;
-    }
-
-    .laws-content_wrapper_text {
-        max-width: 90%;
-    }
 }
 @media (max-width: 768px) {
     .page-hero_news {
