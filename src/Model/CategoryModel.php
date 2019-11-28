@@ -125,11 +125,4 @@ class CategoryModel implements ModelInterface
         return $this;
     }
 
-
-
-
-
-
-
-
 }

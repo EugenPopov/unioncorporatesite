@@ -24,6 +24,18 @@ class ArticleModel implements ModelInterface
 
     private $category;
 
+    private $files;
+
+    /**
+     * ArticleModel constructor.
+     * @param $files
+     */
+    public function __construct($files = null)
+    {
+        $this->files = $files;
+    }
+
+
     /**
      * @return mixed
      */
@@ -95,5 +107,23 @@ class ArticleModel implements ModelInterface
         $this->description = $description;
         return $this;
     }
+
+    /**
+     * @return null
+     */
+    public function getFiles()
+    {
+        return $this->files;
+    }
+
+    /**
+     * @param null $files
+     */
+    public function setFiles($files): void
+    {
+        $this->files = $files;
+    }
+
+
 
 }

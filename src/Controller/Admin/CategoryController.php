@@ -5,7 +5,6 @@ namespace App\Controller\Admin;
 use App\DataMapper\CategoryMapper;
 use App\Entity\Category;
 use App\Form\CategoryType;
-use App\Form\SettingsType;
 use App\Model\CategoryModel;
 use App\Services\CategoryService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

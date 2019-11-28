@@ -4,7 +4,7 @@ namespace App\Form;
 
 use App\Model\CategoryModel;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\{CheckboxType, ChoiceType, TextType};
+use Symfony\Component\Form\Extension\Core\Type\{CheckboxType, ChoiceType, HiddenType, TextType};
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -33,6 +33,10 @@ class CategoryType extends AbstractType
                     $key = $value;
                     return $key;
                 }
+            ])
+            ->add('isOnFooter',CheckboxType::class, [
+                'label' => 'Виводити в футері',
+                'required' => false
             ])
         ;
     }

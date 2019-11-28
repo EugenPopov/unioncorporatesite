@@ -1,4 +1,5 @@
 {% extends 'admin/admin_base.html.twig' %}
+
 {% block content %}
     <div class="row">
         <div class="col-md-12">
@@ -52,6 +53,7 @@
                     </label>
                 </div>
                 <div class="form-group">
+                    Шаблон
                     {{ form_widget(form.template,{
                         'attr': {
                             'class': 'form-control',
@@ -61,6 +63,16 @@
 
                     }) }}
                 </div>
+
+{#                <div class="form-group">#}
+{#                     Файлы#}
+{#                    {{ form_widget(form.files,{#}
+{#                        'attr': {#}
+{#                            'placeholder':'Файлы',#}
+{#                        },#}
+
+{#                    }) }}#}
+{#                </div>#}
 
                 <div class="form-group">
                     <button class="btn btn-lg btn-primary" type="submit">
@@ -73,4 +85,3 @@
         </div>
     </div>
 {% endblock %}
-
