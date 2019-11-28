@@ -35,8 +35,9 @@ class CategoryController extends AbstractController
 
     public function index(Category $category)
     {
-        /** @var Category $category */
-//        return $this->render('public_templates/laws.html.twig', ['category' => $category, 'articles' => $this->articleService->getArticlesArray($category->getId())]);
-        return $this->render($this->categoryService->getTemplate($category->getTemplate()), ['category' => $category, 'articles' => $this->articleService->getArticlesArray($category->getId())]);
+        return $this->render($this->categoryService->getTemplate($category->getTemplate()), [
+            'category' => $category,
+            'articles' => $this->articleService->getArticlesArray($category->getId())
+        ]);
     }
 }
