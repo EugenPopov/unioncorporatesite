@@ -5,6 +5,7 @@ namespace App\Services;
 
 
 use App\DataMapper\CategoryMapper;
+use App\Entity\Category;
 use App\Repository\CategoryRepository;
 use App\Services\CMS\CmsService;
 use App\Services\CrudManager\CrudManager;
@@ -22,6 +23,15 @@ class CategoryService extends CrudManager
         parent::__construct($repository ,$entityManager, $mapper);
         $this->cmsService = $cmsService;
         $this->template_folder = $template_folder;
+    }
+
+    public function getCategoryWithArticles(int $id): ?Category
+    {
+        $category = $this->repository->getCategoryWithArticles($id);
+        if($category)
+            return $category[0];
+
+        return null;
     }
 
     public function getTemplates(): iterable

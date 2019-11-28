@@ -46,7 +46,7 @@ class FileService extends CrudManager
 
         if($model->getPath()) {
             $uploadedFile = $this->fileManager->uploadFile($model->getPath(), self::FILE_UPLOAD_DIR);
-            $entity->setPath($uploadedFile);
+            $entity->setPath(self::FILE_UPLOAD_DIR . $uploadedFile);
         }
 
 
