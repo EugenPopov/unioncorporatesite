@@ -63,6 +63,11 @@ class Category implements EntityInterface
      */
     private $isOnFooter;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $template;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
@@ -180,6 +185,18 @@ class Category implements EntityInterface
     public function setIsOnFooter(bool $isOnFooter): self
     {
         $this->isOnFooter = $isOnFooter;
+
+        return $this;
+    }
+
+    public function getTemplate(): ?string
+    {
+        return $this->template;
+    }
+
+    public function setTemplate(string $template): self
+    {
+        $this->template = $template;
 
         return $this;
     }

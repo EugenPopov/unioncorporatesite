@@ -8,6 +8,7 @@ use App\Form\ArticleType;
 use App\Model\ArticleModel;
 use App\Model\SettingsModel;
 use App\Services\ArticleService;
+use App\Services\FileService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,11 +23,16 @@ class ArticleController extends AbstractController
      * @var ArticleMapper
      */
     private $mapper;
+    /**
+     * @var FileService
+     */
+    private $fileService;
 
-    public function __construct(ArticleService $articleService, ArticleMapper $mapper)
+    public function __construct(ArticleService $articleService, ArticleMapper $mapper, FileService $fileService)
     {
         $this->articleService = $articleService;
         $this->mapper = $mapper;
+        $this->fileService = $fileService;
     }
 
     public function index()
@@ -40,9 +46,9 @@ class ArticleController extends AbstractController
 
     public function create(Request $request): Response
     {
-        $model = new ArticleModel();
+        $model = new ArticleModel($this->fileService->getFilesInJson());
 
-        $form = $this->createForm(ArticleType::class, $model, $this->articleService->getTemplatesOptionForForm());
+        $form = $this->createForm(ArticleType::class, $model);
 
         $form->handleRequest($request);
 
@@ -62,7 +68,7 @@ class ArticleController extends AbstractController
     {
         $model = $this->mapper->entityToModel($article);
 
-        $form = $this->createForm(ArticleType::class, $model, $this->articleService->getTemplatesOptionForForm());
+        $form = $this->createForm(ArticleType::class, $model);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
@@ -72,8 +78,9 @@ class ArticleController extends AbstractController
             return $this->redirectToRoute('admin_article_index');
         }
 
-        return $this->render('admin/article/create.html.twig', [
-            'form' => $form->createView()
+        return $this->render('admin/article/update.html.twig', [
+            'form' => $form->createView(),
+            'files' => $this->fileService->getFilesInJson()
         ]);
     }
 

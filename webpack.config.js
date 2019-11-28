@@ -25,6 +25,9 @@ Encore
      */
     .addEntry('home_page', './assets/js/home_page.js')
     .addEntry('admin', './assets/js/admin.js')
+    .addEntry('magicsuggest', './assets/js/magicsuggest.js')
+    .addEntry('create_article', './assets/js/create_article.js')
+    .addEntry('edit_article', './assets/js/edit_article.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 

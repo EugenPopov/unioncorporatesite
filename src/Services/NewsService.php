@@ -47,7 +47,7 @@ class NewsService extends CrudManager
 
         if($model->getMainPhoto()) {
             $uploadedFile = $this->fileManager->uploadFile($model->getMainPhoto(), self::IMG_UPLOAD_DIR);
-            $entity->setMainPhoto($uploadedFile);
+            $entity->setMainPhoto(self::IMG_UPLOAD_DIR . $uploadedFile);
         }
 
 

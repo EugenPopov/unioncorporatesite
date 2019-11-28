@@ -50,6 +50,18 @@ admin_news_update:
 admin_news_delete:
     path: /admin/news/{slug}/delete
     controller: App\Controller\Admin\NewsController::delete
+admin_file_index:
+    path: /admin/files
+    controller: App\Controller\Admin\FileController::index
+admin_file_create:
+    path: /admin/files/create
+    controller: App\Controller\Admin\FileController::create
+admin_file_update:
+    path: /admin/files/{id}/update
+    controller: App\Controller\Admin\FileController::update
+admin_file_delete:
+    path: /admin/files/{id}/delete
+    controller: App\Controller\Admin\FileController::delete
 #cms routes
 cms_page:
     path: /site/{slug}

@@ -1,55 +1,87 @@
 {% extends 'admin/admin_base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('magicsuggest') }}
+{% endblock %}
+
 {% block content %}
-    <div class="row">
-        <div class="col-md-12">
+    <div id="recommending-group" class="form-group" style="display: none">
+        <label>Товары в отделе "С этим товаром чаще всего покупают"</label>
+        <div id="recommending"></div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
             <h2>Додати Статтю</h2>
-            <div class="card card-plain">
-                {{ form_start(form) }}
-                <div class="form-group">
-                    {{ form_row(form.title,{
-                        'attr': {
-                            'class': 'textarea form-control'
-                        }
-                    }) }}
-                </div>
-                <div class="form-group">
-                    {{ form_widget(form.short_description ,{
-                        'attr': {
-                            'class': 'form-control',
-                            'placeholder':'Кр. Опис',
-                            'rows': 10
-                        },
+            <div class="card ">
+                <div class="card-body">
+                    {{ form_start(form) }}
+                    <div class="form-group">
+                        {{ form_row(form.title,{
+                            'attr': {
+                                'class': 'textarea form-control'
+                            }
+                        }) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(form.short_description ,{
+                            'attr': {
+                                'class': 'form-control',
+                                'placeholder':'Кр. Опис',
+                                'rows': 10
+                            },
 
-                    }) }}
-                </div>
-                <div class="form-group">
-                    {{ form_widget(form.description,{
-                        'attr': {
-                            'class': 'form-control',
-                            'placeholder':'Опис',
-                            'rows': 10
-                        },
+                        }) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(form.description,{
+                            'attr': {
+                                'class': 'form-control',
+                                'placeholder':'Опис',
+                                'rows': 10
+                            },
 
-                    }) }}
-                </div>
-                <div class="form-group">
-                    {{ form_widget(form.template,{
-                        'attr': {
-                            'class': 'form-control',
-                            'placeholder':'Шаблон',
-                            'rows': 10
-                        },
+                        }) }}
+                    </div>
+                    <div class="form-group">
+                        Категорія
+                        {{ form_widget(form.category,{
+                            'attr': {
+                                'class': 'form-control',
+                                'placeholder':'Опис',
+                                'rows': 10
+                            },
 
-                    }) }}
+                        }) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(form.files,{
+                            'attr': {
+                                'placeholder':'Файлы',
+                            },
+
+                        }) }}
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-primary" type="submit">
+                            Ok
+                        </button>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <button class="btn btn-lg btn-primary" type="submit">
-                        Ok
-                    </button>
-                </div>
+                {{ form_end(form) }}
             </div>
-            {{ form_end(form) }}
+
         </div>
     </div>
     </div>
 {% endblock %}
+
+{% block javascripts %}
+    <script>
+        let files_already = {{ files|raw }};
+    </script>
+    {{ parent() }}
+    {{ encore_entry_script_tags('magicsuggest') }}
+    {{ encore_entry_script_tags('edit_article') }}
+{% endblock %}
+

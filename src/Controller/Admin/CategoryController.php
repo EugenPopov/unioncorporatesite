@@ -5,7 +5,6 @@ namespace App\Controller\Admin;
 use App\DataMapper\CategoryMapper;
 use App\Entity\Category;
 use App\Form\CategoryType;
-use App\Form\SettingsType;
 use App\Model\CategoryModel;
 use App\Services\CategoryService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -43,7 +42,7 @@ class CategoryController extends AbstractController
     {
         $model = new CategoryModel();
 
-        $form = $this->createForm(CategoryType::class, $model);
+        $form = $this->createForm(CategoryType::class, $model, $this->categoryService->getTemplatesOptionForForm());
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
@@ -62,7 +61,7 @@ class CategoryController extends AbstractController
     {
         $model = $this->mapper->entityToModel($category);
 
-        $form = $this->createForm(CategoryType::class, $model);
+        $form = $this->createForm(CategoryType::class, $model, $this->categoryService->getTemplatesOptionForForm());
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {

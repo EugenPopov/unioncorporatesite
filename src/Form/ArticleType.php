@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping\Entity;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -32,13 +33,7 @@ class ArticleType extends AbstractType
                 'class' => Category::class,
                 'choice_label' => 'title'
             ])
-            ->add('template', ChoiceType::class, [
-                'choices' => $options['templates'],
-                'choice_label' => function($choice, $key , $value) {
-                    $key = $value;
-                    return $key;
-                }
-            ])
+            ->add('files', HiddenType::class)
         ;
     }
 
@@ -46,7 +41,6 @@ class ArticleType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => ArticleModel::class,
-            'templates'  => [],
         ]);
     }
 }

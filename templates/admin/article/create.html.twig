@@ -1,6 +1,15 @@
 {% extends 'admin/admin_base.html.twig' %}
-{% block content %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('magicsuggest') }}
+{% endblock %}
+
+{% block content %}
+    <div id="recommending-group" class="form-group" style="display: none">
+        <label>Товары в отделе "С этим товаром чаще всего покупают"</label>
+        <div id="recommending"></div>
+    </div>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <h2>Додати Статтю</h2>
@@ -35,6 +44,7 @@
                         }) }}
                     </div>
                     <div class="form-group">
+                        Категорія
                         {{ form_widget(form.category,{
                             'attr': {
                                 'class': 'form-control',
@@ -45,11 +55,9 @@
                         }) }}
                     </div>
                     <div class="form-group">
-                        {{ form_widget(form.template,{
+                        {{ form_widget(form.files,{
                             'attr': {
-                                'class': 'form-control',
-                                'placeholder':'Шаблон',
-                                'rows': 10
+                                'placeholder':'Файлы',
                             },
 
                         }) }}
@@ -66,5 +74,11 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('magicsuggest') }}
+    {{ encore_entry_script_tags('create_article') }}
 {% endblock %}
 

@@ -21,12 +21,20 @@ class ArticleModel implements ModelInterface
      * @Assert\NotBlank()
      */
     private $description;
-    /**
-     * @Assert\NotBlank()
-     */
-    private $template;
 
     private $category;
+
+    private $files;
+
+    /**
+     * ArticleModel constructor.
+     * @param $files
+     */
+    public function __construct($files = null)
+    {
+        $this->files = $files;
+    }
+
 
     /**
      * @return mixed
@@ -101,21 +109,19 @@ class ArticleModel implements ModelInterface
     }
 
     /**
-     * @return mixed
+     * @return null
      */
-    public function getTemplate()
+    public function getFiles()
     {
-        return $this->template;
+        return $this->files;
     }
 
     /**
-     * @param mixed $template
-     * @return ArticleModel
+     * @param null $files
      */
-    public function setTemplate($template)
+    public function setFiles($files): void
     {
-        $this->template = $template;
-        return $this;
+        $this->files = $files;
     }
 
 
