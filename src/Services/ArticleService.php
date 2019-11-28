@@ -69,4 +69,9 @@ class ArticleService extends CrudManager
         }
         $this->entityManager->flush();
     }
+
+    public function getArticlesArray(int $id): array
+    {
+        return $this->mapper->articlesToArray(... $this->repository->getArticlesByCategory($id));
+    }
 }

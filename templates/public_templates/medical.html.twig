@@ -17,22 +17,38 @@
                 {% include 'elements/header.html.twig' %}
             </div>
             <div class="plane_wrapper">
-                <span class="page-hero__title ">Медичне страхування</span>
+                <span class="page-hero__title ">{{ category.title }}</span>
                 <img src="/img/plane3.png" alt="">
             </div>
         </section>
         <nav class="medical_nav">
-            <a class="navbar_link-active">
-                Программа ДМС
-            </a>
-            <a>
-                Заяви
-            </a>
+            {% for article in articles %}
+                <a data-id="{{ article.id }}" class="switch-article {% if loop.first %}navbar_link-active{% endif %}">
+                    {{ article.title }}
+                </a>
+            {% endfor %}
         </nav>
+        {% set first_article = articles|first %}
         <div class="laws-content_wrapper_title">
-            Программа ДМС
+            {% if first_article is not empty %}
+                {{ first_article.title }}
+            {% endif %}
         </div>
-        {% include 'elements/post_with_sidebar.html.twig' %}
+        <div class="laws-content_wrapper">
+            <div class="laws-content_wrapper_text">
+                {% if first_article is not empty %}
+                    {{ first_article.description }}
+                {% endif %}
+            </div>
+            <div id="files">
+                {% if first_article is not empty %}
+                    {% for file in  first_article.files %}
+                        <br>{{ file.name }}<a href="/uploads/{{ file.path }}" download> Скачать </a><a href="/uploads/{{ file.path }}" target="_blank"> Открыть </a><hr>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            {% include 'elements/post_with_sidebar.html.twig' %}
+        </div>
         {% include 'elements/footer.html.twig' %}
     </div>
 {% endblock %}
@@ -46,5 +62,12 @@
         $('.page-hero__nav-toggle').toggleClass('active');
         $('#sidebar').slideToggle();
     })
+
+
 </script>
+
+    <script>
+        let articles = {{ articles|json_encode|raw }};
+    </script>
+    <script src="{{ asset('js/category.js') }}"></script>
 {% endblock %}

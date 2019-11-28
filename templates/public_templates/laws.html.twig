@@ -21,30 +21,40 @@
         </section>
         <div class="page-content_nav-wrapper">
             <div class="page-content_nav-wrapper_title">
-                Законы
+                {{ category.title }}
             </div>
             <nav>
-                <a class="navbar_link-active">
-                    Про проф. спілки
+                {% for article in articles %}
+                <a data-id="{{ article.id }}" class="switch-article {% if loop.first %}navbar_link-active{% endif %}">
+                    {{ article.title }}
                 </a>
-                <a>
-                    КЗПП
-                </a>
-                <a>
-                    Про відпустки
-                </a>
-                <a>
-                    Галузева угода
-                </a>
-                <a>
-                    Податковий кодекс
-                </a>
-                <a>
-                    Статут
-                </a>
+                {% endfor %}
             </nav>
         </div>
+        <div class="laws-content_wrapper">
+            <div class="laws-content_wrapper_text">
+                {% set first_article = articles|first %}
+                {% if first_article is not empty %}
+                    {{ first_article.description }}
+                {% endif %}
+            </div>
+            <div id="files">
+                {% if first_article is not empty %}
+                    {% for file in  first_article.files %}
+                        <br>{{ file.name }}<a href="/uploads/{{ file.path }}" download> Скачать </a><a href="/uploads/{{ file.path }}" target="_blank"> Открыть </a><hr>
+                    {% endfor %}
+                {% endif %}
+            </div>
         {% include 'elements/post_with_sidebar.html.twig' %}
+        </div>
         {% include 'elements/footer.html.twig' %}
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        let articles = {{ articles|json_encode|raw }};
+    </script>
+    <script src="{{ asset('js/category.js') }}"></script>
 {% endblock %}

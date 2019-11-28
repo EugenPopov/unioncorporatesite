@@ -53,4 +53,35 @@ final class ArticleMapper implements DataMapperInterface
         return $article;
     }
 
+    public function articlesToArray(?Article ...$articles): array
+    {
+        $result = [];
+        foreach ($articles as $article) {
+            $result[$article->getId()] = $this->entityToArray($article);
+        }
+
+        return $result;
+    }
+
+    public function entityToArray(Article $article): array
+    {
+        $array = [
+            'id' => $article->getId(),
+            'title' => $article->getTitle(),
+            'short_description' => $article->getShortDescription(),
+            'description' => $article->getDescription(),
+            'files' => []
+        ];
+
+        foreach ($article->getFiles() as $file) {
+            $array['files'][$file->getId()] = [
+                'id' => $file->getId(),
+                'name' => $file->getName(),
+                'path' => $file->getPath()
+            ];
+        }
+
+        return $array;
+    }
+
 }
