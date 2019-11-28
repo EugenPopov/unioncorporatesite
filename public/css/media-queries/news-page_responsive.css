@@ -2,6 +2,11 @@
     .news_wrapper {
         width: 90%;
     }
+
+    .page-hero__container {
+        width: 90%;
+    }
+
 }
 
 @media (max-width: 400px) {

@@ -5,6 +5,13 @@
     .page-hero {
         width: 90%;
     }
+
+    .laws-content_wrapper_title {
+        max-width: 90%;
+        margin-right: auto;
+        padding: 40px 0 0;
+    }
+
     .page-content_nav-wrapper {
         max-width: 90%;
         margin: auto;
@@ -12,15 +19,6 @@
 
     .page-content_nav-wrapper nav {
         padding: 0;
-    }
-
-    .laws-content_wrapper {
-        max-width: 90%;
-        margin: auto;
-    }
-
-    .laws-content_wrapper_text {
-        max-width: 90%;
     }
 }
 @media (max-width: 768px) {

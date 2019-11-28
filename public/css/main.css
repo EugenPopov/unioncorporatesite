@@ -193,6 +193,61 @@ a {
   border-bottom-color: #02225c;
 }
 
+.laws-content_wrapper {
+  padding-top: 40px;
+  max-width: 85%;
+  margin-left: auto;
+  color: #02225C;
+  display: flex;
+}
+
+.laws-content_wrapper_title {
+  font-size: 36px;
+  line-height: 42px;
+  max-width: 85%;
+  margin-left: auto;
+  color: #02225C;
+}
+
+.laws-content_wrapper_text {
+  font-size: 24px;
+  line-height: 28px;
+  padding: 0 0 100px;
+  max-width: 60%;
+}
+
+.news_wrapper {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 5%;
+}
+
+.news {
+  color: white;
+  border-top: 3px solid;
+  padding-top: 10px;
+}
+
+.news_title {
+  font-size: 40px;
+}
+
+.news_text {
+  padding: 10px 0;
+}
+
+.view_all {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  padding: 10px 0;
+  cursor: pointer;
+  border: 2px solid;
+}
+
 .page-footer__container {
   display: flex;
   position: relative;
