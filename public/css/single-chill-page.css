@@ -78,12 +78,8 @@
     padding: 40px 0 80px;
 }
 
-.view_more a{
-    font-size: 24px;
-    padding: 10px;
+.manipulations a {
     color: white;
-    border-bottom: 2px solid;
-    cursor: pointer;
     transition: all .3s ease-in;
 }
 
