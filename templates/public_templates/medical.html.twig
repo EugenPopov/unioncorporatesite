@@ -35,17 +35,28 @@
             {% endif %}
         </div>
         <div class="laws-content_wrapper">
-            <div class="laws-content_wrapper_text">
-                {% if first_article is not empty %}
-                    {{ first_article.description }}
-                {% endif %}
-            </div>
-            <div id="files">
-                {% if first_article is not empty %}
-                    {% for file in  first_article.files %}
-                        <br>{{ file.name }}<a href="/uploads/{{ file.path }}" download> Скачать </a><a href="/uploads/{{ file.path }}" target="_blank"> Открыть </a><hr>
-                    {% endfor %}
-                {% endif %}
+            <div class="wrap">
+                <div class="laws-content_wrapper_text">
+                    {% set first_article = articles|first %}
+                    {% if first_article is not empty %}
+                        {{ first_article.description }}
+                    {% endif %}
+                </div>
+                <div id="files">
+                    {% if first_article is not empty %}
+                        <div class="files_wrap">
+                            {% for file in  first_article.files %}
+                                <div class="file">
+                                    {{ file.name }}
+                                    <div class="manipulations">
+                                        <a href="/uploads/{{ file.path }}" download> Скачать </a>
+                                        <a href="/uploads/{{ file.path }}" target="_blank"> Открыть </a>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
             </div>
             {% include 'elements/post_with_sidebar.html.twig' %}
         </div>
