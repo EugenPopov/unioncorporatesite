@@ -69,21 +69,6 @@ cms_page:
 cms_page_index:
     path: /
     controller: App\Controller\HomeController::index
-cms_page_laws:
-    path: /zakony
-    controller: App\Controller\HomeController::lawsPage
-cms_page_medical:
-    path: /medical
-    controller: App\Controller\HomeController::medicalPage
-cms_page_single_chill:
-    path: /chill
-    controller : App\Controller\HomeController::singleChillPage
-cms_page_news:
-    path: /news
-    controller: App\Controller\HomeController::news
-cms_page_single_post:
-    path: /post
-    controller: App\Controller\HomeController::singlePost
 #frontend dev/test routes
 front_help:
     path: /front/help
@@ -94,3 +79,9 @@ front_help_item:
 category_main:
     path: /category-{slug}
     controller: App\Controller\CategoryController::index
+news_main:
+    path: /news
+    controller: App\Controller\NewsController::index
+news_post:
+    path: /news-{slug}
+    controller: App\Controller\NewsController::newsPost

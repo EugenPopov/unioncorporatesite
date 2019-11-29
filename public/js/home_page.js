@@ -51,8 +51,10 @@ function render_news_block(array) {
             let item = array[key];
             let article = $('<article class="feed-card news__feed-card news__feed-card">\n' +
                 '                    <div class="feed-card__img-wrapper">\n' +
-                '                        <img class="feed-card__img" src="/uploads/'+item['image']+'" alt="'+item['title']+'">\n' +
-                '                        <time class="feed-card__date-label">'+item['created_at']+'</time>\n' +
+                '                        <a href="/news-'+item['slug']+'">'+
+                '                            <img class="feed-card__img" src="/uploads/'+item['image']+'" alt="'+item['title']+'">\n' +
+                '                            <time class="feed-card__date-label">'+item['created_at']+'</time>\n' +
+                '                        </a>' +
                 '                    </div>\n' +
                 '                    <span class="feed-card__title">'+item['title']+'</span>\n' +
                 '                    <p class="feed-card__text">'+item['description']+'</p>\n' +

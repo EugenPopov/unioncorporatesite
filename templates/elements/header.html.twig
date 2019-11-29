@@ -4,7 +4,7 @@
     </a>
     <nav class="nav page-header__nav">
         <a class="nav__link nav__link_size_md nav__link_theme-light" href="{{ path('cms_page_index') }}">Головна</a>
-        <a class="nav__link nav__link_size_md nav__link_theme-light" href="{{ path('cms_page_news') }}">Новини</a>
+        <a class="nav__link nav__link_size_md nav__link_theme-light" href="{{ path('news_main') }}">Новини</a>
         {% for category in categories %}
             <a class="nav__link nav__link_size_md nav__link_theme-light" href="{{ path('category_main', {'slug': category.slug}) }}">{{ category.title }}</a>
         {% endfor %}

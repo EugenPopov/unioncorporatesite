@@ -20,22 +20,24 @@
             </div>
         </section>
         <div class="news_wrapper">
-            <div class="news">
-                <div class="post_content">
-                    <img class="news_img" src="/img/chill.jpeg" alt="">
-                    <div class="post_title">
-                        Zagolovok
-                    </div>
-                    <div class="post_text">
-                        -Авиотема Авиотема лорем импульс 50 слов -Авиотема Авиотема лорем импульс 50 слов виотема Авиотема лорем импульс 50 слов -Авиотема Авиотема лорем импульс 50 слов виотема Авиотема лорем импульс 50 слов авио тема авио -Авиотема Авиотема лорем импульс 50 слов виотема Авиотема лорем импульс 50 слов авио -Авиотема Авиотема лорем импульс 50 слов виотема Авиотема лорем импульс 50 слов 50 Авиотема лорем импульс 50 слов виотема Авиотема лорем импульс 50 слов авио -Авиотема Авиотема лорем импульс 50 слов Авиотема лорем импульс 50 слов виотема Авиотема лорем импульс 50 слов авио -Авиотема Авиотема лорем импульс 50 слов пульс 50 слов Авиотема лорем импульс 50 слов виотема Авиотема лорем импульс 50 слов авио -Авиотема Авиотема лорем импульс 50 слов  
-                    </div>
-                    <div class="view_more">
-                        <a>
-                            Дивитись дальше
-                        </a>
+            {% for post in news %}
+                <div class="news">
+                    <div class="post_content">
+                        <img class="news_img" src="/uploads/{{ post.mainPhoto }}" alt="">
+                        <div class="post_title">
+                            {{ post.title }}
+                        </div>
+                        <div class="post_text">
+                            {{ post.shortDescription }}
+                        </div>
+                        <div class="view_more">
+                            <a href="{{ path('news_post', {'slug': post.slug}) }}">
+                                Дивитись дальше
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            {% endfor %}
         </div>
         {% include 'elements/footer.html.twig' %}
     </div>
