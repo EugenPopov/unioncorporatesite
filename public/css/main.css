@@ -258,6 +258,14 @@ a {
   margin: 10px 0;
 }
 
+.news-href{
+  cursor: pointer;
+}
+
+.news-href:hover > .feed-card__title {
+  text-decoration: underline;
+}
+
 .news_title {
   font-size: 40px;
 }

@@ -12,7 +12,7 @@ $(document).ready(function() {
         allowFreeEntries: false,
         useCommaKey: false,
         data: arr,
-        placeholder: 'Начните вводить текст'
+        placeholder: 'Почніть вводити назву файла'
     });
     recommend.addToSelection(all_products);
 

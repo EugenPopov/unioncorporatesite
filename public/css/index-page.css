@@ -197,6 +197,7 @@
 .news__feed-card_main .feed-card__title {
     margin-top: 35px;
     font-size: 36px;
+    transition: 2s;
 }
 
 .view_all {

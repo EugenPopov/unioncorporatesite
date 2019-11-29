@@ -51,14 +51,14 @@
                 {% for article in news %}
                     {% if counter < 3 %}
                     <article class="feed-card news__feed-card {% if counter == 0 %}news__feed-card_main{% endif %}">
+                        <a class="news-href" href="{{ path('news_post', {'slug': article.slug}) }}">
                         <div class="feed-card__img-wrapper">
-                            <a href="{{ path('news_post', {'slug': article.slug}) }}">
                                 <img class="feed-card__img" src="/uploads/{{ article.image }}" alt="{{ article.title }}">
-                                <time class="feed-card__date-label" datetime="2019-10">{{ article.created_at|format('Y-m-F') }}</time>
-                            </a>
+                                <time class="feed-card__date-label" datetime="2019-10">{{ article.created_at }}</time>
                         </div>
                         <span class="feed-card__title">{{ article.title }}</span>
-                        <p class="feed-card__text">{{ article.description }}</p>
+                        <p class="feed-card__text">{{ article.short_description }}</p>
+                        </a>
                     </article>
                     {% set counter = counter+1 %}
                     {% endif %}

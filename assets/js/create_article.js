@@ -6,7 +6,7 @@ $(document).ready(function() {
         allowFreeEntries: false,
         useCommaKey: false,
         data: all_products,
-        placeholder: 'Начните вводить текст'
+        placeholder: 'Почніть вводити назву файла'
     });
     $(recommend).on('blur', function () {
         elem.val(JSON.stringify(this.getValue()));
