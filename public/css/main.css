@@ -262,6 +262,18 @@ a {
   font-size: 40px;
 }
 
+.news_date {
+  display: flex;
+  justify-content: flex-end;
+  transform: translateY(-50%);
+}
+
+.news_date p {
+  padding: 10px;
+  background: #02225c;
+  width: fit-content;
+}
+
 .news_text {
   padding: 10px 0;
 }

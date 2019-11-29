@@ -46,6 +46,11 @@
     z-index: 1;
 }
 
+.post_date {
+    font-size: 15px;
+    text-align: end;
+}
+
 .post {
     padding: 75px 0 40px;
     color: white;

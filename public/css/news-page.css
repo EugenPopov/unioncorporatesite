@@ -20,6 +20,8 @@
 .news {
     background: #94b8df;
     margin: 40px 0;
+    padding: unset;
+    border: unset;
 }
 
 .news:first-child {
