@@ -19,11 +19,16 @@
                 Новини
             </div>
         </section>
-        <div class="news_wrapper">
+        <div class="news_wrapper" id="news_wrapper">
             {% for post in news %}
                 <div class="news">
                     <div class="post_content">
                         <img class="news_img" src="/uploads/{{ post.mainPhoto }}" alt="">
+                        <div class="news_date">
+                            <p>
+                                {{ post.createdAt|date('Y-m-j') }}
+                            </p>
+                        </div>
                         <div class="post_title">
                             {{ post.title }}
                         </div>
@@ -32,7 +37,7 @@
                         </div>
                         <div class="view_more">
                             <a href="{{ path('news_post', {'slug': post.slug}) }}">
-                                Дивитись дальше
+                                Дивитись далі
                             </a>
                         </div>
                     </div>

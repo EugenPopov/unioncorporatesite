@@ -4,7 +4,7 @@
         <div class="col-md-12">
             <div class="card card-plain">
                 <div class="card-header card-header-success">
-                    <h4 class="card-title">Cтатті
+                    <h4 class="card-title">Сторінки
                         <button type="button" class="btn btn-sm btn-info"
                                 onclick="window.location.href='{{ path('admin_article_create') }}'">Створити
                         </button>
@@ -35,10 +35,15 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="card-body">
-                                            <h4 class="card-title">{{ item.title }}</h4>
+                                            <h5 class="card-title">Категорія: <a style="text-decoration: underline" href="{{ path('admin_category_update', {'slug': item.category.slug}) }}">{{ item.category.title }}</a> </h5>
+                                            <h4 class="card-title">Назва сторінки: {{ item.title }}</h4>
                                             <p>
                                                 {{ item.description }}
                                             </p>
+                                            <h4 class="card-title">Файли: </h4>
+                                            {% for file in item.files %}
+                                                <a style="text-decoration: underline" href="{{ path('admin_file_update', {'id': file.id}) }}">{{ file.name }}</a><br>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>

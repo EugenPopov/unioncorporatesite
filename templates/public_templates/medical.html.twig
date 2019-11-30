@@ -35,7 +35,7 @@
             {% endif %}
         </div>
         <div class="laws-content_wrapper">
-            <div class="wrap">
+            <div class="wrap medical-wrap">
                 <div class="laws-content_wrapper_text">
                     {% set first_article = articles|first %}
                     {% if first_article is not empty %}
@@ -76,7 +76,7 @@
 
 
 </script>
-
+    {{ parent() }}
     <script>
         let articles = {{ articles|json_encode|raw }};
     </script>
