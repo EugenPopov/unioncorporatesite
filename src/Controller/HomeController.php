@@ -34,29 +34,4 @@ class HomeController extends AbstractController
     {
         return $this->render('home/index.html.twig', ['news' => $this->newsService->findByQueryAndToArray(['isActive' => true], ['createdAt' => 'DESC'])]);
     }
-
-    public function lawsPage()
-    {
-        return $this->render('laws/laws.html.twig');
-    }
-
-    public function medicalPage()
-    {
-        return $this->render('medical/medical.html.twig');
-    }
-
-    public function news()
-    {
-        return $this->render('news/news.html.twig');
-    }
-
-    public function singleChillPage()
-    {
-        return $this->render('chill/single-chill.html.twig');
-    }
-
-    public function singlePost()
-    {
-        return $this->render('news/single_post.html.twig');
-    }
 }

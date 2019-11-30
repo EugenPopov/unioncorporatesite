@@ -33,9 +33,13 @@
                 </div>
                 <div class="view_more">
                     {% for file in article.files %}
-                    <a>
-                        {{ file.name }}<a href="/uploads/{{ file.path }}" download> Скачать </a><a href="/uploads/{{ file.path }}" target="_blank"> Открыть </a>
-                    </a>
+                    <div class="file">
+                        {{ file.name }}
+                        <div class="manipulations">
+                            <a href="/uploads/{{ file.path }}" download> Скачать </a>
+                            <a href="/uploads/{{ file.path }}" target="_blank"> Открыть </a>
+                        </div>
+                    </div>
                     <br>
                     {% endfor %}
                 </div>

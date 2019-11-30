@@ -69,7 +69,7 @@ class NewsService extends CrudManager
             'short_description' => $news->getShortDescription(),
             'image' => $news->getMainPhoto(),
             'type' => $news->getType(),
-            'created_at' => $news->getCreatedAt()->format('Y-m-F'),
+            'created_at' => $news->getCreatedAt()->format('Y-m-j'),
             'slug' => $news->getSlug(),
         ];
     }

@@ -9,6 +9,9 @@
     }
 }
 @media (max-width: 768px) {
+    .laws-wrap{
+        width: 100%;
+    }
     .page-hero_news {
         min-height: 275px;
     }
@@ -54,6 +57,6 @@
     }
 
     .laws-content_wrapper_text {
-        max-width: 95%;
+        width: 95%;
     }
 }

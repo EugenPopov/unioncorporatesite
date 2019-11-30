@@ -6,7 +6,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ path('cms_page_news') }}">Новини</a>
+            <a href="{{ path('news_main') }}">Новини</a>
         </li>
         {% for category in categories %}
             <li>
@@ -14,7 +14,7 @@
             </li>
         {% endfor %}
         <li>
-            <a>Контакти</a>
+            <a href="{{ path('cms_page_index') }}#contacts">Контакти</a>
         </li>
     </ul>
 </div>

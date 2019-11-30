@@ -11,9 +11,7 @@ class HomeController extends AbstractController
 {
     public function index()
     {
-        return $this->render('admin/home/index.html.twig', [
-            'controller_name' => 'CoreController',
-        ]);
+        return $this->redirectToRoute('admin_category_index');
     }
 
     /**

@@ -39,6 +39,10 @@
                                         <p>
                                             {{ item.description }}
                                         </p>
+                                        <h4 class="card-title">Сторінки:</h4>
+                                        {% for article in item.articles %}
+                                            <a style="text-decoration: underline" href="{{ path('admin_article_update', {'slug': article.slug}) }}">{{ article.title }}</a><br>
+                                        {% endfor %}
                                     </div>
                                 </div>
                             </div>

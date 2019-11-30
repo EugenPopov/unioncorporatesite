@@ -50,12 +50,14 @@ function render_news_block(array) {
         Object.keys(array).forEach(function (key) {
             let item = array[key];
             let article = $('<article class="feed-card news__feed-card news__feed-card">\n' +
+                '<a class="news-href" href="/news-'+item['slug']+'">' +
                 '                    <div class="feed-card__img-wrapper">\n' +
-                '                        <img class="feed-card__img" src="/uploads/'+item['image']+'" alt="'+item['title']+'">\n' +
-                '                        <time class="feed-card__date-label">'+item['created_at']+'</time>\n' +
+                '                            <img class="feed-card__img" src="/uploads/'+item['image']+'" alt="'+item['title']+'">\n' +
+                '                            <time class="feed-card__date-label">'+item['created_at']+'</time>\n' +
                 '                    </div>\n' +
                 '                    <span class="feed-card__title">'+item['title']+'</span>\n' +
-                '                    <p class="feed-card__text">'+item['description']+'</p>\n' +
+                '                    <p class="feed-card__text">'+item['short_description']+'</p>\n' +
+                '' +
                 '                </article>');
 
             if(key == 0)

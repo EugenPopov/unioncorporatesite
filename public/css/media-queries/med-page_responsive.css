@@ -22,6 +22,9 @@
     }
 }
 @media (max-width: 768px) {
+    .medical-wrap{
+        width: 100%;
+    }
     .page-hero_news {
         min-height: 275px;
         width: 90%;
