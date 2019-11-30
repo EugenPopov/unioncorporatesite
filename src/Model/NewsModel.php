@@ -52,6 +52,7 @@ class NewsModel implements ModelInterface
 
     /**
      * @param string $title
+     * @return NewsModel
      */
     public function setTitle(string $title): NewsModel
     {
@@ -89,6 +90,7 @@ class NewsModel implements ModelInterface
 
     /**
      * @param string $description
+     * @return NewsModel
      */
     public function setDescription(string $description): NewsModel
     {
@@ -107,6 +109,7 @@ class NewsModel implements ModelInterface
 
     /**
      * @param bool $isActive
+     * @return NewsModel
      */
     public function setIsActive(bool $isActive): NewsModel
     {

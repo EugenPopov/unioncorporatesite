@@ -68,6 +68,7 @@ final class ArticleMapper implements DataMapperInterface
         $array = [
             'id' => $article->getId(),
             'title' => $article->getTitle(),
+            'image' => $article->getImage(),
             'short_description' => $article->getShortDescription(),
             'description' => $article->getDescription(),
             'files' => []
