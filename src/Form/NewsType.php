@@ -49,7 +49,8 @@ class NewsType extends AbstractType
 
             ])
             ->add('isActive',CheckboxType::class,[
-                'label' => "Активна"
+                'label' => "Активна",
+                'required' => false
             ])
             ->add('mainPhoto',FileType::class,[
                 'label' => "Фотографія",

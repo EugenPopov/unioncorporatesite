@@ -4,7 +4,7 @@
 namespace App\Model;
 
 
-use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class ArticleModel implements ModelInterface
@@ -25,6 +25,8 @@ class ArticleModel implements ModelInterface
     private $category;
 
     private $files;
+
+    private $image;
 
     /**
      * ArticleModel constructor.
@@ -123,6 +125,26 @@ class ArticleModel implements ModelInterface
     {
         $this->files = $files;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getImage(): ?UploadedFile
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     * @return ArticleModel
+     */
+    public function setImage(?UploadedFile $image): self
+    {
+        $this->image = $image;
+        return $this;
+    }
+
+
 
 
 

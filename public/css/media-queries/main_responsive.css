@@ -36,6 +36,7 @@
 @media (max-width: 768px) {
     #sidebar li {
         font-size: 35px;
+        cursor: pointer;
     }
 
     .page-content-wrapper_news {

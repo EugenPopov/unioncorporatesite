@@ -29,7 +29,7 @@ abstract class CrudManager implements CrudManagerInterface
         return $this->repository->findAll();
     }
 
-    public function item(string $slug): object
+    public function item(string $slug): ?object
     {
         return $this->repository->findOneBy(['slug' => $slug]);
     }

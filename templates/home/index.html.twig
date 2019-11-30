@@ -75,12 +75,12 @@
             <div class="contacts__subsections">
                 <div class="contacts__subsection">
                     <span class="contacts__subsection-title">Телефон</span>
-                    <a class="contacts__link" href="tel:0442817199">0442817199</a>
-                    <a class="contacts__link" href="tel:+(380)632688240">+(380)632688240</a>
+                    <a class="contacts__link" href="tel:0442817199">{{ settings('landline_phone') }}</a>
+                    <a class="contacts__link" href="tel:+(380)632688240">{{ settings('mobile_phone') }}</a>
                 </div>
                 <div class="contacts__subsection contacts__subsection_w_margin">
                     <span class="contacts__subsection-title">Адреса</span>
-                    <address class="contacts__text">Аеропорт “Бориспіль”</address>
+                    <address class="contacts__text">{{ settings('address') }}</address>
                 </div>
                 <div class="contacts__subsection">
                     <span class="contacts__subsection-title">E-mail</span>

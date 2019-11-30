@@ -380,5 +380,24 @@ a {
 }
 
 .page-footer_news .page-footer__nav {
-  margin-bottom: 70px;
+  margin-bottom: 20px;
+}
+
+.logo-wrap{
+  margin-bottom: 10px;
+  align-items: center;
+  display: flex;
+}
+
+.logo-wrap > a >img{
+  height: 40px;
+  padding-right: 15px;
+}
+
+.logo-wrap > a{
+  cursor: pointer;
+}
+
+.logo-wrap > p{
+  color: #ffffff;
 }
