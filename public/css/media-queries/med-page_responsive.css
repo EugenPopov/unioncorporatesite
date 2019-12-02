@@ -15,6 +15,7 @@
     .page-content_nav-wrapper {
         max-width: 90%;
         margin: auto;
+
     }
 
     .page-content_nav-wrapper nav {
@@ -22,6 +23,10 @@
     }
 }
 @media (max-width: 768px) {
+    .page-header > a{
+        margin-left: 2.5%;
+    }
+
     .medical-wrap{
         width: 100%;
     }
@@ -49,10 +54,6 @@
     .medical_nav {
         width: 95%;
         justify-content: unset;
-    }
-
-    .medical_nav a:first-child {
-        margin-right: 75px;
     }
 }
 
@@ -84,6 +85,15 @@
     .medical_nav a {
         text-align: left;
         font-size: 21px;
+    }
+
+    .medical_nav {
+        flex-direction: column;
+    }
+
+    .medical_nav a {
+        padding: 10px;
+        width: fit-content;
     }
 
     .laws-content_wrapper {

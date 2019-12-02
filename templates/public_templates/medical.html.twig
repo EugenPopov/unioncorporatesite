@@ -1,17 +1,20 @@
 {% extends 'public.html.twig' %}
+{% block title %}
+    {{ category.title }}
+{% endblock %}
 {% block stylesheets %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Page 3</title>
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/med-page.css">
-    <link rel="stylesheet" href="/css/media-queries/main_responsive.css">
-    <link rel="stylesheet" href="/css/media-queries/med-page_responsive.css">
+    <link rel="stylesheet" href="/css/main.css?v=1.0">
+    <link rel="stylesheet" href="/css/med-page.css?v=1.1">
+    <link rel="stylesheet" href="/css/media-queries/main_responsive.css?v=1.0">
+    <link rel="stylesheet" href="/css/media-queries/med-page_responsive.css?v=1.0">
 {% endblock %}
 {% block body %}
     {% include 'elements/mobile_header.html.twig' %}
-    <div class="med-page_wrapper">
+    <div class="med-page_wrapper  page-wrapper">
         <section class="page-hero page-hero_news">
             <div class="page-hero__container">
                 {% include 'elements/header.html.twig' %}
@@ -68,17 +71,15 @@
         src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
-<script>
-    $('.page-hero__nav-toggle').on('click', function () {
-        $('.page-hero__nav-toggle').toggleClass('active');
-        $('#sidebar').slideToggle();
-    })
 
-
-</script>
     {{ parent() }}
     <script>
         let articles = {{ articles|json_encode|raw }};
     </script>
-    <script src="{{ asset('js/category.js') }}"></script>
+    <script src="{{ asset('js/category.js') }}?v=1.0"></script>
+    <script>
+        $(document).ready(function () {
+            $('.plane_wrapper img').addClass('active');
+        })
+    </script>
 {% endblock %}
