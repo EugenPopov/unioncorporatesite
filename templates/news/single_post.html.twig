@@ -24,7 +24,7 @@
                         {{ post.title }}
                     </div>
                     <div class="post_text">
-                        {{ post.description }}
+                        {{ post.description|raw }}
                     </div>
                     <div class="post_date">
                             {{ post.createdAt|date('Y-m-j') }}

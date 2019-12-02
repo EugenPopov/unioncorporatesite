@@ -5,7 +5,7 @@
                 {{ post.title }}
             </div>
             <div class="news_text">
-                {{ post.shortDescription }}
+                {{ post.shortDescription|raw  }}
             </div>
             <a class="view_all view_all_sidebar" href="{{ path('news_post', {'slug': post.slug}) }}">
                 Дізнатись більше

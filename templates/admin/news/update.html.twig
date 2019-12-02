@@ -1,4 +1,10 @@
 {% extends 'admin/admin_base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+{% endblock %}
+
 {% block content %}
     <div class="row">
         <div class="col-md-12">
@@ -15,7 +21,7 @@
                 <div class="form-group">
                     {{ form_widget(form.description,{
                         'attr': {
-                            'class': 'form-control',
+                            'class': 'form-control summernote',
                             'placeholder':'Опис',
                             'rows': 10
                         },
@@ -25,7 +31,7 @@
                 <div class="form-group">
                     {{ form_widget(form.short_description,{
                         'attr': {
-                            'class': 'form-control',
+                            'class': 'form-control summernote',
                             'placeholder':'Короткий опис',
                             'rows': 10
                         },
@@ -78,4 +84,27 @@
     </div>
     </div>
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.summernote').summernote({
+                height: 300,
+                popover: {
+                    image: [],
+                    link: [],
+                    air: []
+                },
+                codemirror: {
+                    theme: 'paper'
+                }
+            });
+        })
+    </script>
+{% endblock %}
+
 
