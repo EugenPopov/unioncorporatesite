@@ -11,7 +11,6 @@ use App\Validator\Slug as AppAssert;
 class SettingsModel implements ModelInterface
 {
     /**
-     * @AppAssert|Slug
      * @Assert\NotBlank()
      */
     private $slug;
