@@ -37,7 +37,7 @@ class ArticleController extends AbstractController
 
     public function index()
     {
-        $articles = $this->articleService->all();
+        $articles = $this->articleService->findBy([], ['createdAt' => 'DESC']);
 
         return $this->render('admin/article/index.html.twig', [
             'articles' => $articles,

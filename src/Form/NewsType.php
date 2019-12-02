@@ -28,7 +28,7 @@ class NewsType extends AbstractType
                 'label' => 'Короткий опис'
             ])
             ->add('description', TextareaType::class, [
-                'label' => 'Опис'
+                'label' => 'Опис',
             ])
             ->add('articleType', ChoiceType::class, [
                 'label' => 'Тип новини',
