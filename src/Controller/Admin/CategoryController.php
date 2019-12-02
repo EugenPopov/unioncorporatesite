@@ -31,7 +31,7 @@ class CategoryController extends AbstractController
 
     public function index()
     {
-        $categories = $this->categoryService->all();
+        $categories = $this->categoryService->findBy([], ['createdAt' => 'DESC']);
 
         return $this->render('admin/category/index.html.twig', [
             'categories' => $categories,
