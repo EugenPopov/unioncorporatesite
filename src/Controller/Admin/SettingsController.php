@@ -62,7 +62,7 @@ class SettingsController extends AbstractController
     {
         $model = $this->mapper->entityToModel($settings);
 
-        $form = $this->createForm(SettingsType::class, $model);
+        $form = $this->createForm(SettingsType::class, $model, ['is_update' => true]);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
@@ -72,7 +72,7 @@ class SettingsController extends AbstractController
             return $this->redirectToRoute('admin_settings_index');
         }
 
-        return $this->render('admin/settings/create.html.twig', [
+        return $this->render('admin/settings/update.html.twig', [
             'form' => $form->createView()
         ]);
     }
