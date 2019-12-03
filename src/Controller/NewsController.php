@@ -27,7 +27,7 @@ class NewsController extends AbstractController
     public function index()
     {
         /** @var News[] $news */
-        $news = $this->newsService->all();
+        $news = $this->newsService->findBy([], ['createdAt' => 'DESC']);
         return $this->render('news/news.html.twig', ['news' => $news]);
     }
 

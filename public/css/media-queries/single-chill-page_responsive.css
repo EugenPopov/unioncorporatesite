@@ -32,6 +32,10 @@
     .hotel-content_title .hotel_img {
         width: 75%;
     }
+
+    .page-header > a > .logo{
+        margin-left: 18%;
+    }
 }
 
 @media (max-width: 440px) {

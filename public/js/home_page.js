@@ -46,7 +46,7 @@ $(document).ready(function () {
 function render_news_block(array) {
     let main_div = $('#news-div');
     main_div.fadeOut('fast', function () {
-        $(this).html('');
+        $(main_div).html('').hide();
         Object.keys(array).forEach(function (key) {
             let item = array[key];
             let article = $('<article class="feed-card news__feed-card news__feed-card">\n' +
@@ -64,9 +64,7 @@ function render_news_block(array) {
                 article.addClass('news__feed-card_main');
 
 
-            main_div.append(article).fadeIn('fast');
-
-
+            main_div.append(article).fadeIn();
         });
     });
 

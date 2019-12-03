@@ -5,6 +5,10 @@
     }
 }
 @media (max-width: 768px) {
+    .page-header > a > .logo{
+        margin-left: 18%;
+    }
+
     .page-hero_news {
         min-height: 150px;
     }

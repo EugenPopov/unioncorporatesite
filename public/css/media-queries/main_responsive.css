@@ -203,6 +203,12 @@
         font-size: 24px;
     }
 }
+@media (max-width: 480px) {
+    #sidebar ul {
+        width: 100% !important;
+        -webkit-overflow-scrolling: touch;
+    }
+}
 @media (max-width: 440px) {
     .features-cards {
         max-width: 100%;

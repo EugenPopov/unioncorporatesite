@@ -4,9 +4,13 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
+        <link rel="icon" href="{{ asset('img/logo.png') }}">
     </head>
     <body>
-        {% block body %}{% endblock %}
+    <div id="wrapper">
+        {% block body %}
+        {% endblock %}
+    </div>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

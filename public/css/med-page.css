@@ -14,8 +14,9 @@
     flex-wrap: wrap;
 }
 
+
 .page-hero__title {
-    z-index: 1;
+    z-index: 0;
     width: 50%;
     display: flex;
     flex-wrap: wrap;
@@ -27,13 +28,19 @@
 }
 
 .plane_wrapper img {
+    object-fit: contain;
     max-width: 90%;
-    position: absolute;
     right: 0;
+    transform: scale(.25) translate(-100px, 200px);
+    transition: all .4s ease-in;
+}
+
+.plane_wrapper img.active {
+    transform: scale(1) translate(0);
 }
 
 .medical_nav {
-    width: 35%;
+    width: fit-content;
     margin-left: auto;
     padding-right: 8%;
     color: white;
@@ -49,10 +56,10 @@
 }
 
 .medical_nav a {
-    padding-bottom: 25px;
+    padding: 0 10px 25px;
     font-size: 24px;
     text-align: center;
-    transition: all .3s ease-in;
+    transition: color .3s ease-in;
 }
 
 .medical_nav a:hover{
