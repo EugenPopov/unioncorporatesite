@@ -16,6 +16,14 @@
     .hotel-content_title .hotel_img {
         width: 75%;
     }
+
+    .post_title {
+        font-size: 43px;
+    }
+
+    .post_text * {
+        font-size: 18px!important;
+    }
 }
 
 @media (max-width: 440px) {
@@ -31,7 +39,7 @@
     }
 
     .post_title {
-        font-size: 60px;
+        font-size: 45px;
     }
 
     .post_text {

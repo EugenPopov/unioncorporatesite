@@ -21,7 +21,7 @@ function renderArticle(array) {
         Object.keys(array.files).forEach(function (item) {
             let elem = array.files[item];
             let file_div = $('<div class="file"></div>');
-            file_div.append(`${elem.name}<div class="manipulations"><a href="/uploads/${elem.path}" download> Скачать </a><a href="/uploads/${elem.path}" target="_blank"> Открыть </a></div>`);
+            file_div.append(`${elem.name}<div class="manipulations"><a href="/uploads/${elem.path}" download> Завантажити </a><a href="/uploads/${elem.path}" target="_blank"> Відкрити </a></div>`);
             files_wrap.append(file_div);
         });
         files_div.append(files_wrap);

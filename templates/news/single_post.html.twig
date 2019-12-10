@@ -26,7 +26,7 @@
                     <div class="post_title">
                         {{ post.title }}
                     </div>
-                    <div class="post_text">
+                    <div class="post_text" style="font-family: FuturaMediumC, sans-serif;">
                         {{ post.description|raw }}
                     </div>
                     <div class="post_date">
@@ -38,3 +38,13 @@
         {% include 'elements/footer.html.twig' %}
     </div>
 {% endblock %}
+
+
+{#{% block javascripts %}#}
+{#    {{ parent() }}#}
+{#    <script>#}
+{#        $('iframe').each(function () {#}
+{#            $(this).css('width', '95vw');#}
+{#        })#}
+{#    </script>#}
+{#{% endblock %}#}

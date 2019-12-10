@@ -35,7 +35,7 @@ final class ArticleMapper implements DataMapperInterface
 
         $model->setTitle($article->getTitle())
               ->setDescription($article->getDescription())
-              ->setShortDescription($article->getShortDescription())
+//              ->setShortDescription($article->getShortDescription())
               ->setCategory($article->getCategory())
         ;
 
@@ -47,7 +47,7 @@ final class ArticleMapper implements DataMapperInterface
     {
         $article->setTitle($model->getTitle());
         $article->setDescription($model->getDescription());
-        $article->setShortDescription($model->getShortDescription());
+//        $article->setShortDescription($model->getShortDescription());
         $article->setCategory($model->getCategory());
 
         return $article;
@@ -69,7 +69,7 @@ final class ArticleMapper implements DataMapperInterface
             'id' => $article->getId(),
             'title' => $article->getTitle(),
             'image' => $article->getImage(),
-            'short_description' => $article->getShortDescription(),
+//            'short_description' => $article->getShortDescription(),
             'description' => $article->getDescription(),
             'files' => []
         ];

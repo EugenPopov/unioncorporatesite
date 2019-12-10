@@ -19,20 +19,22 @@
                     }) }}
                 </div>
                 <div class="form-group">
-                    {{ form_widget(form.description,{
+                    Короткий опис
+                    {{ form_widget(form.short_description,{
                         'attr': {
-                            'class': 'form-control summernote',
-                            'placeholder':'Опис',
+                            'class': 'form-control ',
+                            'placeholder':'Кр . Опис',
                             'rows': 10
                         },
 
                     }) }}
                 </div>
                 <div class="form-group">
-                    {{ form_widget(form.short_description,{
+                    Опис
+                    {{ form_widget(form.description,{
                         'attr': {
-                            'class': 'form-control summernote   ',
-                            'placeholder':'Кр . Опис',
+                            'class': 'form-control summernote',
+                            'placeholder':'Опис',
                             'rows': 10
                         },
 
@@ -103,7 +105,13 @@
                 },
                 codemirror: {
                     theme: 'paper'
-                }
+                },
+                fontName: 'Arial',
+                toolbar: [
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link', 'picture']],
+                ],
             });
         })
     </script>

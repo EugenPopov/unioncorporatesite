@@ -12,10 +12,10 @@ class CategoryModel implements ModelInterface
      * @var string
      */
     private $title;
-    /**
-     * @var string
-     */
-    private $description;
+//    /**
+//     * @var string
+//     */
+//    private $description;
     /**
      * @var bool
      */
@@ -55,24 +55,24 @@ class CategoryModel implements ModelInterface
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getDescription(): ?string
-    {
-        return $this->description;
-
-    }
-
-    /**
-     * @param string $description
-     */
-    public function setDescription(string $description): CategoryModel
-    {
-        $this->description = $description;
-
-        return $this;
-    }
+//    /**
+//     * @return string
+//     */
+//    public function getDescription(): ?string
+//    {
+//        return $this->description;
+//
+//    }
+//
+//    /**
+//     * @param string $description
+//     */
+//    public function setDescription(string $description): CategoryModel
+//    {
+//        $this->description = $description;
+//
+//        return $this;
+//    }
 
     /**
      * @return bool

@@ -1,16 +1,11 @@
 @font-face {
-  font-family: FuturaDemiC;
+  font-family: 'FuturaMediumC';
+  src: url('../fonts/FuturaMediumC.eot');
   src: url("../fonts/futurademic.otf") format("opentype");
-}
-
-@font-face {
-  font-family: FuturaMediumC;
-  src: url("../fonts/futuramediumc.otf") format("opentype");
-}
-
-@font-face {
-  font-family: FuturaBookC;
-  src: url("../fonts/futurabookc.ttf") format("truetype");
+  src: url("../fonts/FuturaMediumC.ttf") format("truetype");
+  url('FuturaMediumC.woff') format('woff'),
+  font-weight: normal;
+  font-style: normal;
 }
 
 *,
@@ -22,7 +17,7 @@
 }
 
 body {
-  font-family: FuturaMediumC, sans-serif;
+  font-family: 'FuturaMediumC', sans-serif;
 }
 
 a {
@@ -40,9 +35,9 @@ a {
 
 .page-hero_news {
   min-height: 653px;
-  background-image: url("../img/page1_hero_bg.png");
+  background-image: url(../img/page1_hero_bg.png);
   background-size: cover;
-  background-position-y: bottom;
+  background-position-y: center;
 }
 
 .page-hero_news .page-hero__container {
@@ -135,6 +130,7 @@ a {
 }
 
 .page-header__nav .nav__link {
+  word-break: break-all;
   margin-right: 5px;
   padding: 0 10px 25px;
   text-align: center;
@@ -165,7 +161,7 @@ a {
 }
 
 #sidebar ul {
-  height: 84%;
+  height: 76%;
   width: 100%;
   margin: 5px auto auto 20px;
   color: white;
@@ -250,9 +246,9 @@ a {
 .file {
   padding: 10px 0;
   display: flex;
-  justify-content: space-between;
   color: white;
   font-size: 20px;
+  justify-content: space-between;
 }
 
 .manipulations a {
@@ -288,8 +284,13 @@ a {
   cursor: pointer;
 }
 
-.news-href:hover > .feed-card__title {
-  text-decoration: underline;
+.feed-card {
+  padding: 5px;
+  transition: all .3s ease-in;
+}
+
+.feed-card:hover {
+    box-shadow: 0 0 20px 2px lightgrey;
 }
 
 .news_title {

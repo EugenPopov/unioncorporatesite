@@ -6,13 +6,28 @@ require('./core/perfect-scrollbar.jquery.min');
 require('./core/bootstrap-selectpicker');
 require('./core/bootstrap-notify');
 
+$(document).on('click', '#open-sidebar', function () {
+    $('.wrapper > .sidebar').css('display', 'contents');
+    $('.main-panel').hide();
+    $('#close-sidebar').show();
+});
 
-(function() {
-    $('a').each(function () {
-        if($(this).attr('href') === location.pathname)
-            $(this).parent().addClass('active');
-    })
-})();
+$(document).on('click', '#close-sidebar', function () {
+    $('.wrapper > .sidebar').css('display', 'none');
+    $('.main-panel').show();
+    $('#close-sidebar').hide();
+
+});
+
+let url = location.pathname;
+
+
+$('a').each(function () {
+    if($(this).attr('href') === location.pathname)
+        $(this).parent().addClass('active');
+    else if(url.includes($(this).attr('href')))
+        $(this).parent().addClass('active');
+});
 
 (function() {
     let isWindows = navigator.platform.indexOf('Win') > -1;

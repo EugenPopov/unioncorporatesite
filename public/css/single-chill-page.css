@@ -14,6 +14,17 @@
 .single-chill_wrapper {
     background: #94b8df;
 }
+.manipulations{
+    width: 70%;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+.file-title{
+    word-break: break-all;
+    width: 30%;
+}
 .hotel_wrapper {
     position: relative;
     background: #94b8df;
@@ -51,12 +62,12 @@
     padding: 50px 0;
     display: flex;
     flex-direction: column;
-    z-index: 0;
+    z-index: 1;
 }
 
 .hotel-content_title {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .hotel-content_title > span{
@@ -68,9 +79,9 @@
 }
 
 .hotel_wrapper-content span {
-    width: 40%;
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     font-size: 75px;
     color: white;

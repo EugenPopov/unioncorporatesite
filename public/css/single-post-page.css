@@ -71,6 +71,13 @@
     padding: 40px 0 80px;
 }
 
+.post_text * {
+    word-break: break-all!important;
+    color: white!important;
+    background-color: unset!important;
+    object-fit: contain!important;
+}
+
 .page-footer {
     background-color: #02225c;
 }

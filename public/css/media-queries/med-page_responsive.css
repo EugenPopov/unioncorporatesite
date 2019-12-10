@@ -7,6 +7,7 @@
     }
 
     .laws-content_wrapper_title {
+        word-break: break-all;
         max-width: 90%;
         margin-right: auto;
         padding: 40px 0 0;
@@ -54,6 +55,7 @@
     .medical_nav {
         width: 95%;
         justify-content: unset;
+        align-items: flex-end;
     }
 }
 
@@ -94,6 +96,7 @@
     .medical_nav a {
         padding: 10px;
         width: fit-content;
+        text-align: right;
     }
 
     .laws-content_wrapper {
