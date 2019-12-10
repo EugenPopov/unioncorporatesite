@@ -16390,6 +16390,17 @@ label {
   font-weight: 400;
 }
 
+@media (max-width: 991px) {
+  #open-sidebar{
+    display: block !important;
+  }
+
+  .nav p{
+    font-size: 30px !important;
+  }
+}
+
+
 /*           Animations              */
 
 .animation-transition-general,
@@ -18273,6 +18284,7 @@ Copyright (c) 2015 Daniel Eden
   }
   .sidebar .sidebar-wrapper {
     padding-bottom: 60px;
+    width: 100%;
   }
   .sidebar .nav-mobile-menu {
     margin-top: 0;
@@ -18414,7 +18426,6 @@ Copyright (c) 2015 Daniel Eden
     height: 100%;
     width: 100%;
     position: absolute;
-    background-color: #282828;
     display: block;
     content: "";
     z-index: 1;

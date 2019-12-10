@@ -1,40 +1,24 @@
 {% extends 'base.html.twig' %}
 {% block title %}Boryspil/Aero/Union Admin{% endblock %}
 {% block stylesheets %}
-  <link rel="stylesheet"
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet"
         type="text/css"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   {{ encore_entry_link_tags('admin') }}
 {% endblock %}
 {% block body %}
   <div class="wrapper">
-    <div class="sidebar" data-color="green" data-background-color="white">
-      <!--
-      Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-      Tip 2: you can also add an image using data-image tag-->
-      <div class="logo">
-        <a href="#" class="simple-text logo-mini">
-          Union Boryspil Airport
-        </a>
-      </div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">
-              <i class="material-icons">dashboard</i>
-              <p>Головна</p>
-            </a>
-          </li>
-          <!-- your sidebar here -->
-        </ul>
-      </div>
-    </div>
+    {% include 'admin/elements/admin_nav.html.twig' %}
     <div class="main-panel">
       <!-- Navbar -->
       {% include 'admin/elements/admin_nav.html.twig' %}
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
+          <img id="open-sidebar" style="display: none; height: 80px;" src="{{ asset('content/sidebar.svg') }}" >
           {% block content %}
           {% endblock %}
         </div>

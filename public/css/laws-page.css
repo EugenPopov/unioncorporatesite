@@ -11,6 +11,13 @@
     background: unset;
 }
 
+.manipulations {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
 .plane_wrapper img {
     object-fit: contain;
     width: 80vw;

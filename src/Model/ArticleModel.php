@@ -13,10 +13,10 @@ class ArticleModel implements ModelInterface
      * @Assert\NotBlank()
      */
     private $title;
-    /**
-     * @Assert\NotBlank()
-     */
-    private $short_description;
+//    /**
+//     * @Assert\NotBlank()
+//     */
+//    private $short_description;
     /**
      * @Assert\NotBlank()
      */
@@ -74,23 +74,23 @@ class ArticleModel implements ModelInterface
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getShortDescription()
-    {
-        return $this->short_description;
-    }
-
-    /**
-     * @param mixed $short_description
-     * @return ArticleModel
-     */
-    public function setShortDescription($short_description)
-    {
-        $this->short_description = $short_description;
-        return $this;
-    }
+//    /**
+//     * @return mixed
+//     */
+//    public function getShortDescription()
+//    {
+//        return $this->short_description;
+//    }
+//
+//    /**
+//     * @param mixed $short_description
+//     * @return ArticleModel
+//     */
+//    public function setShortDescription($short_description)
+//    {
+//        $this->short_description = $short_description;
+//        return $this;
+//    }
 
     /**
      * @return mixed

@@ -1,6 +1,6 @@
 .page-hero__title {
     display: inline-block;
-    font-family: FuturaDemiC;
+    font-family: "FuturaMediumC", sans-serif;
     font-size: 96px;
 }
 
@@ -49,9 +49,12 @@
 .features-cards__text-card {
     min-height: 400px;
     transition: all .3s ease-in;
+    min-width: 350px;
+    background-color: #02225C;
 }
 .features-cards__text-card:hover {
-    filter: brightness(60%);
+    transform: scale(.97);
+    box-shadow: 0 0 10px 2px #94b8df;
 }
 .features-cards__text-card:nth-child(2),
 .features-cards__text-card:nth-child(3) {
@@ -60,11 +63,11 @@
 }
 
 .features-cards__text-card:nth-child(2) {
-    background-image: url("../img/feature1_bg.png");
+    background-image: url("../img/feature3_bg.jpg");
 }
 
 .features-cards__text-card:nth-child(3) {
-    background-image: url("../img/feature2_bg.png");
+    background-color: #94b8df;
 }
 
 .text-card__title {
@@ -74,8 +77,8 @@
 }
 
 .text-card__desc {
-    font-family: FuturaBookC;
-    font-size: 18px;
+    font-family: "FuturaMediumC", sans-serif;
+    font-size: 24px;
     line-height: 20px;
     color: #fff;
 }
@@ -174,7 +177,7 @@
 
 .news__feed-card .feed-card__text {
     margin-top: 22px;
-    font-family: FuturaBookC;
+    font-family: "FuturaMediumC", sans-serif;
     font-size: 18px;
     line-height: 30px;
 }
@@ -230,15 +233,28 @@
 
 .contacts_news .contacts__subsection {
     margin-top: 33px;
+    display: flex;
+    flex-direction: column;
 }
 
 .contacts_news .contacts__subsection_w_margin {
     margin-left: 57px;
 }
 
+.contacts_sections {
+    display: flex;
+    flex-direction: row;
+}
+
 .contacts__subsections {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.contacts__subsections:nth-child(2) {
+    margin-left: 50px;
+    max-width: 50%;
 }
 
 .contacts__subsection-title {
@@ -258,7 +274,7 @@
 
 .contacts__link,
 .contacts__text {
-    font-family: FuturaBookC;
+    font-family: "FuturaMediumC", sans-serif;
     display: block;
     font-size: 18px;
     font-style: normal;

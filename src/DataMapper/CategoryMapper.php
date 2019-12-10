@@ -15,7 +15,7 @@ final class CategoryMapper implements DataMapperInterface
         $model = new CategoryModel();
 
         $model->setTitle($category->getTitle())
-              ->setDescription($category->getDescription())
+//              ->setDescription($category->getDescription())
               ->setIsActive($category->getIsActive())
               ->setTemplate($category->getTemplate())
               ->setIsOnFooter($category->getIsOnFooter())
@@ -28,7 +28,7 @@ final class CategoryMapper implements DataMapperInterface
     public function modelToEntity(ModelInterface $model, EntityInterface $category): EntityInterface
     {
         $category->setTitle($model->getTitle());
-        $category->setDescription($model->getDescription());
+//        $category->setDescription($model->getDescription());
         $category->setIsActive($model->isActive());
         $category->setTemplate($model->getTemplate());
         $category->setIsOnFooter($model->IsOnFooter());

@@ -6,6 +6,10 @@
     .page-hero__container {
         width: 90%;
     }
+
+    .post_title {
+        font-size: 43px;
+    }
 }
 
 @media (max-width: 400px) {
@@ -19,5 +23,6 @@
 
     .post_title {
         padding: 20px 0;
+        font-size: 35px;
     }
 }

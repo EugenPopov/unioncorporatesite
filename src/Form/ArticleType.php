@@ -21,9 +21,9 @@ class ArticleType extends AbstractType
             ->add('title', TextType::class, [
                 'label' => 'Заголовок'
             ])
-            ->add('short_description', TextareaType::class, [
-                'label' => 'Опис'
-            ])
+//            ->add('short_description', TextareaType::class, [
+//                'label' => 'Опис'
+//            ])
             ->add('description', TextareaType::class, [
                 'label' => 'Опис'
             ])

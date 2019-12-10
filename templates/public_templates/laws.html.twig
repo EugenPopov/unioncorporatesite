@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Page 2</title>
-    <link rel="stylesheet" href="/css/main.css?v=1.0">
+    <link rel="stylesheet" href="/css/main.css?v=1.1">
     <link rel="stylesheet" href="/css/laws-page.css?v=1.0">
-    <link rel="stylesheet" href="/css/media-queries/main_responsive.css?v=1.0">
+    <link rel="stylesheet" href="/css/media-queries/main_responsive.css?v=1.1">
     <link rel="stylesheet" href="/css/media-queries/laws-page_responsive.css?v=1.0">
 {% endblock %}
 {% block body %}
@@ -49,8 +49,8 @@
                                 <div class="file">
                                     {{ file.name }}
                                     <div class="manipulations">
-                                        <a href="/uploads/{{ file.path }}" download> Скачать </a>
-                                        <a href="/uploads/{{ file.path }}" target="_blank"> Открыть </a>
+                                        <a href="/uploads/{{ file.path }}" download> Завантажити </a>
+                                        <a href="/uploads/{{ file.path }}" target="_blank"> Відкрити </a>
                                     </div>
                                 </div>
                             {% endfor %}
@@ -69,7 +69,7 @@
     <script>
         let articles = {{ articles|json_encode|raw }};
     </script>
-    <script src="{{ asset('js/category.js') }}?v=1.0"></script>
+    <script src="{{ asset('js/category.js') }}?v=1.1"></script>
     <script>
         $(document).ready(function () {
             $('.plane_wrapper img').addClass('active');

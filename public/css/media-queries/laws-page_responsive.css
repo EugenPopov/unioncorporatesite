@@ -39,11 +39,15 @@
     .page-content_nav-wrapper_title {
         flex-wrap: wrap;
         place-self: center;
+        max-width: 50%;
+        font-size: 30px;
+        line-height: normal;
     }
 
     .page-content_nav-wrapper nav {
         flex-direction: column;
         border-bottom: unset;
+        max-width: 50%;
     }
 
     .page-content_nav-wrapper nav a {

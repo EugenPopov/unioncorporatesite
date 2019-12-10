@@ -1,4 +1,4 @@
-import './app';
+// import './app';
 import '../css/index-page.css';
 import '../css/media-queries/index-page_responsive.css';
 

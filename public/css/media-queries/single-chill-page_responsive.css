@@ -4,7 +4,7 @@
     }
 
     .hotel-content_title span {
-        width: unset;
+            width: 90%;
         justify-content: flex-start;
         padding-top: 20px;
     }
@@ -21,8 +21,15 @@
     }
 }
 @media (max-width: 768px) {
+    .manipulations{
+        padding-left: 25px;
+    }
     .page-hero_news {
         min-height: 150px;
+    }
+
+    .hotel_text {
+        font-size: 18px;
     }
 
     .page_title {
