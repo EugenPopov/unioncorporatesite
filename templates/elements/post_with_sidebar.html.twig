@@ -1,0 +1,16 @@
+<div class="news_wrapper">
+    {% for post in last_news() %}
+        <div class="news">
+            <div class="news_title">
+                {{ post.title }}
+            </div>
+            <div class="news_text">
+                {{ post.shortDescription|raw }}
+            </div>
+            <a class="view_all view_all_sidebar" href="{{ path('news_post', {'slug': post.slug}) }}">
+                Дізнатись більше
+            </a>
+        </div>
+    {% endfor %}
+</div>
+

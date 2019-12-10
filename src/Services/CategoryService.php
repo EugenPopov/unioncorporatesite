@@ -4,73 +4,57 @@
 namespace App\Services;
 
 
-use App\Collection\TemplateCollection;
 use App\DataMapper\CategoryMapper;
-use App\Entity\Article;
-use App\Entity\ArticleTranslation;
 use App\Entity\Category;
-use App\Model\CategoryModel;
-use App\Model\ContentModel;
 use App\Repository\CategoryRepository;
+use App\Services\CMS\CmsService;
+use App\Services\CrudManager\CrudManager;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Finder\Finder;
 
-class CategoryService
+class CategoryService extends CrudManager
 {
-    /**
-     * @var CategoryRepository
-     */
-    private $categoryRepository;
-    /**
-     * @var EntityManagerInterface
-     */
-    private $entityManager;
-    /**
-     * @var CategoryMapper
-     */
-    private $mapper;
 
-    public function __construct(CategoryRepository $categoryRepository, EntityManagerInterface $entityManager, CategoryMapper $mapper)
+
+    private $cmsService;
+    private $template_folder;
+
+    public function __construct($template_folder, CategoryRepository $repository, EntityManagerInterface $entityManager, CategoryMapper $mapper, CmsService $cmsService)
     {
-        $this->categoryRepository = $categoryRepository;
-        $this->entityManager = $entityManager;
-        $this->mapper = $mapper;
+        parent::__construct($repository ,$entityManager, $mapper);
+        $this->cmsService = $cmsService;
+        $this->template_folder = $template_folder;
     }
 
-    public function all()
+    public function getCategoryWithArticles(int $id): ?Category
     {
-        return $this->categoryRepository->findAll();
+        $category = $this->repository->getCategoryWithArticles($id);
+        if($category)
+            return $category[0];
+
+        return null;
     }
 
-    public function item(string $slug): Category
+    public function getTemplates(): iterable
     {
-        return $this->categoryRepository->findOneBy(['slug' => $slug]);
+        return $this->cmsService->getAllTemplates();
     }
 
-    public function createCategory(CategoryModel $model): Category
+    public function getDefaultTemplate()
     {
-        $category = $this->mapper->modelToEntity($model, new Category());
-
-        $this->entityManager->persist($category);
-        $this->entityManager->flush();
-
-        return $category;
+        return $this->repository->findOneBy(['template' => 'main']);
     }
 
-    public function updateCategory(CategoryModel $model , Category $category): Category
+    public function getTemplatesOptionForForm(): array
     {
-        $category = $this->mapper->modelToEntity($model, $category);
-        $this->entityManager->flush();
+        $options = [];
+        $options['templates'] = $this->cmsService->getAllTemplates();
 
-        return $category;
+        return $options;
     }
 
-    public function deleteCategory(Category $category): void
+    public function getTemplate(string $template): ?string
     {
-        if ($category) {
-            $this->entityManager->remove($category);
-            $this->entityManager->flush();
-        }
+        return $this->template_folder.$this->cmsService->getTemplateDescription($template);
     }
 
 }

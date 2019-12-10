@@ -1,0 +1,48 @@
+@media (max-width: 1110px) {
+    .post_wrapper-content {
+        width: 90%;
+        margin: auto;
+    }
+}
+@media (max-width: 768px) {
+    .page-header > a > .logo{
+        margin-left: 18%;
+    }
+
+    .page-hero_news {
+        min-height: 150px;
+    }
+
+    .hotel-content_title .hotel_img {
+        width: 75%;
+    }
+
+    .post_title {
+        font-size: 43px;
+    }
+
+    .post_text * {
+        font-size: 18px!important;
+    }
+}
+
+@media (max-width: 440px) {
+    .post_wrapper-content {
+        width: 95%;
+    }
+
+    .post {
+        padding: 40px 0;
+    }
+    .post_img {
+        width: 100%;
+    }
+
+    .post_title {
+        font-size: 45px;
+    }
+
+    .post_text {
+        width: 100%;
+    }
+}

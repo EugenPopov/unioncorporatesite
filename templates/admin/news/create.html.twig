@@ -1,0 +1,118 @@
+{% extends 'admin/admin_base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Додати Новину</h2>
+            <div class="card card-plain">
+                {{ form_start(form) }}
+                <div class="form-group">
+                    {{ form_row(form.title,{
+                        'attr': {
+                            'class': 'textarea form-control'
+                        }
+                    }) }}
+                </div>
+                <div class="form-group">
+                    Короткий опис
+                    {{ form_widget(form.short_description,{
+                        'attr': {
+                            'class': 'form-control ',
+                            'placeholder':'Кр . Опис',
+                            'rows': 10
+                        },
+
+                    }) }}
+                </div>
+                <div class="form-group">
+                    Опис
+                    {{ form_widget(form.description,{
+                        'attr': {
+                            'class': 'form-control summernote',
+                            'placeholder':'Опис',
+                            'rows': 10
+                        },
+
+                    }) }}
+                </div>
+                <div class="form-group">
+                    Категорія на головній сторінці
+                    {{ form_widget(form.articleType,{
+                        'attr': {
+                            'class': 'form-control',
+                            'rows': 10
+                        },
+
+                    }) }}
+                </div>
+
+                    <div class="form-file-upload form-file-simple">
+                        {{ form_widget(form.mainPhoto,{
+                            'attr': {
+                                'class': 'form-control inputFileVisible ',
+                                'placeholder':'Фото',
+                                'rows': 10
+                            },
+
+                        }) }}
+                    </div>
+
+                <div class="form-check">
+                    <label class="form-check-label">
+                        {{ form_widget(form.isActive,{
+                            'attr': {
+                                'class': 'form-check-input',
+                                'rows': 10
+                            },
+
+                        }) }}
+                        Активна
+                        <span class="form-check-sign">
+                                <span class="check"></span>
+                        </span>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary" type="submit">
+                       Ok
+                    </button>
+                </div>
+            </div>
+            {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.summernote').summernote({
+                height: 300,
+                popover: {
+                    image: [],
+                    link: [],
+                    air: []
+                },
+                codemirror: {
+                    theme: 'paper'
+                },
+                fontName: 'Arial',
+                toolbar: [
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link', 'picture']],
+                ],
+            });
+        })
+    </script>
+{% endblock %}

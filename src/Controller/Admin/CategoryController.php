@@ -2,12 +2,10 @@
 
 namespace App\Controller\Admin;
 
+use App\DataMapper\CategoryMapper;
+use App\Entity\Category;
 use App\Form\CategoryType;
-use App\Form\ContentType;
 use App\Model\CategoryModel;
-use App\Model\ContentModel;
-use App\Repository\CategoryRepository;
-use App\Service\ContentHandler\ArticleHandler\ArticleHandlerInterface;
 use App\Services\CategoryService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,14 +18,20 @@ class CategoryController extends AbstractController
      */
     private $categoryService;
 
-    public function __construct(CategoryService $categoryService)
+    /**
+     * @var CategoryMapper
+     */
+    private $mapper;
+
+    public function __construct(CategoryService $categoryService,CategoryMapper $mapper)
     {
         $this->categoryService = $categoryService;
+        $this->mapper = $mapper;
     }
 
     public function index()
     {
-        $categories = $this->categoryService->all();
+        $categories = $this->categoryService->findBy([], ['createdAt' => 'DESC']);
 
         return $this->render('admin/category/index.html.twig', [
             'categories' => $categories,
@@ -38,12 +42,12 @@ class CategoryController extends AbstractController
     {
         $model = new CategoryModel();
 
-        $form = $this->createForm(CategoryType::class, $model);
+        $form = $this->createForm(CategoryType::class, $model, $this->categoryService->getTemplatesOptionForForm());
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
-            $this->categoryService->createCategory($data);
+            $this->categoryService->create($data, new Category());
 
             return $this->redirectToRoute('admin_category_index');
         }
@@ -53,21 +57,30 @@ class CategoryController extends AbstractController
         ]);
     }
 
-    public function update()
+    public function update(Category $category, Request $request): Response
     {
-        $categories = $this->categoryService->all();
+        $model = $this->mapper->entityToModel($category);
 
-        return $this->render('admin/category/index.html.twig', [
-            'categories' => $categories,
+        $form = $this->createForm(CategoryType::class, $model, $this->categoryService->getTemplatesOptionForForm());
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $this->categoryService->update($data, $category);
+
+            return $this->redirectToRoute('admin_category_index');
+        }
+
+        return $this->render('admin/category/update.html.twig', [
+            'form' => $form->createView()
         ]);
+
     }
 
-    public function delete(string $slug)
+    public function delete(Category $category)
     {
-        $categories = $this->categoryService->all();
+        $this->categoryService->delete($category);
 
-        return $this->render('admin/category/index.html.twig', [
-            'categories' => $categories,
-        ]);
+        return $this->redirectToRoute('admin_category_index');
     }
 }

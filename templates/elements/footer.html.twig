@@ -1,0 +1,29 @@
+<footer class="page-footer page-footer_news">
+    <header class="page-footer__container">
+        <a href="{{ path('cms_page_index') }}">
+            <img class="logo logo_size_lg page-footer__logo" src="/img/logo.png" alt="Логотип НПСПАБ">
+        </a>
+        <div>
+            <nav class="nav page-footer__nav">
+                <a class="nav__link nav__link_size_md nav__link_theme-light" href="{{ path('news_main') }}">Новини</a>
+{#                {% if categories is not defined %}#}
+{#                    {% set categories = all_categories() %}#}
+{#                {% endif %}#}
+{#                {% for category in categories %}#}
+{#                    {% if category.isOnFooter %}#}
+{#                        <a class="nav__link nav__link_size_md nav__link_theme-light" href="{{ path('category_main', {'slug': category.slug}) }}">{{ category.title }}</a>#}
+{#                    {% endif %}#}
+{#                {% endfor %}#}
+                <a class="nav__link nav__link_size_md nav__link_theme-light" href="{{ path('cms_page_index') }}#contacts">Контакти</a>
+            </nav>
+            <div class="logo-wrap">
+                <a href="https://octowice.com/">
+                    <img src="/img/OctoLogo.png" alt>
+                </a>
+                <p>
+                    За підтримки <b>OctoWice</b>
+                </p>
+            </div>
+        </div>
+    </header>
+</footer>

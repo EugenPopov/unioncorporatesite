@@ -1,3 +1,4 @@
+#admin routes
 admin_index:
     path: /admin
     controller: App\Controller\Admin\HomeController::index
@@ -7,9 +8,80 @@ admin_category_index:
 admin_category_create:
     path: /admin/categories/create
     controller: App\Controller\Admin\CategoryController::create
+admin_category_update:
+    path: /admin/categories/{slug}/update
+    controller: App\Controller\Admin\CategoryController::update
+admin_category_delete:
+    path: /admin/categories/{slug}/delete
+    controller: App\Controller\Admin\CategoryController::delete
+admin_settings_index:
+    path: /admin/settings
+    controller: App\Controller\Admin\SettingsController::index
+admin_settings_create:
+    path: /admin/settings/create
+    controller: App\Controller\Admin\SettingsController::create
+admin_settings_update:
+    path: /admin/settings/{slug}/update
+    controller: App\Controller\Admin\SettingsController::update
+admin_settings_delete:
+    path: /admin/settings/{slug}/delete
+    controller: App\Controller\Admin\SettingsController::delete
+admin_article_index:
+    path: /admin/articles
+    controller: App\Controller\Admin\ArticleController::index
+admin_article_create:
+    path: /admin/articles/create
+    controller: App\Controller\Admin\ArticleController::create
+admin_article_update:
+    path: /admin/articles/{slug}/update
+    controller: App\Controller\Admin\ArticleController::update
+admin_article_delete:
+    path: /admin/articles/{slug}/delete
+    controller: App\Controller\Admin\ArticleController::delete
+admin_news_index:
+    path: /admin/news
+    controller: App\Controller\Admin\NewsController::index
+admin_news_create:
+    path: /admin/news/create
+    controller: App\Controller\Admin\NewsController::create
+admin_news_update:
+    path: /admin/news/{slug}/update
+    controller: App\Controller\Admin\NewsController::update
+admin_news_delete:
+    path: /admin/news/{slug}/delete
+    controller: App\Controller\Admin\NewsController::delete
+admin_file_index:
+    path: /admin/files
+    controller: App\Controller\Admin\FileController::index
+admin_file_create:
+    path: /admin/files/create
+    controller: App\Controller\Admin\FileController::create
+admin_file_update:
+    path: /admin/files/{id}/update
+    controller: App\Controller\Admin\FileController::update
+admin_file_delete:
+    path: /admin/files/{id}/delete
+    controller: App\Controller\Admin\FileController::delete
+#cms routes
+cms_page:
+    path: /site/{slug}
+    controller: App\Controller\CMS\CoreController::init
+cms_page_index:
+    path: /
+    controller: App\Controller\HomeController::index
+#frontend dev/test routes
 front_help:
     path: /front/help
     controller: App\Controller\FrontController::help
 front_help_item:
     path: /front/help/item-{template}
     controller: App\Controller\FrontController::item
+category_main:
+    path: /category-{slug}
+    controller: App\Controller\CategoryController::index
+news_main:
+    path: /news
+    controller: App\Controller\NewsController::index
+news_post:
+    path: /news-{slug}
+    controller: App\Controller\NewsController::newsPost

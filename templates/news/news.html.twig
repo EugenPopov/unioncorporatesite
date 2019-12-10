@@ -1,0 +1,52 @@
+{% extends 'public.html.twig' %}
+{% block title %}
+    Новини
+{% endblock %}
+{% block stylesheets %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/main.css?v=1.0">
+    <link rel="stylesheet" href="/css/news-page.css?v=1.0">
+    <link rel="stylesheet" href="/css/media-queries/main_responsive.css?v=1.0">
+    <link rel="stylesheet" href="/css/media-queries/news-page_responsive.css?v=1.0">
+{% endblock %}
+{% block body %}
+    {% include 'elements/mobile_header.html.twig' %}
+    <div class="single-chill_wrapper page-wrapper">
+        <section class="page-hero page-hero_news">
+            <div class="page-hero__container">
+                {% include 'elements/header.html.twig' %}
+            </div>
+            <div class="header_title">
+                Новини
+            </div>
+        </section>
+        <div class="news_wrapper" id="news_wrapper">
+            {% for post in news %}
+                <div class="news">
+                    <div class="post_content">
+                        <img class="news_img" src="/uploads/{{ post.mainPhoto }}" alt="">
+                        <div class="news_date">
+                            <p>
+                                {{ post.createdAt|date('Y-m-j') }}
+                            </p>
+                        </div>
+                        <div class="post_title">
+                            {{ post.title }}
+                        </div>
+                        <div class="post_text">
+                            {{ post.shortDescription|raw }}
+                        </div>
+                        <div class="view_more">
+                            <a href="{{ path('news_post', {'slug': post.slug}) }}">
+                                Дивитись далі
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% include 'elements/footer.html.twig' %}
+    </div>
+{% endblock %}

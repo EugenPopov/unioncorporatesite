@@ -1,0 +1,28 @@
+@media (max-width: 768px) {
+    .news_wrapper {
+        width: 90%;
+    }
+
+    .page-hero__container {
+        width: 90%;
+    }
+
+    .post_title {
+        font-size: 43px;
+    }
+}
+
+@media (max-width: 400px) {
+    .news_wrapper {
+        width: 95%;
+    }
+
+    .post_content {
+        padding: 20px;
+    }
+
+    .post_title {
+        padding: 20px 0;
+        font-size: 35px;
+    }
+}

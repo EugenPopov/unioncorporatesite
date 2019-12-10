@@ -1,0 +1,79 @@
+.laws_page-wrapper {
+    background-color: #94b8df;
+}
+
+.plane_wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.page-hero_news {
+    background: unset;
+}
+
+.manipulations {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.plane_wrapper img {
+    object-fit: contain;
+    width: 80vw;
+    transition: all .5s ease-in;
+    transform: scale(0.25) rotate(30deg);
+    /*transform-origin: top left;*/
+}
+
+.plane_wrapper img.active{
+    transform: scale(1);
+}
+
+.page-content_nav-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 1105px;
+    margin: 0 auto;
+}
+
+.page-content_nav-wrapper_title {
+    font-size: 36px;
+    line-height: 42px;
+    color: #02225C;
+    margin: 30px 0;
+}
+
+.page-content_nav-wrapper nav {
+    padding-right: 8%;
+    color: white;
+    border-bottom: solid 2px;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.navbar_link-active {
+    border-bottom: 4px solid white;
+}
+
+.page-content_nav-wrapper nav a {
+    padding: 25px;
+    font-size: 24px;
+    text-align: center;
+    margin: 0 15px;
+    transition: color .3s ease-in;
+}
+
+.page-content_nav-wrapper nav a:hover {
+    color: #02225C;
+}
+
+.page-footer__container {
+    z-index: 1;
+}
+
+.page-footer_news::after, .page-footer_news::before {
+    background-color: #02225C;
+    z-index: 0;
+}

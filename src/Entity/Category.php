@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -9,10 +11,11 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
  */
-class Category
+class Category implements EntityInterface
 {
 
     use TimestampableEntity;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -26,7 +29,7 @@ class Category
     private $title;
 
     /**
-     * @Required
+     *
      * @Gedmo\Slug(fields={"title"})
      * @ORM\Column(length=128, unique=true)
      */
@@ -49,6 +52,26 @@ class Category
      * @ORM\Column(type="boolean")
      */
     private $isActive;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Article", mappedBy="category", orphanRemoval=true)
+     */
+    private $articles;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isOnFooter;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $template;
+
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -121,5 +144,60 @@ class Category
     public function setUpdatedAt(\DateTime $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Article $article): self
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): self
+    {
+        if ($this->articles->contains($article)) {
+            $this->articles->removeElement($article);
+            // set the owning side to null (unless already changed)
+            if ($article->getCategory() === $this) {
+                $article->setCategory(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getIsOnFooter(): ?bool
+    {
+        return $this->isOnFooter;
+    }
+
+    public function setIsOnFooter(bool $isOnFooter): self
+    {
+        $this->isOnFooter = $isOnFooter;
+
+        return $this;
+    }
+
+    public function getTemplate(): ?string
+    {
+        return $this->template;
+    }
+
+    public function setTemplate(string $template): self
+    {
+        $this->template = $template;
+
+        return $this;
     }
 }

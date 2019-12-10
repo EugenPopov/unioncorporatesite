@@ -1,0 +1,231 @@
+@media (max-width: 1300px) {
+    .page-hero_news {
+        background-position-x: right;
+    }
+}
+@media (max-width: 1200px) {
+    .laws-content_wrapper_title {
+        max-width: 90%;
+        margin-right: auto;
+        padding: 40px 0 0;
+    }
+
+    .laws-content_wrapper {
+        max-width: 90%;
+        margin: auto;
+    }
+
+    .laws-content_wrapper_text {
+        max-width: 90%;
+    }
+}
+@media (max-width: 1150px) {
+    .page-header__nav {
+        margin-right: 40px;
+    }
+}
+@media (max-width: 960px) and (min-width: 769px){
+    .page-header__nav {
+        padding: unset;
+    }
+    .page-header__nav .nav__link {
+        padding-right: 10px;
+        text-align: center;
+    }
+}
+@media (max-width: 768px) {
+    #sidebar li {
+        font-size: 35px;
+        cursor: pointer;
+    }
+
+    .page-content-wrapper_news {
+        max-width: 95%;
+        margin: auto;
+    }
+
+    .feed-card__date-label {
+        height: 30px;
+        max-width: 100px;
+    }
+
+    .news_wrapper {
+        display: none;
+    }
+
+    .news__feed-card .feed-card__title {
+        margin-top: 3px;
+    }
+
+    .laws-content_wrapper_text {
+        font-size: 18px;
+    }
+
+    .contacts_news .contacts__subsection-title {
+        margin-bottom: 10px;
+    }
+
+    .contacts_news .contacts__subsection {
+        margin-top: 10px;
+    }
+
+    .contacts_news {
+        margin-top: 33px;
+    }
+
+    .news__feed-card .feed-card__text {
+        font-size: 14px;
+        line-height: 10px;
+    }
+
+    .news__nav {
+        padding-left: 0;
+        max-width: 380px;
+    }
+
+    .news__feed-card {
+        max-width: 38.46%;
+        margin-left: 3%;
+    }
+
+    .news__feed-card_main {
+        max-width: 58.15%;
+        margin-left: 0;
+    }
+
+    .news__nav .nav__link {
+        padding: 14px 0;
+        font-size: 16px;
+    }
+
+    .text-card {
+        padding: 20px;
+    }
+
+    .features-cards__text-card {
+        min-height: 200px;
+    }
+
+    .features-cards__text-card .text-card__desc {
+        margin-top: 8px;
+    }
+
+    .features-cards {
+        max-width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .page-hero_news {
+        min-height: 320px;
+        background-position: right bottom;
+    }
+
+    .page-hero__nav-toggle {
+        display: block;
+    }
+
+    .page-hero_news .page-hero__title {
+        margin-top: 20px;
+    }
+
+    .page-hero_news .page-hero__desc {
+        margin-top: 8px;
+    }
+
+    .page-hero__desc_size_s {
+        font-size: 14px;
+        line-height: 13px;
+    }
+
+    .page-hero__title {
+        font-size: 48px;
+        line-height: 36px;
+    }
+
+    .page-header__logo {
+        max-width: 90px;
+    }
+
+    .text-card__title {
+        font-size: 18px;
+        line-height: 15px;
+    }
+
+    .text-card__desc {
+        font-size: 10px;
+        line-height: 15px;
+    }
+
+    .news__section-heading {
+        margin-bottom: 55px;
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    .news__feed-card_main .feed-card__title,
+    .news__feed-card .feed-card__title {
+        font-size: 13px;
+        line-height: 13px;
+    }
+
+    .feed-card__text {
+        font-size: 10px;
+        line-height: 10px;
+    }
+
+    .feed-card__date-label {
+        font-size: 10px;
+        line-height: 20px;
+    }
+
+    .contacts__section-title {
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+    .contacts__subsection-title {
+        font-size: 11px;
+        line-height: 20px;
+    }
+
+    .contacts__link {
+        font-size: 10px;
+        line-height: 10px;
+    }
+
+    .contacts__subsection_address,
+    .page-header__nav {
+        display: none;
+    }
+
+    .page-footer__logo {
+        max-width: 60px;
+    }
+
+    .view_all a {
+        font-size: 24px;
+    }
+}
+@media (max-width: 480px) {
+    #sidebar ul {
+        width: 100% !important;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+@media (max-width: 440px) {
+    .features-cards {
+        max-width: 100%;
+    }
+}
+@media (max-width: 350px) {
+    .text-card {
+        padding: 5px;
+    }
+    .news__nav .nav__link {
+        font-size: 14px;
+    }
+    .page-footer__nav .nav__link + .nav__link {
+        margin-left: 40px;
+    }
+}

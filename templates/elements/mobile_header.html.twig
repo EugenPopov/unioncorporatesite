@@ -1,0 +1,22 @@
+<div id="sidebar">
+    <img class="logo logo_size_lg page-header__logo mobile_header_logo" src="/img/logo.png" alt="Логотип НПСПАБ">
+    <ul>
+        <li>
+            <a href="{{ path('cms_page_index') }}">
+                Головна
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('news_main') }}">Новини</a>
+        </li>
+        {% for category in categories %}
+            <li>
+                <a  href="{{ path('category_main', {'slug': category.slug}) }}">{{ category.title }}</a>
+            </li>
+        {% endfor %}
+        <li>
+            <a href="{{ path('cms_page_index') }}#contacts">Контакти</a>
+        </li>
+    </ul>
+    <span class="page-hero__nav-toggle" id="mobile-toggle" style="display: none"></span>
+</div>

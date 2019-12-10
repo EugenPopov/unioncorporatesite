@@ -1,38 +1,40 @@
 <div class="sidebar" data-color="green" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-    <!--
-      Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-      Tip 2: you can also add an image using data-image tag
-  -->
-    <div class="logo">
+    <div class="logo" style="display: flex; justify-content: center">
+        <a href="{{ path('cms_page_index') }}"><img style="height: 100px;" src="{{ asset('img/logo.png') }}"></a><br>
+        <img id="close-sidebar" style="margin-left: 20px; margin-top: 6px; width: 80px; display: none" src="{{ asset('content/close-sidebar.svg') }}">
         <a href="#" class="simple-text logo-normal">
-            Prof. Union Boryspil Aero
         </a>
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="nav-item  ">
-                <a class="nav-link" href="#">
-                    <i class="material-icons">dashboard</i>
-                    <p>Dashboard</p>
-                </a>
-            </li>
             <li class="nav-item ">
                 <a class="nav-link" href="{{ path('admin_category_index') }}">
                     <i class="material-icons">person</i>
                     <p>Категорії</p>
                 </a>
             </li>
-            <li class="nav-item active ">
-                <a class="nav-link" href="./tables.html">
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ path('admin_article_index') }}">
+                    <i class="material-icons">person</i>
+                    <p>Cторінки</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('admin_news_index') }}">
                     <i class="material-icons">content_paste</i>
                     <p>Новини</p>
                 </a>
             </li>
-            <li class="nav-item active ">
-                <a class="nav-link" href="./tables.html">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('admin_settings_index') }}">
                     <i class="material-icons">content_paste</i>
                     <p>Налаштування</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('admin_file_index') }}">
+                    <i class="material-icons">content_paste</i>
+                    <p>Файли</p>
                 </a>
             </li>
         </ul>

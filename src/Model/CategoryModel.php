@@ -3,25 +3,38 @@
 
 namespace App\Model;
 
+use Symfony\Component\Validator\Constraints as Assert;
 
-class CategoryModel
+
+class CategoryModel implements ModelInterface
 {
     /**
      * @var string
      */
     private $title;
-    /**
-     * @var string
-     */
-    private $description;
+//    /**
+//     * @var string
+//     */
+//    private $description;
     /**
      * @var bool
      */
     private $isActive;
+    /**
+     * @var bool
+     */
+    private $isOnFooter;
+    /**
+     * @Assert\NotBlank()
+     */
+    private $template;
 
-    public function __construct(bool $isActive = true)
+
+
+    public function __construct(bool $isActive = true, bool $isOnFooter = true)
     {
         $this->isActive = $isActive;
+        $this->isOnFooter = $isOnFooter;
     }
 
     /**
@@ -42,24 +55,24 @@ class CategoryModel
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getDescription(): ?string
-    {
-        return $this->description;
-
-    }
-
-    /**
-     * @param string $description
-     */
-    public function setDescription(string $description): CategoryModel
-    {
-        $this->description = $description;
-
-        return $this;
-    }
+//    /**
+//     * @return string
+//     */
+//    public function getDescription(): ?string
+//    {
+//        return $this->description;
+//
+//    }
+//
+//    /**
+//     * @param string $description
+//     */
+//    public function setDescription(string $description): CategoryModel
+//    {
+//        $this->description = $description;
+//
+//        return $this;
+//    }
 
     /**
      * @return bool
@@ -79,7 +92,37 @@ class CategoryModel
         return $this;
     }
 
+    /**
+     * @return bool
+     */
+    public function isOnFooter(): bool
+    {
+        return $this->isOnFooter;
+    }
 
+    /**
+     * @param bool $isOnFooter
+     */
+    public function setIsOnFooter(bool $isOnFooter): void
+    {
+        $this->isOnFooter = $isOnFooter;
+    }
 
+    /**
+     * @return string
+     */
+    public function getTemplate(): ?string
+    {
+        return $this->template;
+    }
+
+    /**
+     * @param string $template
+     */
+    public function setTemplate(string $template): self
+    {
+        $this->template = $template;
+        return $this;
+    }
 
 }

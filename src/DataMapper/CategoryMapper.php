@@ -3,30 +3,35 @@
 
 namespace App\DataMapper;
 
-use App\Entity\Category;
 use App\Model\CategoryModel;
+use App\Entity\EntityInterface;
+use App\Model\ModelInterface;
 
 
-final class CategoryMapper
+final class CategoryMapper implements DataMapperInterface
 {
-    public static function entityToModel(Category $category): CategoryModel
+    public  function entityToModel(EntityInterface $category): CategoryModel
     {
         $model = new CategoryModel();
 
         $model->setTitle($category->getTitle())
-              ->setDescription($category->getDescription())
+//              ->setDescription($category->getDescription())
               ->setIsActive($category->getIsActive())
+              ->setTemplate($category->getTemplate())
+              ->setIsOnFooter($category->getIsOnFooter())
         ;
 
         return $model;
 
     }
 
-    public function modelToEntity(CategoryModel $model , Category $category):Category
+    public function modelToEntity(ModelInterface $model, EntityInterface $category): EntityInterface
     {
         $category->setTitle($model->getTitle());
-        $category->setDescription($model->getDescription());
+//        $category->setDescription($model->getDescription());
         $category->setIsActive($model->isActive());
+        $category->setTemplate($model->getTemplate());
+        $category->setIsOnFooter($model->IsOnFooter());
 
         return $category;
     }
